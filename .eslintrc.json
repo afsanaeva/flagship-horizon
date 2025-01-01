@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "standard",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "quotes": ["warn", "double"],
+    "comma-dangle": "off",
+    "semi": "off",
+    "space-before-function-paren": "off",
+    "no-unused-vars": "warn",
+    "no-trailing-spaces": "warn"
+  }
+}

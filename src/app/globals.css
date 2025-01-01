@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 219 99% 53%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 219 99% 53%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 219 99% 53%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 219 99% 53%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border box-border m-0 p-0;
+  }
+  body {
+    @apply bg-background text-foreground box-border m-0 p-0;
+  }
+}
+
+@layer utilities {
+  /* PADDING CLASSES */
+  .py-44px {
+    @apply py-9 xs:py-11 md:py-[30px] 2xl:py-8 3xl:py-11;
+  }
+  .pl-72px {
+    @apply pl-4 md:pl-8 xl:pl-12 2xl:pl-14 3xl:pl-[72px];
+  }
+  .px-48px {
+    @apply px-4 md:px-7 xl:px-9 2xl:px-10 3xl:px-12;
+  }
+  .px-72px {
+    @apply px-4 md:px-8 xl:px-12 2xl:px-14 3xl:px-[72px];
+  }
+
+  /* LAYOUT CLASSES */
+  .container-sm {
+    @apply 3xl:max-w-[1740px] w-full mx-auto px-48px;
+  }
+
+  .container-md {
+    @apply 3xl:max-w-[1840px] w-full mx-auto px-48px;
+  }
+
+  .container-lg {
+    @apply 3xl:max-w-[1920px] w-full mx-auto px-48px;
+  }
+
+  /* FONT CLASSES */
+  .font-16px {
+    @apply tracking-[-0.1px] leading-snug text-[14px] md:text-[10px] 2xl:text-[12px] 3xl:text-[16px];
+  }
+  .font-18px {
+    @apply tracking-[-0.1px] leading-snug text-[16px] md:text-[12px] 2xl:text-[14px] 3xl:text-[18px];
+  }
+  .font-20px {
+    @apply tracking-[-0.3px] leading-[1.1] text-[18px] xs:text-[20px] md:text-[14px] 2xl:text-[16px] 3xl:text-[20px];
+  }
+  .font-22px {
+    @apply tracking-[-0.1px] leading-snug text-[20px] md:text-[16px] 2xl:text-[18px] 3xl:text-[22px];
+  }
+  .font-24px {
+    @apply tracking-[-0.26px] leading-snug  text-[18px] xs:text-[20px] md:text-[16px] 2xl:text-[18px] 3xl:text-[24px];
+  }
+  .font-28px {
+    @apply tracking-[-0.03em] leading-[1.1] text-[24px] xs:text-[28px] md:text-[21px] 3xl:text-[28px];
+  }
+  .font-40px {
+    @apply leading-[1.05] text-[28px] xs:text-[32px] md:text-[24px] 2xl:text-[32px] 3xl:text-[40px];
+  }
+  .font-42px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[36px] 3xl:text-[42px];
+  }
+  /* generate class for font-64px where 3xl:text-[64px] the sizing should be different on different breakpoints */
+  .font-64px {
+    @apply tracking-[-2px] leading-[1.05] text-[32px] xs:text-[40px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[64px];
+  }
+
+  .font-72px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[72px] md:text-[48px] 2xl:text-[56px] 3xl:text-[72px];
+  }
+  .font-85px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[64px] md:text-[56px] 2xl:text-[64px] 3xl:text-[85px];
+  }
+
+  .font-92px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[60px] 2xl:text-[68px] 3xl:text-[92px];
+  }
+
+  .font-96px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[64px] 2xl:text-[72px] 3xl:text-[96px];
+  }
+  .font-100px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[68px] 2xl:text-[76px] 3xl:text-[100px];
+  }
+  /* .font-120px {
+    @apply tracking-tight leading-[0.925] text-[11vw] xs:text-[48px] md:text-[88px] 2xl:text-[100px] 3xl:text-[120px];
+  } */
+  .font-120px {
+    @apply tracking-tight leading-[0.925] text-[11vw] xs:text-[48px] sm:text-[6.25vw] 4xl:text-[120px];
+  }
+  /* .font-210px {
+    @apply tracking-[-0.05em] leading-none text-[15.5vw] xs:text-[68px] md:text-[100px] 2xl:text-[150px] 3xl:text-[200px];
+  } */
+  .font-210px {
+    @apply tracking-[-0.05em] leading-none text-[12vw] sm:text-[10vw] 4xl:text-[200px];
+  }
+
+  /* SPACING CLASSES */
+  .space-y-20px {
+    @apply space-y-4 xs:space-y-5 md:space-y-[12px] 2xl:space-y-4 3xl:space-y-5;
+  }
+  .space-y-28px {
+    @apply space-y-6 xs:space-y-7 md:space-y-[18px] 2xl:space-y-6 3xl:space-y-7;
+  }
+  .space-y-40px {
+    @apply space-y-8 3xl:space-y-10;
+  }
+  .space-y-52px {
+    @apply space-y-11 xs:space-y-[52px] md:space-y-[18px] 2xl:space-y-10 3xl:space-y-[52px];
+  }
+  .space-y-56px {
+    @apply space-y-10 2xl:space-y-12 3xl:space-y-14;
+  }
+  .space-y-100px {
+    @apply space-y-10 xs:space-y-12 md:space-y-[66px] 2xl:space-y-20 3xl:space-y-[100px];
+  }
+  .space-y-200px {
+    @apply space-y-32 xs:space-y-40 md:space-y-[134px] 2xl:space-y-[150px] 3xl:space-y-[200px];
+  }
+
+  /* SHADOW */
+  .shadow-1 {
+    box-shadow:
+      0 5px 20px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* RADIUS CLASSES */
+  .rounded-40px {
+    @apply rounded-[20px] xs:rounded-3xl 3xl:rounded-[40px];
+  }
+
+  /* MARGIN */
+  .mt-48px {
+    @apply mt-10 xs:mt-12 md:mt-8 2xl:mt-9 3xl:mt-12;
+  }
+  .mt-96px {
+    @apply mt-20 xs:mt-24 md:mt-16 2xl:mt-20 3xl:mt-24;
+  }
+  .mb-96px {
+    @apply mb-20 xs:mb-24 md:mb-16 2xl:mb-20 3xl:mb-24;
+  }
+  .mb-200px {
+    @apply mb-32 xs:mb-40 md:mb-[134px] 2xl:mb-[150px] 3xl:mb-[200px];
+  }
+
+  /* TRANSFORM */
+  .zoom-in-1-035 {
+    @apply transition-transform  duration-1000 hover:scale-[1.035];
+  }
+  .zoom-in-1-1 {
+    @apply transition-transform duration-300 hover:scale-110;
+  }
+
+  .cta-primary {
+    background: linear-gradient(144.58deg, #0f62fe 29.28%, #044fdb 67.03%);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(
+      160deg,
+      rgb(234.17, 28.88, 213.65) 0%,
+      rgb(144.46, 28.11, 235.87) 30.37%,
+      rgb(0, 10.2, 255) 42.48%,
+      rgb(69.49, 188.22, 255) 55.09%,
+      rgb(106.84, 252.87, 252.87) 71.4%,
+      rgb(60.14, 184.85, 255) 100%
+    );
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-grad-primary {
+    background: var(
+      --Grad-web,
+      linear-gradient(
+        90deg,
+        #feecff 0%,
+        #fecaff 11.71%,
+        #feb5ff 26.8%,
+        #ffdbe7 40.18%,
+        #fff4d6 49.22%,
+        #f3fcd7 58.71%,
+        #d2f5ee 71.29%,
+        #c3efff 84.44%,
+        #fbefff 100%
+      )
+    );
+  }
+}
