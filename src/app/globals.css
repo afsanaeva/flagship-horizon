@@ -121,6 +121,15 @@
   .font-42px {
     @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[36px] 3xl:text-[42px];
   }
+
+  .font-52px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[52px] md:text-[36px] 2xl:text-[48px] 3xl:text-[52px];
+  }
+
+  .font-32px {
+    @apply tracking-[-1px] leading-[1.2] text-[10vw] xs:text-[32px] md:text-[24px] 2xl:text-[28px] 3xl:text-[32px];
+  }
+
   /* generate class for font-64px where 3xl:text-[64px] the sizing should be different on different breakpoints */
   .font-64px {
     @apply tracking-[-2px] leading-[1.05] text-[32px] xs:text-[40px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[64px];
@@ -181,8 +190,7 @@
 
   /* SHADOW */
   .shadow-1 {
-    box-shadow:
-      0 5px 20px -3px rgb(0 0 0 / 0.1),
+    box-shadow: 0 5px 20px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
