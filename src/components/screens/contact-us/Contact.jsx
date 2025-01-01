@@ -9,7 +9,7 @@ import { useEffect } from "react";
 const InputGroup = ({ label, children, name }) => {
   return (
     <div className="space-y-2 tracking-wide 3xl:space-y-3">
-      <label htmlFor={name} className="font-20px">
+      <label htmlFor={name} className="font-24px font-normal text-[#15234E]">
         {label}
       </label>
 
