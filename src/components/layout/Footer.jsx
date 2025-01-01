@@ -26,7 +26,7 @@ const Footer = () => {
           <Link href="/">
             <LogoWhite className="size-14" />
           </Link>
-          <p className="font-22px mt-4 font-semibold">
+          <p className="font-22px mt-4 font-normal">
             Join our newsletter to stay up to date on features and releases.
           </p>
           <form
@@ -42,7 +42,7 @@ const Footer = () => {
             <Button type="submit">Subscribe</Button>
           </form>
 
-          <p className="mt-2 text-xs">
+          <p className="font-16px mt-2 font-normal">
             By subscribing, you agree to our <Link href="/privacy-policy" target="_blank" className="underline">
               Privacy Policy
             </Link> and provide <br /> consent to receive updates from our company.
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="font-18px container mx-auto flex flex-col px-6 py-3 font-semibold text-[#B8C1CB] md:flex-row md:justify-between lg:px-8">
+      <div className="font-18px container mx-auto flex flex-col px-6 py-3 font-normal text-[#B8C1CB] md:flex-row md:justify-between lg:px-8">
         <p>© 2024 Horizon. All rights reserved by Flagship Technology Inc.</p>
         <div className="mt-2 space-x-4">
           <Link href="/privacy-policy" target="_blank" className="underline">

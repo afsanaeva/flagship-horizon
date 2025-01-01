@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 
 const SuperEngagment = () => {
   return (
-    <section className="space-y-100px mx-5">
+    <section className="container-lg mx-5">
       <div className=" space-y-40px  text-left ">
         <h1 className="font-92px font-semibold leading-snug">
           <span

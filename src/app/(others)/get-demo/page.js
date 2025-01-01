@@ -29,7 +29,7 @@ export default function GetDemo() {
 
       <Contact />
       <h1 className="font-92px font-semibold text-[#15234E]">What to expect</h1>
-      <div className="rounded-lg bg-[#F1F4F7] p-8">
+      <div className="rounded-[36px] bg-[#F1F4F7] px-40 py-20">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
           <div className="flex flex-col items-start">
             <div className="font-42px mb-2 font-semibold text-[#15234E]">
@@ -93,11 +93,11 @@ export default function GetDemo() {
           Pioneer. Try Horizon for Free.
         </h1>
 
-        <div className="flex justify-between">
-          <Button size="lg" asChild className="md:hidden">
+        <div className="flex flex-wrap justify-center gap-4 pb-20 pt-10 ">
+          <Button size="lg" asChild>
             <Link href="/get-demo">Explore Horizon</Link>
           </Button>
-          <Button size="lg" asChild className="md:hidden">
+          <Button size="lg" variant="blueOutline" asChild>
             <Link href="/get-demo">Get a demo</Link>
           </Button>
         </div>

@@ -40,20 +40,39 @@ const Nav = () => {
 
   return (
     <nav className="max-md:hidden">
-      <div className="space-x-4">
+      <div className="flex justify-between space-x-4">
         {/* On contact link, add hover effect like a line below the link fills on hover, reverse on hover leave, it can be done with after:: or after:: psuedo classes */}
+        <div className="flex space-x-4">
+          <Link
+            href="/get-demo"
+            className={cn(
+              buttonVariants({ variant: "none", size: "lg" }),
+              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+            )}
+          >
+            Products
+          </Link>
+          <Link
+            href="/get-demo"
+            className={cn(
+              buttonVariants({ variant: "none", size: "lg" }),
+              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+            )}
+          >
+            Solutions
+          </Link>
+          <Link
+            href="/faq"
+            className={cn(
+              buttonVariants({ variant: "none", size: "lg" }),
+              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+            )}
+          >
+            About Us
+          </Link>
+        </div>
 
-        {/* <Link
-          href="/get-demo"
-          className={cn(
-            buttonVariants({ variant: "none", size: "lg" }),
-            "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
-          )}
-        >
-          Contact sales
-        </Link>
-
-        <Button variant="outline" size="lg" asChild>
+        {/* <Button variant="outline" size="lg" asChild>
           <Link href={"/login"}>Log in</Link>
         </Button> */}
 

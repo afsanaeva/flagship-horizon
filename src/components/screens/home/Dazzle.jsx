@@ -49,7 +49,7 @@ const Dazzle = () => {
           <Image
             src={handMobile}
             alt="Hand Mobile 1"
-            className="h-auto w-[400px] max-sm:w-[300px]"
+            className="h-auto w-[700px] max-sm:w-[300px]"
           />
         </motion.div>
 
@@ -58,7 +58,7 @@ const Dazzle = () => {
           <Image
             src={handMobile2}
             alt="Hand Mobile 2"
-            className="h-auto w-[400px] max-sm:w-[300px]"
+            className="h-auto w-[700px] max-sm:w-[300px]"
           />
         </motion.div>
 
@@ -67,7 +67,7 @@ const Dazzle = () => {
           <Image
             src={handMobile3}
             alt="Hand Mobile 3"
-            className="h-auto w-[400px] max-sm:w-[300px]"
+            className="h-auto w-[700px] max-sm:w-[300px]"
           />
         </motion.div>
 
@@ -76,7 +76,7 @@ const Dazzle = () => {
           <Image
             src={handMobile4}
             alt="Hand Mobile 4"
-            className="h-auto w-[400px] max-sm:w-[300px]"
+            className="h-auto w-[700px] max-sm:w-[300px]"
           />
         </motion.div>
       </div>

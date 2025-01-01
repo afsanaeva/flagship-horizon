@@ -1,11 +1,13 @@
-import AiVideoEngagement from "@/components/screens/home/AiVideoEngagement";
+// import AiVideoEngagement from "@/components/screens/home/AiVideoEngagement";
 import Dazzle from "@/components/screens/home/Dazzle";
 import NewWay from "@/components/screens/home/NewWay";
-import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
+// import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
 import Hero from "@/components/screens/home/Hero";
-import PricingPlan from "@/components/screens/home/PricingPlan";
+// import PricingPlan from "@/components/screens/home/PricingPlan";
 import SuperEngagment from "@/components/screens/home/SuperEngagment";
 import VideoAnimation from "@/components/screens/home/VideoAnimation";
+import BuildDirect from "@/components/screens/home/BuildDirect";
+import Unlock from "@/components/screens/home/Unlock";
 
 export const metadata = {
   title: "Horizon | Super Engagement Platform",
@@ -39,7 +41,9 @@ export default function Home() {
         <VideoAnimation videoSrc="/assets/videos/animationVideo.mp4" />
         <NewWay />
         <Dazzle />
+        <Unlock/>
         <SuperEngagment/>
+        <BuildDirect/>
         {/* <PricingPlan />
         <GetAFreeDemo /> */}
       </div>
