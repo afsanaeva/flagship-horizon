@@ -8,21 +8,15 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { motion } from "framer-motion";
-// import { fadeTop } from "@/components/layout/Header";
-// import emblaCarouselAutoScroll from "embla-carousel-auto-scroll";
-// import InfoCard2 from "@/components/custom-ui/InfoCard2";
-// import { Button } from "@/components/ui/button";
-// import Link from "next/link";
 
 const SuperEngagment = () => {
   return (
     <section className="container-lg mx-5">
-      <div className=" space-y-40px  text-left ">
+      <div className="space-y-40px text-left">
         <h1 className="font-92px font-semibold leading-snug">
           <span
             style={{
-              background: "linear-gradient(90deg, #15234E 16.26% , #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
-
+              background: "linear-gradient(90deg, #15234E 16.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -40,6 +34,22 @@ export default SuperEngagment;
 
 const HeroSlides = () => {
   const [api, setApi] = useState();
+  const [isStart, setIsStart] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  useEffect(() => {
+    if (!api) return;
+    const checkBounds = () => {
+      setIsStart(api?.canScrollPrev() === false);
+      setIsEnd(api?.canScrollNext() === false);
+    };
+
+    api?.on("select", checkBounds);
+    checkBounds(); // Initial check
+    return () => {
+      api?.off("select", checkBounds);
+    };
+  }, [api]);
 
   return (
     <motion.div
@@ -50,7 +60,7 @@ const HeroSlides = () => {
         transition: {
           type: "just",
           duration: 0.5,
-          delay: 0.5, // Change this value to set the desired duration in seconds
+          delay: 0.5,
         },
       }}
       viewport={{ once: true }}
@@ -58,37 +68,27 @@ const HeroSlides = () => {
       <Carousel
         setApi={setApi}
         className="pointer-events-auto w-full"
-        onMouseLeave={() => {
-          setTimeout(() => {
-            !api?.plugins()?.autoScroll?.isPlaying() &&
-              api?.plugins()?.autoScroll?.play();
-          }, 100);
-        }}
-        onTouchEnd={() => {
-          !api?.plugins()?.autoScroll?.isPlaying() &&
-            api?.plugins()?.autoScroll?.play();
-        }}
         opts={{
-          loop: true,
+          loop: false, // Disable infinite scrolling
           dragFree: true,
         }}
         tabIndex={-1}
       >
         <CarouselContent className="items-center py-6">
           {Array.from({ length: 5 }).map((_, index) => (
-            <Slide
-              key={index}
-              index={index}
-              // isSelected={selectedSlide === index}
-            />
+            <Slide key={index} index={index} />
           ))}
         </CarouselContent>
       </Carousel>
-       {/* Navigation Buttons */}
-       <div className="absolute bottom-4 right-4 flex gap-2">
+      {/* Navigation Buttons */}
+      <div className="absolute right-4 mr-10 flex gap-2">
         <button
           onClick={() => api?.scrollPrev()}
-          className="flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200"
+          className={cn(
+            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
+            { "opacity-50 cursor-not-allowed": isStart } // Disable button styling
+          )}
+          disabled={isStart}
           aria-label="Previous Slide"
         >
           <svg
@@ -106,7 +106,11 @@ const HeroSlides = () => {
         </button>
         <button
           onClick={() => api?.scrollNext()}
-          className="flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200"
+          className={cn(
+            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
+            { "opacity-50 cursor-not-allowed": isEnd } // Disable button styling
+          )}
+          disabled={isEnd}
           aria-label="Next Slide"
         >
           <svg
@@ -127,21 +131,19 @@ const HeroSlides = () => {
   );
 };
 
-const Slide = ({ title, image, index, isSelected }) => {
+const Slide = ({ title, image, index }) => {
   return (
     <CarouselItem
       key={index}
       className={cn("basis-[65%] md:basis-[25%] items-center flex max-md:pl-3")}
-      style={{ height: "100%" }} // Ensure consistent height
+      style={{ height: "100%" }}
     >
       <Image
         src={`/assets/home/super-engagment/slide-${index + 1}.png`}
         alt={title}
         width={458}
-        height={932}
-        className={cn("rounded-40px object-contain object-center w-full", {
-          // "w-full": isSelected, // Ensure the image takes full width when selected
-        })}
+        height={832}
+        className="rounded-40px mt-8 w-full object-contain object-center"
       />
     </CarouselItem>
   );

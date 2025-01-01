@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Unlock = () => {
   return (
-    <section className="container-lg mx-5">
+    <section className="container mx-20">
       <div className="rounded-[36px] bg-[#F1F4F7] px-20 py-10">
         <div className="flex justify-between">
           <div className="flex flex-col items-start">

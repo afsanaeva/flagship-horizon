@@ -4,6 +4,7 @@ import NewWay from "@/components/screens/home/NewWay";
 // import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
 import Hero from "@/components/screens/home/Hero";
 // import PricingPlan from "@/components/screens/home/PricingPlan";
+import MeetHorizon from "@/components/screens/home/MeetHorizon";
 import SuperEngagment from "@/components/screens/home/SuperEngagment";
 import VideoAnimation from "@/components/screens/home/VideoAnimation";
 import BuildDirect from "@/components/screens/home/BuildDirect";
@@ -40,10 +41,11 @@ export default function Home() {
         {/* <AiVideoEngagement /> */}
         <VideoAnimation videoSrc="/assets/videos/animationVideo.mp4" />
         <NewWay />
+        <MeetHorizon />
         <Dazzle />
-        <Unlock/>
-        <SuperEngagment/>
-        <BuildDirect/>
+        <Unlock />
+        <SuperEngagment />
+        <BuildDirect />
         {/* <PricingPlan />
         <GetAFreeDemo /> */}
       </div>
