@@ -38,8 +38,7 @@ const GetAFreeDemo = () => {
   return (
     <div className="container-sm space-y-100px text-center">
       <InfoCard2
-        title="shorts is only the beginning -<br class='max-md:hidden'/> new products coming soon"
-        // description="Create screens directly in Laurent or add your images from Sketch or Figma. You can even sync designs from your cloud storage!"
+        title="Accelerate your growth. <br class='max-md:hidden'/> Experience Horizon for free."
         descriptionClassName="lg:max-w-[790px] !leading-[140%] 2xl:max-w-[870px] 3xl:max-w-[1110px] mx-auto opacity-50"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{
@@ -51,18 +50,17 @@ const GetAFreeDemo = () => {
           },
         }}
         viewport={{ once: true, amount: 0.3 }}
+        headingClassName="font-100px font-semibold text-[#15234E]"
       />
 
-      <Button
-        size="2xl"
-        className="w-full max-w-[400px] space-x-2 sm:max-w-[340px] xl:max-w-[384px] 3xl:max-w-[512px]"
-        asChild
-      >
-        <Link href="/get-demo">
-          <span>Get a demo</span>{" "}
-          <Arrow className="size-4 md:size-5 3xl:size-6" />
-        </Link>
-      </Button>
+      <div className="flex flex-wrap justify-center gap-4 ">
+        <Button size="lg" asChild>
+          <Link href="/get-demo">Explore Horizon</Link>
+        </Button>
+        <Button size="lg" variant="blueOutline" asChild>
+          <Link href="/get-demo">Get a demo</Link>
+        </Button>
+      </div>
     </div>
   );
 };

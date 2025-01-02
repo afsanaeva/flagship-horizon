@@ -1,8 +1,9 @@
 // import AiVideoEngagement from "@/components/screens/home/AiVideoEngagement";
 import Dazzle from "@/components/screens/home/Dazzle";
 import NewWay from "@/components/screens/home/NewWay";
-// import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
+import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
 import Hero from "@/components/screens/home/Hero";
+import HorizonLive from "@/components/screens/home/HorizonLiveNumber";
 // import PricingPlan from "@/components/screens/home/PricingPlan";
 import MeetHorizon from "@/components/screens/home/MeetHorizon";
 import SuperEngagment from "@/components/screens/home/SuperEngagment";
@@ -46,8 +47,11 @@ export default function Home() {
         <Unlock />
         <SuperEngagment />
         <BuildDirect />
+        <HorizonLive />
+        <GetAFreeDemo />
+
         {/* <PricingPlan />
-        <GetAFreeDemo /> */}
+         */}
       </div>
     </main>
   );

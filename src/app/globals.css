@@ -165,6 +165,11 @@
     @apply tracking-[-0.05em] leading-none text-[12vw] sm:text-[10vw] 4xl:text-[200px];
   }
 
+  .font-300px {
+    @apply tracking-[-2px] leading-[1.05] text-[50vw] xs:text-[200px] 2xl:text-[250px] 3xl:text-[300px];
+  }
+  
+
   /* SPACING CLASSES */
   .space-y-20px {
     @apply space-y-4 xs:space-y-5 md:space-y-[12px] 2xl:space-y-4 3xl:space-y-5;
