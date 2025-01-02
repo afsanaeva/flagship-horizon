@@ -143,7 +143,7 @@ const Slide = ({ title, image, index }) => {
         alt={title}
         width={458}
         height={832}
-        className="rounded-40px mt-8 w-full object-contain object-center"
+        className="rounded-40px zoom-in-1-035 mt-8 w-full cursor-pointer object-contain object-center"
       />
     </CarouselItem>
   );
