@@ -10,7 +10,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 // import AddIcon from "@/components/icons/AddIcon";
 import { PlusIcon, X } from "lucide-react";
-import CrossIcon from "@/components/icons/CrossIcon";
+// import CrossIcon from "@/components/icons/CrossIcon";
 
 const SuperEngagment = () => {
   return (
@@ -38,6 +38,7 @@ export default SuperEngagment;
 
 const HeroSlides = () => {
   const [api, setApi] = useState();
+  const [blurredIndex, setBlurredIndex] = useState(null); // Track which slide is blurred
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
@@ -54,6 +55,10 @@ const HeroSlides = () => {
       api?.off("select", checkBounds);
     };
   }, [api]);
+
+  const handleBlurToggle = (index) => {
+    setBlurredIndex(blurredIndex === index ? null : index); // Toggle blur for the selected slide
+  };
 
   return (
     <motion.div
@@ -80,7 +85,12 @@ const HeroSlides = () => {
       >
         <CarouselContent className="items-center py-6">
           {Array.from({ length: 5 }).map((_, index) => (
-            <Slide key={index} index={index} />
+            <Slide
+              key={index}
+              index={index}
+              isBlurred={blurredIndex === index} // Check if this slide is blurred
+              onBlurToggle={() => handleBlurToggle(index)} // Toggle blur state
+            />
           ))}
         </CarouselContent>
       </Carousel>
@@ -135,9 +145,7 @@ const HeroSlides = () => {
   );
 };
 
-const Slide = ({ title, image, index }) => {
-  const [isBlurred, setIsBlurred] = useState(false);
-
+const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
   return (
     <CarouselItem
       key={index}
@@ -146,8 +154,7 @@ const Slide = ({ title, image, index }) => {
     >
       <div className="relative mt-8 w-full">
         {/* Conditionally render the images */}
-        {isBlurred
-          ? (
+        {isBlurred ? (
           <Image
             src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
             alt={title}
@@ -155,8 +162,7 @@ const Slide = ({ title, image, index }) => {
             height={732}
             className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
           />
-            )
-          : (
+        ) : (
           <Image
             src={`/assets/home/super-engagment/slide-${index + 1}.png`}
             alt={title}
@@ -164,14 +170,14 @@ const Slide = ({ title, image, index }) => {
             height={832}
             className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
           />
-            )}
+        )}
 
-        {/* Conditionally render the action buttons */}
+        {/* Action Button */}
         <div
           className={`absolute bottom-6 right-6 cursor-pointer rounded-full p-[5px] ${
             isBlurred ? "bg-[#ffff] text-[#15234E]" : "bg-[#6c6a6a] text-white"
           }`}
-          onClick={() => setIsBlurred(!isBlurred)} // Toggle the state
+          onClick={onBlurToggle} // Use parent handler
         >
           {isBlurred ? <X /> : <PlusIcon />}
         </div>
