@@ -8,12 +8,9 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AddIcon from "@/components/icons/AddIcon";
+// import AddIcon from "@/components/icons/AddIcon";
+import { PlusIcon, X } from "lucide-react";
 import CrossIcon from "@/components/icons/CrossIcon";
-import blurImg from "../../../../public/assets/home/super-engagment/blurImg.png";
-import blurImg2 from "../../../../public/assets/home/super-engagment/blurImg2.png";
-import blurImg3 from "../../../../public/assets/home/super-engagment/blurImg3.png";
-import blurImg4 from "../../../../public/assets/home/super-engagment/blurImg4.png";
 
 const SuperEngagment = () => {
   return (
@@ -22,7 +19,8 @@ const SuperEngagment = () => {
         <h1 className="font-92px font-semibold leading-snug">
           <span
             style={{
-              background: "linear-gradient(90deg, #15234E 16.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
+              background:
+                "linear-gradient(90deg, #15234E 16.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -138,19 +136,46 @@ const HeroSlides = () => {
 };
 
 const Slide = ({ title, image, index }) => {
+  const [isBlurred, setIsBlurred] = useState(false);
+
   return (
     <CarouselItem
       key={index}
       className={cn("basis-[65%] md:basis-[25%] items-center flex max-md:pl-3")}
       style={{ height: "100%" }}
     >
-      <Image
-        src={`/assets/home/super-engagment/slide-${index + 1}.png`}
-        alt={title}
-        width={458}
-        height={832}
-        className="rounded-40px zoom-in-1-035 mt-8 w-full cursor-pointer object-contain object-center"
-      />
+      <div className="relative mt-8 w-full">
+        {/* Conditionally render the images */}
+        {isBlurred
+          ? (
+          <Image
+            src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
+            alt={title}
+            width={458}
+            height={732}
+            className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+          />
+            )
+          : (
+          <Image
+            src={`/assets/home/super-engagment/slide-${index + 1}.png`}
+            alt={title}
+            width={458}
+            height={832}
+            className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+          />
+            )}
+
+        {/* Conditionally render the action buttons */}
+        <div
+          className={`absolute bottom-6 right-6 cursor-pointer rounded-full p-[5px] ${
+            isBlurred ? "bg-[#ffff] text-[#15234E]" : "bg-[#6c6a6a] text-white"
+          }`}
+          onClick={() => setIsBlurred(!isBlurred)} // Toggle the state
+        >
+          {isBlurred ? <X /> : <PlusIcon />}
+        </div>
+      </div>
     </CarouselItem>
   );
 };
