@@ -17,7 +17,7 @@ import {
 const slides = [
   {
     title: "Horizon Shorts",
-    img: "/assets/home/hero/slide-1.png", 
+    img: "/assets/home/hero/slide-1.png",
     text1: "Grow with short - form videos",
     subText1:
       "Drive instant engagement with the world’s most consumed content format.",
@@ -29,7 +29,7 @@ const slides = [
   },
   {
     title: "Horizon Stories",
-    img: "/assets/home/hero/slide-2.png", 
+    img: "/assets/home/hero/slide-2.png",
     text1: "Highlight what matters to your customers",
     subText1:
       "Create immersive stories that captivate users and deepen connections.",
@@ -178,13 +178,14 @@ const Slide3 = ({
     <CarouselItem
       key={index}
       className={cn(
-        "flex flex-col md:flex-row items-center md:justify-around p-6  bg-[#F7FBFE] rounded-[36px] transition-transform container",
+        "flex flex-col md:flex-row items-center md:justify-around p-6 bg-[#F7FBFE] rounded-[36px] transition-transform container",
         {
           "opacity-100 scale-100": isSelected,
           "opacity-50 scale-90": !isSelected,
         }
       )}
     >
+      {/* Left Content (Accordion Section) */}
       <div className="space-y-4 text-center md:max-w-[50%] md:text-left">
         <h3 className="font-52px mb-20 cursor-pointer font-semibold text-[#15234E]">
           {title}
@@ -192,33 +193,37 @@ const Slide3 = ({
 
         {/* First Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20  py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
           onClick={() => toggleAccordion(1)}
         >
           {text1}
           {activeIndex === 1 ? <Minus /> : <Plus />}
         </h3>
         {activeIndex === 1 && (
-          <p className="font-22px max-w-[300px]  py-3 text-[#15234E]">{subText1}</p>
+          <p className="font-22px max-w-[300px] py-3 text-[#15234E]">
+            {subText1}
+          </p>
         )}
         <hr />
 
         {/* Second Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20   py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
           onClick={() => toggleAccordion(2)}
         >
           {text2}
           {activeIndex === 2 ? <Minus /> : <Plus />}
         </h3>
         {activeIndex === 2 && (
-          <p className="font-22px max-w-[300px]  py-3 text-[#15234E]">{subText2}</p>
+          <p className="font-22px max-w-[300px] py-3 text-[#15234E]">
+            {subText2}
+          </p>
         )}
         <hr />
 
         {/* Third Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20  py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
           onClick={() => toggleAccordion(3)}
         >
           {text3}
@@ -230,13 +235,32 @@ const Slide3 = ({
           </p>
         )}
       </div>
-      <Image
-        src={image}
-        alt={title}
-        width={558}
-        height={532}
-        className="mt-4 rounded-[40px] md:mt-0"
-      />
+
+      {/* Right Content (Image with Blurred Background) */}
+      <div className="relative flex items-center justify-center">
+        {/* Blurred Background */}
+        <div
+          className="absolute inset-0 rounded-[40px] blur-xl"
+          style={{
+            background: `
+            radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
+            radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
+            radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
+            radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
+          `,
+            zIndex: -1, // Keeps it behind the image
+          }}
+        ></div>
+
+        {/* Image */}
+        <Image
+          src={image}
+          alt={title}
+          width={558}
+          height={532}
+          className="rounded-[40px]" // Keep the image rounded
+        />
+      </div>
     </CarouselItem>
   );
 };
