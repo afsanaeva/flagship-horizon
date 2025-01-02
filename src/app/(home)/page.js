@@ -5,6 +5,7 @@ import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
 import Hero from "@/components/screens/home/Hero";
 import HorizonLive from "@/components/screens/home/HorizonLiveNumber";
 // import PricingPlan from "@/components/screens/home/PricingPlan";
+import FAQDetails from "@/components/screens/home/FAQDetails";
 import MeetHorizon from "@/components/screens/home/MeetHorizon";
 import SuperEngagment from "@/components/screens/home/SuperEngagment";
 import VideoAnimation from "@/components/screens/home/VideoAnimation";
@@ -49,7 +50,7 @@ export default function Home() {
         <BuildDirect />
         <HorizonLive />
         <GetAFreeDemo />
-
+        <FAQDetails />
         {/* <PricingPlan />
          */}
       </div>
