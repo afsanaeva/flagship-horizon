@@ -42,7 +42,7 @@ const Dazzle = () => {
         headingClassName="font-28px font-normal"
       />
       {/* Sticky container */}
-      <div className="relative h-[600vh]">
+      <div className="relative my-12 h-[600vh]">
         <div className="sticky top-0 flex h-screen items-center justify-center">
           {/* Image 1 */}
           <motion.div className="absolute" style={{ opacity: opacity1 }}>
