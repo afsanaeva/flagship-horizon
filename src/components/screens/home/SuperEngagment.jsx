@@ -8,6 +8,12 @@ import {
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import AddIcon from "@/components/icons/AddIcon";
+import CrossIcon from "@/components/icons/CrossIcon";
+import blurImg from "../../../../public/assets/home/super-engagment/blurImg.png";
+import blurImg2 from "../../../../public/assets/home/super-engagment/blurImg2.png";
+import blurImg3 from "../../../../public/assets/home/super-engagment/blurImg3.png";
+import blurImg4 from "../../../../public/assets/home/super-engagment/blurImg4.png";
 
 const SuperEngagment = () => {
   return (

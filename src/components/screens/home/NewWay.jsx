@@ -1,18 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import React from "react";
 import { motion } from "framer-motion";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import { fadeTop } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-// import emblaCarouselAutoScroll from "embla-carousel-auto-scroll";
-import Image from "next/image";
 
 const slides = [
   {
@@ -94,7 +86,6 @@ const NewWay = () => {
           {/* Left Slide (Smaller) */}
           <div className="col-span-2 flex max-w-[600px] justify-center">
             <Slide2
-              img={slides[0].img}
               plan={slides[0].plan}
               subText={slides[0].subText}
               content={slides[0].content}
@@ -103,16 +94,13 @@ const NewWay = () => {
           {/* Right Slide (Bigger) */}
           <div className="col-span-3 flex max-w-[900px] justify-center">
             <Slide
-              img={slides[1].img}
               plan={slides[1].plan}
               subText={slides[1].subText}
               content={slides[1].content}
-              imgClassName="pr-0 ml-auto"
             />
           </div>
         </div>
       </motion.ul>
-
     </div>
   );
 };

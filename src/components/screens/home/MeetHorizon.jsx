@@ -193,8 +193,9 @@ const Slide3 = ({
 
         {/* First Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(1)}
+          // dangerouslySetInnerHTML={{ __html: text1 }}
         >
           {text1}
           {activeIndex === 1 ? <Minus /> : <Plus />}
@@ -208,7 +209,7 @@ const Slide3 = ({
 
         {/* Second Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(2)}
         >
           {text2}
@@ -223,7 +224,7 @@ const Slide3 = ({
 
         {/* Third Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center gap-20 py-3 font-semibold text-[#15234E]"
+          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E] "
           onClick={() => toggleAccordion(3)}
         >
           {text3}

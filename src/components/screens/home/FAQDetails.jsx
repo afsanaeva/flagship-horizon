@@ -57,7 +57,7 @@ const FAQDetails = () => {
           className="space-y-4  text-center md:text-left"
         >
           <h3
-            className="font-32px flex cursor-pointer items-center justify-between gap-20 py-3 font-normal text-[#15234E]"
+            className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
             onClick={() => toggleAccordion(index)}
           >
             {slide.text}
