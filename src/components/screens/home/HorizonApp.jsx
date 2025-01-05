@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import newWay from "../../../../public/assets/home/roll-screen/newMob.png";
+import newWay from "../../../../public/assets/home/roll-screen/newMob2.png";
 import oldWay from "../../../../public/assets/home/roll-screen/oldMob1.png";
 import { ChevronsLeftRight } from "lucide-react";
 
 const HorizonApp = () => {
-  const [sliderPosition, setSliderPosition] = useState(55); // Initial slider position (%)
+  const [sliderPosition, setSliderPosition] = useState(50); // Initial slider position (%)
 
   // Handles the slider movement
   const handleSliderMove = (e) => {
@@ -57,7 +57,7 @@ const HorizonApp = () => {
 
       {/* Comparison Section */}
       <section
-        className="relative h-[600px] w-full"
+        className="relative h-[650px] w-full"
         style={{
           marginTop: "100px",
         }}
@@ -81,7 +81,7 @@ const HorizonApp = () => {
               </h2>
             </div>
             {/* Image */}
-            <img src={oldWay.src} alt="Traditional Way" className=" h-full w-1/2 object-cover" />
+            <img src={oldWay.src} alt="Traditional Way" className=" h-full w-[40%] object-cover" />
           </div>
 
           {/* New Way Section */}
@@ -98,7 +98,7 @@ const HorizonApp = () => {
             }}
           >
             {/* Image */}
-            <img src={newWay.src} alt="Horizon Way"  className=" h-full w-1/2 object-cover"/>
+            <img src={newWay.src} alt="Horizon Way"  className=" h-full  w-[39%] object-cover"/>
             {/* Text */}
             <div>
               <h2
