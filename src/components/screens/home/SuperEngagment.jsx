@@ -154,7 +154,8 @@ const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
     >
       <div className="relative mt-8 w-full">
         {/* Conditionally render the images */}
-        {isBlurred ? (
+        {isBlurred
+          ? (
           <Image
             src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
             alt={title}
@@ -162,7 +163,8 @@ const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
             height={732}
             className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
           />
-        ) : (
+            )
+          : (
           <Image
             src={`/assets/home/super-engagment/slide-${index + 1}.png`}
             alt={title}
@@ -170,7 +172,7 @@ const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
             height={832}
             className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
           />
-        )}
+            )}
 
         {/* Action Button */}
         <div

@@ -5,6 +5,7 @@ import GetAFreeDemo from "@/components/screens/home/GetAFreeDemo";
 import Hero from "@/components/screens/home/Hero";
 import HorizonLive from "@/components/screens/home/HorizonLiveNumber";
 // import PricingPlan from "@/components/screens/home/PricingPlan";
+import RollOut from "@/components/screens/home/RollOut";
 import FAQDetails from "@/components/screens/home/FAQDetails";
 import MeetHorizon from "@/components/screens/home/MeetHorizon";
 import SuperEngagment from "@/components/screens/home/SuperEngagment";
@@ -48,6 +49,7 @@ export default function Home() {
         <Unlock />
         <SuperEngagment />
         <BuildDirect />
+        <RollOut/>
         <HorizonLive />
         <GetAFreeDemo />
         <FAQDetails />

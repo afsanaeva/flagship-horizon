@@ -241,7 +241,7 @@ const Slide3 = ({
       <div className="relative flex items-center justify-center">
         {/* Blurred Background */}
         <div
-          className="absolute inset-0 rounded-[40px] blur-xl"
+          className="absolute inset-0 blur-xl"
           style={{
             background: `
             radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),

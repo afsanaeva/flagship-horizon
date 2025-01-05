@@ -115,6 +115,10 @@
   .font-28px {
     @apply tracking-[-0.03em] leading-[1.1] text-[24px] xs:text-[28px] md:text-[21px] 3xl:text-[28px];
   }
+  .font-36px {
+    @apply tracking-[-0.03em] leading-[1.1] text-[32px] xs:text-[36px] md:text-[30px] 3xl:text-[36px];
+  }
+
   .font-40px {
     @apply leading-[1.05] text-[28px] xs:text-[32px] md:text-[24px] 2xl:text-[32px] 3xl:text-[40px];
   }
@@ -168,7 +172,6 @@
   .font-300px {
     @apply tracking-[-2px] leading-[1.05] text-[50vw] xs:text-[200px] 2xl:text-[250px] 3xl:text-[300px];
   }
-  
 
   /* SPACING CLASSES */
   .space-y-20px {
