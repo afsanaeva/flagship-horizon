@@ -56,22 +56,15 @@ const RollOut = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="relative h-[650px] w-full overflow-hidden">
-        {/* Background Gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `
-        linear-gradient(to right, #f4f4f4 50%, #f0f9ff 50%)
-      `,
-          }}
-        ></div>
-
+      <section className="relative h-[600px] w-full overflow-hidden"
+        style={{
+          marginTop: "100px",
+        }}>
         {/* Content Wrapper */}
         <div className="relative flex h-full">
           {/* Old Way Section */}
           <div
-            className="relative flex flex-col items-center justify-start border-r-4 border-[#ffff] bg-[#F1F4F7] py-8 pl-20"
+            className="relative flex flex-col items-center justify-start border-r-4 border-[#ffff] bg-[#F1F4F7] pl-20 pt-8"
             style={{ width: `${100 - sliderPosition}%` }}
           >
             {/* Text */}
@@ -95,7 +88,7 @@ const RollOut = () => {
 
           {/* New Way Section */}
           <div
-            className="relative flex flex-col items-center justify-start py-8 pr-20"
+            className="relative flex flex-col items-center justify-start pr-20 pt-8"
             style={{
               width: `${sliderPosition}%`,
               background: `
@@ -121,31 +114,36 @@ const RollOut = () => {
             <img
               src={newWay.src}
               alt="Horizon Way"
-              className="w-full h-full object-cover rounded-r-lg"
+              className="h-full w-full rounded-r-lg object-cover"
             />
           </div>
         </div>
+      </section>
 
-        {/* Slider */}
-        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center slider-container p-5 bg-[#F1F4F7] rounded-[200px] shadow-md">
-          <div className="slider-container relative w-[200px] h-2 bg-[#B8C1CB] rounded-full flex items-center px-2">
-            {/* Active Track */}
-            <div
-              className="absolute top-0 left-0 h-2 bg-[#0032FD] rounded-full"
-              style={{ width: `${sliderPosition}%` }}
-            ></div>
+      {/* Slider */}
+      <div
+        className="slider-container container w-[250px] items-center rounded-[200px] bg-[#F1F4F7] p-5"
+        style={{
+          marginTop: "50px",
+        }}
+      >
+        <div className="slider-container relative flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB] px-2">
+          {/* Active Track */}
+          <div
+            className="absolute left-0 top-0 h-2 rounded-full bg-[#0032FD]"
+            style={{ width: `${sliderPosition}%` }}
+          ></div>
 
-            {/* Slider Button */}
-            <div
-              className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
-              style={{ left: `${sliderPosition}%` }}
-              onMouseDown={handleMouseDown}
-            >
-              <ChevronsLeftRight className="text-white" />
-            </div>
+          {/* Slider Button */}
+          <div
+            className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
+            style={{ left: `${sliderPosition}%` }}
+            onMouseDown={handleMouseDown}
+          >
+            <ChevronsLeftRight className="text-white" />
           </div>
         </div>
-      </section>
+      </div>
     </>
   );
 };
