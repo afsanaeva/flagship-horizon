@@ -16,7 +16,7 @@ const RollOut = () => {
 
     const rect = slider.getBoundingClientRect();
     const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.min(Math.max(newPosition, 25), 75)); // Clamp values between 0 and 100
+    setSliderPosition(Math.min(Math.max(newPosition, 30), 70)); // Clamp values between 0 and 100
   };
 
   // Handles the mousedown event
@@ -71,12 +71,17 @@ const RollOut = () => {
         <div className="relative flex h-full">
           {/* Old Way Section */}
           <div
-            className="flex flex-col items-center justify-start bg-gray-100 py-8 px-4 relative"
+            className="relative flex flex-col items-center justify-start border-r-4 border-[#ffff] bg-[#F1F4F7] py-8 pl-20"
             style={{ width: `${100 - sliderPosition}%` }}
           >
             {/* Text */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              <h2
+                className="font-36px mb-8 font-normal text-[#15234E]"
+                style={{
+                  fontSize: `${35 - (sliderPosition / 100) * 16}px`, // Dynamically reduce font size
+                }}
+              >
                 Traditional Way: Years of development
               </h2>
             </div>
@@ -90,7 +95,7 @@ const RollOut = () => {
 
           {/* New Way Section */}
           <div
-            className="flex flex-col items-center justify-start  py-8 px-4 relative"
+            className="relative flex flex-col items-center justify-start py-8 pr-20"
             style={{
               width: `${sliderPosition}%`,
               background: `
@@ -103,8 +108,13 @@ const RollOut = () => {
           >
             {/* Text */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                Horizon Way: Deploy within a few days
+              <h2
+                className="font-36px mb-8 font-normal text-[#15234E]"
+                style={{
+                  fontSize: `${18 + (sliderPosition / 100) * 16}px`, // Dynamically increase font size
+                }}
+              >
+                Horizon Way : Deploy within a few days
               </h2>
             </div>
             {/* Image */}
