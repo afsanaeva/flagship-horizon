@@ -40,8 +40,8 @@ const ProDisplay = () => {
   const containerStyles = {
     display: "grid",
     gridTemplateColumns: "repeat(5, 1fr)",
-    gap: isExpanded ? "5rem" : "0.25rem", // Dynamic gap
-    transition: "gap 2.5s ease-in-out", // Smooth transition
+    gap: isExpanded ? "3rem" : "0rem", // Dynamic gap
+    transition: "gap 2s ease-in-out", // Smooth transition
   };
 
   return (
@@ -84,7 +84,15 @@ const ProDisplay = () => {
             zIndex: -1, // Keeps it behind the image
           }}
         ></div>
-        <div style={containerStyles}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gridAutoRows: "min-content",
+            gap: "3px", // Adjust the gap here to reduce spacing
+            ...containerStyles,
+          }}
+        >
           {/* Image Elements */}
           <img
             src={screen1.src}
@@ -101,8 +109,7 @@ const ProDisplay = () => {
             alt="Screen 3"
             className="w-80 h-50 rounded-lg shadow-sm col-start-1 row-start-2 self-center"
           />
-
-          <div className="col-span-3 row-start-2 w-1/2 rounded-lg">
+          <div className="col-span-3 row-start-2 w-[60%] rounded-lg">
             {/* Image */}
             <img src={display.src} alt="Main Display" />
           </div>
