@@ -12,6 +12,7 @@ import SuperEngagment from "@/components/screens/home/SuperEngagment";
 import VideoAnimation from "@/components/screens/home/VideoAnimation";
 import BuildDirect from "@/components/screens/home/BuildDirect";
 import Unlock from "@/components/screens/home/Unlock";
+import HorizonApp from "@/components/screens/home/HorizonApp";
 
 export const metadata = {
   title: "Horizon | Super Engagement Platform",
@@ -45,11 +46,12 @@ export default function Home() {
         <VideoAnimation videoSrc="/assets/videos/animationVideo.mp4" />
         <NewWay />
         <MeetHorizon />
+        <HorizonApp />
         <Dazzle />
         <Unlock />
         <SuperEngagment />
         <BuildDirect />
-        <RollOut/>
+        <RollOut />
         <HorizonLive />
         <GetAFreeDemo />
         <FAQDetails />
