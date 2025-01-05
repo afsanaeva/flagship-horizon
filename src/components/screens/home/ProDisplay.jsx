@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import display from "../../../../public/assets/home/pro/Pro.png";
@@ -11,6 +11,39 @@ import screen5 from "../../../../public/assets/home/pro/adj-5.png";
 import screen6 from "../../../../public/assets/home/pro/adj-6.png";
 
 const ProDisplay = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsExpanded(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.5 } // Adjust threshold as needed
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Inline styles for the container
+  const containerStyles = {
+    display: "grid",
+    gridTemplateColumns: "repeat(5, 1fr)",
+    gap: isExpanded ? "4rem" : "0.5rem", // Dynamic gap
+    transition: "gap 0.5s ease-in-out", // Smooth transition
+  };
+
   return (
     <>
       {/* Header Section */}
@@ -34,11 +67,25 @@ const ProDisplay = () => {
           />
         </div>
       </section>
-      <section className="relative flex justify-center items-center py-16 ">
-        {/* Centered Main Display with Surrounding Screens */}
-
-        <div className="relative w-full max-w-6xl grid grid-cols-5 gap-8 items-center justify-items-center">
-          {/* Top Row (2 Images) */}
+      <section
+        ref={sectionRef}
+        className="relative flex justify-center items-center py-16"
+      >
+        {" "}
+        <div
+          className="absolute inset-0 blur-xl"
+          style={{
+            background: `
+                    radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
+                    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
+                    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
+                    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
+                  `,
+            zIndex: -1, // Keeps it behind the image
+          }}
+        ></div>
+        <div style={containerStyles}>
+          {/* Image Elements */}
           <img
             src={screen1.src}
             alt="Screen 1"
@@ -49,34 +96,23 @@ const ProDisplay = () => {
             alt="Screen 2"
             className="w-80 h-50 rounded-lg shadow-lg col-span-2 justify-self-start"
           />
-
-          {/* Center Row */}
           <img
             src={screen3.src}
             alt="Screen 3"
             className="w-80 h-50 rounded-lg shadow-lg col-start-1 row-start-2 self-center"
           />
-          <div
-            className="z-10 col-span-3 row-start-2 w-1/2  rounded-lg shadow-sm"
-            style={{
-              background: `
-    radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
-    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
-    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
-    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
-  `,
-            }}
-          >
+
+          <div className="z-10 col-span-3 row-start-2 w-1/2 rounded-lg shadow-sm">
+            {/* Blurred Background */}
+
+            {/* Image */}
             <img src={display.src} alt="Main Display" />
           </div>
-
           <img
             src={screen4.src}
             alt="Screen 4"
             className="w-80 h-50 rounded-lg shadow-lg col-start-5 row-start-2 self-center"
           />
-
-          {/* Bottom Row (2 Images) */}
           <img
             src={screen5.src}
             alt="Screen 5"
