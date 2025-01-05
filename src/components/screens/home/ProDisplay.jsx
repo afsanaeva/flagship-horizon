@@ -40,8 +40,8 @@ const ProDisplay = () => {
   const containerStyles = {
     display: "grid",
     gridTemplateColumns: "repeat(5, 1fr)",
-    gap: isExpanded ? "4rem" : "0.5rem", // Dynamic gap
-    transition: "gap 0.5s ease-in-out", // Smooth transition
+    gap: isExpanded ? "5rem" : "0.25rem", // Dynamic gap
+    transition: "gap 2.5s ease-in-out", // Smooth transition
   };
 
   return (
@@ -69,11 +69,11 @@ const ProDisplay = () => {
       </section>
       <section
         ref={sectionRef}
-        className="relative flex justify-center items-center py-16"
+        className="container-lg relative flex items-center justify-center py-16"
       >
         {" "}
         <div
-          className="absolute inset-0 blur-xl"
+          className="absolute inset-0 blur-3xl"
           style={{
             background: `
                     radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
@@ -89,39 +89,37 @@ const ProDisplay = () => {
           <img
             src={screen1.src}
             alt="Screen 1"
-            className="w-80 h-50 rounded-lg shadow-lg col-span-2 justify-self-end"
+            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-end"
           />
           <img
             src={screen2.src}
             alt="Screen 2"
-            className="w-80 h-50 rounded-lg shadow-lg col-span-2 justify-self-start"
+            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-start"
           />
           <img
             src={screen3.src}
             alt="Screen 3"
-            className="w-80 h-50 rounded-lg shadow-lg col-start-1 row-start-2 self-center"
+            className="w-80 h-50 rounded-lg shadow-sm col-start-1 row-start-2 self-center"
           />
 
-          <div className="z-10 col-span-3 row-start-2 w-1/2 rounded-lg shadow-sm">
-            {/* Blurred Background */}
-
+          <div className="col-span-3 row-start-2 w-1/2 rounded-lg">
             {/* Image */}
             <img src={display.src} alt="Main Display" />
           </div>
           <img
             src={screen4.src}
             alt="Screen 4"
-            className="w-80 h-50 rounded-lg shadow-lg col-start-5 row-start-2 self-center"
+            className="w-80 h-50 rounded-lg shadow-sm col-start-5 row-start-2 self-center"
           />
           <img
             src={screen5.src}
             alt="Screen 5"
-            className="w-80 h-50 rounded-lg shadow-lg col-span-2 justify-self-end"
+            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-end"
           />
           <img
             src={screen6.src}
             alt="Screen 6"
-            className="w-80 h-50 rounded-lg shadow-lg col-span-2 justify-self-start"
+            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-start"
           />
         </div>
       </section>
