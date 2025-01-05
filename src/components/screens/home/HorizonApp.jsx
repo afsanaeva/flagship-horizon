@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import newWay from "../../../../public/assets/home/roll-screen/newMob.png";
-import oldWay from "../../../../public/assets/home/roll-screen/oldMob.png";
+import oldWay from "../../../../public/assets/home/roll-screen/oldMob1.png";
 import { ChevronsLeftRight } from "lucide-react";
 
 const HorizonApp = () => {
-  const [sliderPosition, setSliderPosition] = useState(50); // Initial slider position (%)
+  const [sliderPosition, setSliderPosition] = useState(55); // Initial slider position (%)
 
   // Handles the slider movement
   const handleSliderMove = (e) => {
@@ -66,7 +66,7 @@ const HorizonApp = () => {
         <div className="relative flex h-full">
           {/* Old Way Section */}
           <div
-            className="relative flex  items-center justify-between border-r-4 border-[#ffff] bg-[#F1F4F7] pl-20 pt-2"
+            className="relative flex  items-center justify-between border-r-4 border-[#ffff] bg-[#F1F4F7] pl-40 pt-2"
             style={{ width: `${100 - sliderPosition}%` }}
           >
             {/* Text */}
@@ -81,12 +81,12 @@ const HorizonApp = () => {
               </h2>
             </div>
             {/* Image */}
-            <img src={oldWay.src} alt="Traditional Way" className=" h-full" />
+            <img src={oldWay.src} alt="Traditional Way" className=" h-full w-1/2 object-cover" />
           </div>
 
           {/* New Way Section */}
           <div
-            className="relative flex  items-center justify-between pr-20 pt-2"
+            className="relative flex  items-center justify-between pr-40 pt-2"
             style={{
               width: `${sliderPosition}%`,
               background: `
@@ -98,7 +98,7 @@ const HorizonApp = () => {
             }}
           >
             {/* Image */}
-            <img src={newWay.src} alt="Horizon Way" className="h-full" />
+            <img src={newWay.src} alt="Horizon Way"  className=" h-full w-1/2 object-cover"/>
             {/* Text */}
             <div>
               <h2
