@@ -3,23 +3,37 @@ import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import newWay from "../../../../public/assets/home/roll-screen/newWay.png";
-import oldWay from "../../../../public/assets/home/roll-screen/oldWay.png";
+import oldWay from "../../../../public/assets/home/roll-screen/oldWay1.png";
 import { ChevronsLeftRight } from "lucide-react";
 
 const RollOut = () => {
   const [sliderPosition, setSliderPosition] = useState(50); // Initial slider position (%)
 
+  // Handles the slider movement
   const handleSliderMove = (e) => {
-    const container = e.target.closest(".slider-container");
-    if (!container) return;
+    const slider = document.querySelector(".slider-container");
+    if (!slider) return;
 
-    const rect = container.getBoundingClientRect();
+    const rect = slider.getBoundingClientRect();
     const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.min(Math.max(newPosition, 0), 100)); // Clamp values between 0 and 100
+    setSliderPosition(Math.min(Math.max(newPosition, 25), 75)); // Clamp values between 0 and 100
+  };
+
+  // Handles the mousedown event
+  const handleMouseDown = (e) => {
+    const onMouseMove = (moveEvent) => handleSliderMove(moveEvent);
+    const onMouseUp = () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
   };
 
   return (
     <>
+      {/* Header Section */}
       <section className="space-y-100px mt-12">
         <div className="space-y-40px flex flex-col items-center">
           <InfoCard2
@@ -42,45 +56,69 @@ const RollOut = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className=" relative h-[500px] w-full overflow-hidden">
-        {/* new Way Image */}
-        <div className="absolute inset-0">
-          {/* <p className="font-36px">Horizon Way: Deploy within a few days</p> */}
-          <div
-            className="absolute inset-0 blur-xl"
-            style={{
-              background: `
-            radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
-            radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
-            radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
-            radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
-          `,
-              zIndex: -1, // Keeps it behind the image
-            }}
-          ></div>
-          <img
-            src={newWay.src}
-            alt="New Way"
-            className="w-full h-full container-lg mt-12 object-cover rounded-r-lg"
-          />
-        </div>
-
-        {/* old Way Image */}
+      <section className="relative h-[650px] w-full overflow-hidden">
+        {/* Background Gradient */}
         <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ width: `${sliderPosition}%` }}
-        >
-          {/* <p className="font-36px">Traditional Way: Years of development</p> */}
+          className="absolute inset-0"
+          style={{
+            background: `
+        linear-gradient(to right, #f4f4f4 50%, #f0f9ff 50%)
+      `,
+          }}
+        ></div>
 
-          <img
-            src={oldWay.src}
-            alt="Old Way"
-            className="w-full h-full container-lg mt-12 w-full rounded-l-lg object-cover"
-          />
+        {/* Content Wrapper */}
+        <div className="relative flex h-full">
+          {/* Old Way Section */}
+          <div
+            className="flex flex-col items-center justify-start bg-gray-100 py-8 px-4 relative"
+            style={{ width: `${100 - sliderPosition}%` }}
+          >
+            {/* Text */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Traditional Way: Years of development
+              </h2>
+            </div>
+            {/* Image */}
+            <img
+              src={oldWay.src}
+              alt="Traditional Way"
+              className="w-full h-full object-cover rounded-l-lg"
+            />
+          </div>
+
+          {/* New Way Section */}
+          <div
+            className="flex flex-col items-center justify-start  py-8 px-4 relative"
+            style={{
+              width: `${sliderPosition}%`,
+              background: `
+    radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
+    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
+    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
+    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
+  `,
+            }}
+          >
+            {/* Text */}
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                Horizon Way: Deploy within a few days
+              </h2>
+            </div>
+            {/* Image */}
+            <img
+              src={newWay.src}
+              alt="Horizon Way"
+              className="w-full h-full object-cover rounded-r-lg"
+            />
+          </div>
         </div>
 
-        <div className="flex items-center justify-center h-screen bg-[#F1F4F7]">
-          <div className="slider-container relative w-[300px] h-2 bg-gray-200 rounded-full flex items-center px-2">
+        {/* Slider */}
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center slider-container p-5 bg-[#F1F4F7] rounded-[200px] shadow-md">
+          <div className="slider-container relative w-[200px] h-2 bg-[#B8C1CB] rounded-full flex items-center px-2">
             {/* Active Track */}
             <div
               className="absolute top-0 left-0 h-2 bg-[#0032FD] rounded-full"
@@ -89,20 +127,11 @@ const RollOut = () => {
 
             {/* Slider Button */}
             <div
-              className="absolute flex size-10 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
+              className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
               style={{ left: `${sliderPosition}%` }}
-              onMouseDown={(e) => {
-                const onMouseMove = (moveEvent) => handleSliderMove(moveEvent);
-                const onMouseUp = () => {
-                  window.removeEventListener("mousemove", onMouseMove);
-                  window.removeEventListener("mouseup", onMouseUp);
-                };
-
-                window.addEventListener("mousemove", onMouseMove);
-                window.addEventListener("mouseup", onMouseUp);
-              }}
+              onMouseDown={handleMouseDown}
             >
-              <ChevronsLeftRight className="text-[#ffff]" />
+              <ChevronsLeftRight className="text-white" />
             </div>
           </div>
         </div>
