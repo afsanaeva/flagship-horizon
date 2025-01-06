@@ -86,7 +86,7 @@ const HeroSlides = ({ slides }) => {
           dragFree: true,
         }}
       >
-        <CarouselContent className="items-center rounded-[36px] bg-[#F7FBFE]">
+        <CarouselContent className="items-center ">
           {slides.map((slide, index) => (
             <Slide3
               key={index}
@@ -178,10 +178,10 @@ const Slide3 = ({
     <CarouselItem
       key={index}
       className={cn(
-        "flex flex-col md:flex-row items-center md:justify-around p-6 bg-[#F7FBFE] rounded-[36px] transition-transform container",
+        "flex flex-col md:flex-row items-center md:justify-around p-6 bg-[#f3f5f6] shadow-sm rounded-[36px] transition-transform container",
         {
           "opacity-100 scale-100": isSelected,
-          "opacity-50 scale-90": !isSelected,
+          "opacity-70 scale-90": !isSelected,
         }
       )}
     >
