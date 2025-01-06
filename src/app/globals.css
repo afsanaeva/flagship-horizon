@@ -233,6 +233,22 @@
     background: linear-gradient(144.58deg, #0f62fe 29.28%, #044fdb 67.03%);
   }
 
+
+  .animated-number {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    position: absolute; /* Stack all numbers on top of each other */
+    width: 100%; /* Ensure full width alignment */
+  }
+  
+  .animated-number.visible {
+    transform: translateY(0);
+    opacity: 1;
+    position: relative; /* Bring the active number to the normal flow */
+  }
+  
+  
   /* Gradient text */
   .gradient-text {
     background: linear-gradient(
