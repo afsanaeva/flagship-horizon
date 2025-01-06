@@ -6,16 +6,48 @@ import { fadeTop } from "@/components/layout/Header";
 
 const HorizonLive = () => {
   const [userCount, setUserCount] = useState(42000003); // Base value on launch day
+  const [interactionCount, setInteractionCount] = useState(71400829); // Base value on launch day
+  const [pointCount, setPointCount] = useState(102067103); // Base value on launch day
   const baseDate = new Date("2025-01-01"); // Set the base date when the count started
 
   useEffect(() => {
     const currentDate = new Date();
-    const diffInDays = Math.floor(
-      (currentDate - baseDate) / (1000 * 60 * 60 * 24)
-    ); // Calculate the difference in days
-    setUserCount(42000003 + diffInDays * 1000); // Update the count based on the days passed
-  }, []);
+    const diffInSeconds = Math.floor((currentDate - baseDate) / 1000); // Calculate difference in seconds
+    const initialUserCount = 42000003 + diffInSeconds * 2; // Calculate the initial count
+    setUserCount(initialUserCount); // Set the initial user count
 
+    const userInterval = setInterval(() => {
+      setUserCount((prevCount) => prevCount + 1); // Increment user count every second
+    }, 1000);
+
+    return () => clearInterval(userInterval); // Clean up on component unmount
+  }, [baseDate]);
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const diffInSeconds = Math.floor((currentDate - baseDate) / 1000); // Calculate difference in seconds
+    const initialInteractionCount = 71400829 + diffInSeconds * 2; // Initial interaction count
+    setInteractionCount(initialInteractionCount);
+
+    const interactionInterval = setInterval(() => {
+      setInteractionCount((prevCount) => prevCount + 1); // Increment interaction count every second
+    }, 1000);
+
+    return () => clearInterval(interactionInterval); // Clean up on component unmount
+  }, [baseDate]);
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const diffInSeconds = Math.floor((currentDate - baseDate) / 1000); // Calculate difference in seconds
+    const initialPointCount = 102067103 + diffInSeconds * 2; // Initial point count
+    setPointCount(initialPointCount);
+
+    const pointInterval = setInterval(() => {
+      setPointCount((prevCount) => prevCount + 1); // Increment point count every second
+    }, 1000);
+
+    return () => clearInterval(pointInterval); // Clean up on component unmount
+  }, [baseDate]);
   return (
     <div className="container-md space-y-100px">
       <InfoCard2
@@ -56,6 +88,40 @@ const HorizonLive = () => {
         </h1>
         <p className="font-40px text-[#15234E]">
           number of users watched Shorts in 7 days
+        </p>
+      </div>
+      <div className="space-y-40px text-left">
+        <h1 className="font-300px font-semibold leading-snug">
+          <span
+            style={{
+              background:
+                "linear-gradient(90deg, #15234E 26.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            {interactionCount.toLocaleString()}
+          </span>
+        </h1>
+        <p className="font-40px text-[#15234E]">
+          number of interactions generated in 7 days
+        </p>
+      </div>
+      <div className="space-y-40px text-left">
+        <h1 className="font-300px font-semibold leading-snug">
+          <span
+            style={{
+              background:
+                "linear-gradient(90deg, #15234E 26.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            {pointCount.toLocaleString()}
+          </span>
+        </h1>
+        <p className="font-40px text-[#15234E]">
+          number of data points created in 7 days
         </p>
       </div>
     </div>

@@ -168,10 +168,11 @@ const Slide3 = ({
   index,
   isSelected,
 }) => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(1); // Default to the first section
 
   const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    // Keep at least one section open
+    setActiveIndex(activeIndex === index ? activeIndex : index);
   };
 
   return (
@@ -195,7 +196,6 @@ const Slide3 = ({
         <h3
           className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(1)}
-          // dangerouslySetInnerHTML={{ __html: text1 }}
         >
           {text1}
           {activeIndex === 1 ? <Minus /> : <Plus />}
@@ -224,7 +224,7 @@ const Slide3 = ({
 
         {/* Third Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E] "
+          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(3)}
         >
           {text3}
