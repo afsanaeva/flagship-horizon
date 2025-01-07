@@ -39,9 +39,9 @@ const ProDisplay = () => {
   // Inline styles for the container
   const containerStyles = {
     display: "grid",
-    gridTemplateColumns: "repeat(5, 1fr)",
-    gap: isExpanded ? "3rem" : "0rem", // Dynamic gap
-    transition: "gap 2s ease-in-out", // Smooth transition
+    gridTemplateColumns: "repeat(1, 1fr)",
+    gap: isExpanded ? "4rem" : "0rem", // Dynamic gap
+    transition: "gap 1.5s ease-in-out", // Smooth transition
   };
 
   return (
@@ -97,36 +97,36 @@ const ProDisplay = () => {
           <img
             src={screen1.src}
             alt="Screen 1"
-            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-end"
+            className="w-80 h-60 rounded-lg shadow-sm col-span-2 justify-self-end"
           />
           <img
             src={screen2.src}
             alt="Screen 2"
-            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-start"
+            className="w-90 h-60 rounded-lg shadow-sm col-span-2 justify-self-start"
           />
           <img
             src={screen3.src}
             alt="Screen 3"
-            className="w-80 h-50 rounded-lg shadow-sm col-start-1 row-start-2 self-center"
+            className="w-90 h-60 rounded-lg shadow-sm col-start-1 row-start-2 self-center"
           />
-          <div className="col-span-3 row-start-2 w-[60%] rounded-lg">
+         
             {/* Image */}
-            <img src={display.src} alt="Main Display" />
-          </div>
+            <img src={display.src} alt="Main Display" className="col-span-3 row-start-2 w-100 h-80 rounded-lg"/>
+         
           <img
             src={screen4.src}
             alt="Screen 4"
-            className="w-80 h-50 rounded-lg shadow-sm col-start-5 row-start-2 self-center"
+            className="w-90 h-60 rounded-lg shadow-sm col-start-5 row-start-2 self-center"
           />
           <img
             src={screen5.src}
             alt="Screen 5"
-            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-end"
+            className="w-90 h-60 rounded-lg shadow-sm col-span-2 justify-self-end"
           />
           <img
             src={screen6.src}
             alt="Screen 6"
-            className="w-80 h-50 rounded-lg shadow-sm col-span-2 justify-self-start"
+            className="w-90 h-60 rounded-lg shadow-sm col-span-2 justify-self-start"
           />
         </div>
       </section>

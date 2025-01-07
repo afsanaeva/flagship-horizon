@@ -16,7 +16,7 @@ const RollOut = () => {
 
     const rect = slider.getBoundingClientRect();
     const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.min(Math.max(newPosition, 30), 70)); // Clamp values between 0 and 100
+    setSliderPosition(Math.min(Math.max(newPosition, 20), 80)); // Clamp values between 0 and 100
   };
   // Handles the mousedown event
   const handleMouseDown = (e) => {

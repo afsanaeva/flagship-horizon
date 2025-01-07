@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import newWay from "../../../../public/assets/home/roll-screen/newMob2.png";
-import oldWay from "../../../../public/assets/home/roll-screen/oldMob.png";
+import newWay from "../../../../public/assets/home/roll-screen/fullMob2.png";
+import oldWay from "../../../../public/assets/home/roll-screen/fullMob.png";
 import { ChevronsLeftRight } from "lucide-react";
 
 const HorizonApp = () => {
@@ -67,7 +67,9 @@ const HorizonApp = () => {
           {/* Old Way Section */}
           <div
             className="relative flex  items-center justify-between border-r-4 border-[#ffff] bg-[#F1F4F7] pl-40 pt-2"
-            style={{ width: `${100 - sliderPosition}%` }}
+            style={{
+              width: `${sliderPosition}%`, // Left section size based on sliderPosition
+            }}
           >
             {/* Text */}
             <div>
@@ -81,14 +83,14 @@ const HorizonApp = () => {
               </h2>
             </div>
             {/* Image */}
-            <img src={oldWay.src} alt="Traditional Way" className=" h-full w-[40%] object-cover" />
+            <img src={oldWay.src} alt="Traditional Way" className="h-full object-cover object-left" />
           </div>
 
           {/* New Way Section */}
           <div
             className="relative flex  items-center justify-between pr-40 pt-2"
             style={{
-              width: `${sliderPosition}%`,
+              width: `${100 - sliderPosition}%`, // Right section size based on sliderPosition
               background: `
     radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
     radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
@@ -98,7 +100,7 @@ const HorizonApp = () => {
             }}
           >
             {/* Image */}
-            <img src={newWay.src} alt="Horizon Way"  className=" h-full  w-[39%] object-cover"/>
+            <img src={newWay.src} alt="Horizon Way"   className="h-full object-cover object-left"/>
             {/* Text */}
             <div>
               <h2
