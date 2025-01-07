@@ -18,7 +18,6 @@ const RollOut = () => {
     const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
     setSliderPosition(Math.min(Math.max(newPosition, 30), 70)); // Clamp values between 0 and 100
   };
-
   // Handles the mousedown event
   const handleMouseDown = (e) => {
     const onMouseMove = (moveEvent) => handleSliderMove(moveEvent);
@@ -56,16 +55,19 @@ const RollOut = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="relative h-[600px] w-full overflow-hidden"
+      <section
+        className="relative h-[600px] w-full overflow-hidden"
         style={{
           marginTop: "100px",
-        }}>
+        }}
+      >
         {/* Content Wrapper */}
         <div className="relative flex h-full">
-          {/* Old Way Section */}
           <div
             className="relative flex flex-col items-center justify-start border-r-4 border-[#ffff] bg-[#F1F4F7] pl-20 pt-8"
-            style={{ width: `${100 - sliderPosition}%` }}
+            style={{
+              width: `${sliderPosition}%`, // Left section size based on sliderPosition
+            }}
           >
             {/* Text */}
             <div>
@@ -90,7 +92,7 @@ const RollOut = () => {
           <div
             className="relative flex flex-col items-center justify-start pr-20 pt-8"
             style={{
-              width: `${sliderPosition}%`,
+              width: `${100 - sliderPosition}%`, // Right section size based on sliderPosition
               background: `
     radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
     radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),

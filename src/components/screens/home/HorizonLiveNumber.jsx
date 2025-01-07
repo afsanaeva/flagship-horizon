@@ -6,17 +6,17 @@ import { fadeTop } from "@/components/layout/Header";
 
 const HorizonLive = () => {
   const [activeIndex, setActiveIndex] = useState(0); // Track which number is active
-  const [userCount, setUserCount] = useState(4200003);
-  const [interactionCount, setInteractionCount] = useState(7140829);
-  const [pointCount, setPointCount] = useState(10207103);
+  const [userCount, setUserCount] = useState(420003);
+  const [interactionCount, setInteractionCount] = useState(714029);
+  const [pointCount, setPointCount] = useState(102713);
   const baseDate = new Date("2025-01-01");
 
   useEffect(() => {
     const currentDate = new Date();
     const diffInSeconds = Math.floor((currentDate - baseDate) / 1000);
-    setUserCount(42000003 + diffInSeconds * 2);
-    setInteractionCount(71400829 + diffInSeconds * 2);
-    setPointCount(102067103 + diffInSeconds * 2);
+    setUserCount(420003 + diffInSeconds * 2);
+    setInteractionCount(7140829 + diffInSeconds * 2);
+    setPointCount(1020103 + diffInSeconds * 2);
 
     const userInterval = setInterval(() => {
       setUserCount((prev) => prev + 1);

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import newWay from "../../../../public/assets/home/roll-screen/newMob2.png";
-import oldWay from "../../../../public/assets/home/roll-screen/oldMob1.png";
+import oldWay from "../../../../public/assets/home/roll-screen/oldMob.png";
 import { ChevronsLeftRight } from "lucide-react";
 
 const HorizonApp = () => {
