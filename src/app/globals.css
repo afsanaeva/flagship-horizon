@@ -248,6 +248,10 @@
     position: relative; /* Bring the active number to the normal flow */
   }
   
+  video {
+    transition: transform 0.5s ease, border-radius 0.5s ease;
+  }
+  
   
   
   /* Gradient text */
