@@ -4,7 +4,6 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Chevron from "../icons/Chevron";
 
 const CarouselContext = React.createContext(null);

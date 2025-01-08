@@ -1,7 +1,5 @@
 "use client";
-import Chevron from "@/components/icons/Chevron";
 import { fadeTop } from "@/components/layout/Header";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
 

@@ -41,7 +41,7 @@ const ProDisplay = () => {
     display: "grid",
     gridTemplateColumns: "repeat(1, 1fr)",
     gap: isExpanded ? "4rem" : "0rem", // Dynamic gap
-    transition: "gap 1.5s ease-in-out", // Smooth transition
+    transition: "gap 3s ease-in-out", // Smooth transition
   };
 
   return (

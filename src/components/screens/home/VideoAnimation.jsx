@@ -86,7 +86,7 @@ const VideoAnimation = ({ videoSrc }) => {
       {/* Pause/Play Button */}
       <button
         onClick={togglePlayPause}
-        className="z-13 absolute bottom-12 right-12 flex size-8 mr-5 items-center justify-center rounded-full bg-black bg-opacity-60 text-white"
+        className="z-13 absolute bottom-12 right-12 mr-5 flex size-8 items-center justify-center rounded-full bg-black bg-opacity-60 text-white"
       >
         {isPlaying ? "❚❚" : "▶"}
       </button>

@@ -16,7 +16,7 @@ const Dazzle = () => {
   const opacity2 = useTransform(scrollYProgress, [0.4, 0.5, 0.6], [0, 1, 0]); // Second image fades in and out
   const opacity3 = useTransform(scrollYProgress, [0.6, 0.7, 0.8], [0, 1, 0]); // Third image fades in and out
   const opacity4 = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]); // Fourth image fades in and holds
-  
+
   return (
     <div className="space-y-40px">
       <InfoCard2

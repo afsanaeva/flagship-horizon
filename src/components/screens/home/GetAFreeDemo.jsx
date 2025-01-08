@@ -1,38 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import { Button } from "@/components/ui/button";
-import Arrow from "@/components/icons/Arrow";
 import Link from "next/link";
-
-const variants = {
-  open: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2, duration: 1 },
-  },
-  closed: {
-    opacity: 0,
-    transition: { staggerChildren: 0, staggerDirection: -1 },
-  },
-};
-const variantsLi = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      y: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  closed: {
-    y: 10,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-    },
-  },
-};
 
 const GetAFreeDemo = () => {
   return (

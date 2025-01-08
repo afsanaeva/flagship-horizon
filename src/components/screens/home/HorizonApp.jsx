@@ -100,7 +100,7 @@ const HorizonApp = () => {
             }}
           >
             {/* Image */}
-            <img src={newWay.src} alt="Horizon Way"   className="h-full object-cover object-left"/>
+            <img src={newWay.src} alt="Horizon Way" className="h-full object-cover object-left"/>
             {/* Text */}
             <div>
               <h2
