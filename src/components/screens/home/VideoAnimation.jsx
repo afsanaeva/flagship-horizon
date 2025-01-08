@@ -43,7 +43,7 @@ const VideoAnimation = ({ videoSrc }) => {
           scale = 0.7;
         }
         video.style.transform = `scale(${scale})`;
-        video.style.transition = "transform 1s ease , border-radius 30px"; // Smooth scaling
+        video.style.transition = "transform 1s ease , border-radius 30px";
       }
 
       lastScrollY = currentScrollY;
