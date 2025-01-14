@@ -118,7 +118,7 @@ const Footer = () => {
       </div>
 
       <div className="font-18px container mx-auto flex flex-col px-6 py-3 font-normal text-[#B8C1CB] md:flex-row md:justify-between lg:px-8">
-        <p>© 2024 Horizon. All rights reserved by Flagship Technology Inc.</p>
+        <p>© 2025 Horizon. All rights reserved by Flagship Technology Inc.</p>
         <div className="mt-2 space-x-4">
           <Link href="/privacy-policy" target="_blank" className="underline">
             Privacy Policy

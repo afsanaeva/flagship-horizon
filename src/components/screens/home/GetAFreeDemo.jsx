@@ -1,6 +1,5 @@
 "use client";
 
-// import { motion } from "framer-motion";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

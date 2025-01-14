@@ -44,7 +44,7 @@ export default function Home() {
       <div className="space-y-200px mb-200px">
         <Hero />
         {/* <AiVideoEngagement /> */}
-        <VideoAnimation videoSrc="/assets/videos/animationVideo.mp4" />
+        <VideoAnimation videoSrc="/assets/videos/blackScreen.mp4" />
         <NewWay />
         <MeetHorizon />
         <HorizonApp />

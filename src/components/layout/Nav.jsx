@@ -44,7 +44,7 @@ const Nav = () => {
         {/* On contact link, add hover effect like a line below the link fills on hover, reverse on hover leave, it can be done with after:: or after:: psuedo classes */}
         <div className="flex space-x-4">
           <Link
-            href="/get-demo"
+            href="/product"
             className={cn(
               buttonVariants({ variant: "none", size: "lg" }),
               "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
