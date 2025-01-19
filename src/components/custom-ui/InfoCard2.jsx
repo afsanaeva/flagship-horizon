@@ -23,13 +23,13 @@ const InfoCard2 = ({
     >
       <div className="space-y-40px">
         <Heading
-          className={cn("font-120px font-semibold text-center", headingClassName)}
+          className={cn("font-120px font-semibold", headingClassName)}
           dangerouslySetInnerHTML={{ __html: title }}
         />
         {description && (
           <p
             className={cn(
-              "font-28px text-[18px] xs:text-[20px] font-normal text-center",
+              "font-28px text-[18px] xs:text-[20px] font-normal",
               descriptionClassName
             )}
             dangerouslySetInnerHTML={{ __html: description }}

@@ -16,11 +16,11 @@ const MonetizeSection = () => {
   const MatrixValue = useTransform(scrollYProgress, [0, 0.6], [60, -60]);
 
   return (
-    <div ref={sectionRef} className="px-[120px]">
+    <div ref={sectionRef} className="container-xl">
       <HeroTitle
         MainTitle="Monetize via In-built Ad Engine."
         SecTitle="Unlock new revenue streams - either by promoting your own business </br> or by sharing sponsored contents from affiliated brands."
-        styleHeroTitle=""
+        styleContainer="text-[#15234E]"
       />
 
       <div className="flex items-start justify-between w-full gap-6 mt-[100px]">
@@ -31,7 +31,7 @@ const MonetizeSection = () => {
             width={780}
             height={386}
             alt="interaction"
-            className="max-h-[480px]"
+            className="object-contain"
           />
         </motion.div>
 
@@ -42,7 +42,7 @@ const MonetizeSection = () => {
             width={780}
             height={386}
             alt="interaction"
-            className="max-h-[480px]"
+            className="object-contain"
           />
         </motion.div>
 
@@ -53,7 +53,7 @@ const MonetizeSection = () => {
             width={780}
             height={386}
             alt="interaction"
-            className="max-h-[480px]"
+            className="object-contain"
           />
         </motion.div>
 
@@ -64,7 +64,7 @@ const MonetizeSection = () => {
             width={780}
             height={386}
             alt="interaction"
-            className="max-h-[480px]"
+            className="object-contain"
           />
         </motion.div>
 
@@ -75,7 +75,7 @@ const MonetizeSection = () => {
             width={780}
             height={386}
             alt="interaction"
-            className="max-h-[480px]"
+            className="object-contain"
           />
         </motion.div>
       </div>

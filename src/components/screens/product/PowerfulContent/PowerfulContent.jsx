@@ -14,12 +14,12 @@ const PowerfulContent = () => {
       <div className="w-full h-full flex items-center justify-between pl-[120px]">
         <div className="flex flex-col items-start gap-[28px] basis-[40%] pr-[127px]">
           <h1
-            className="font-100px font-bold leading-snug text-text-main"
+            className="font-100px font-bold leading-snug text-colorText-main"
             dangerouslySetInnerHTML={{
               __html: "Powerful </br> Content </br> Studio.",
             }}
           ></h1>
-          <p className="text-[#67788A] font-28px basis-[20%]">
+          <p className="text-colorText-main font-28px basis-[20%]">
             Upload your videos to Horizon Console and build your own Shorts
             library. Curate them yourself or let Horizon AI tailor content to
             your audience.

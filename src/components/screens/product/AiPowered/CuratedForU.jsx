@@ -11,7 +11,7 @@ const CuratedForU = () => {
         {Array.from({ length: 4 }, (_, i) => (
           <div key={i} className="relative">
             <div
-              className={`absolute w-fit h-fit right-[-40px] top-[-60px] z-50 ${
+              className={`absolute w-fit h-fit right-[-40px] top-[-60px] z-40 ${
                 i === 1 ? "block" : "hidden"
               } `}
             >

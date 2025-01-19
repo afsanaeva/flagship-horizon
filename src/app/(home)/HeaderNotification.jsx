@@ -20,17 +20,19 @@ const HeaderNotification = () => {
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="sticky top-0 z-50 grid h-10 w-full items-center justify-center text-center text-[#FFFFFF] max-lg:hidden 2xl:h-[46px] 3xl:h-16"
+      className="grid h-10 w-full items-center justify-center text-center text-[#FFFFFF] max-lg:hidden"
       style={{
-        background: "linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%), #CDF3FF",
+        background:
+          "linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%), #CDF3FF",
       }}
     >
       <Link
         href="/get-demo"
         className="flex w-fit items-center justify-center gap-2"
       >
-        <p className="font-18px !tracking-tight">
-          Transform your apps and websites into super engagement led growth powerhouses.{" "}
+        <p className="text-[12px] !tracking-tight">
+          Transform your apps and websites into super engagement led growth
+          powerhouses.{" "}
           <span className="font-semibold">See Horizon in action.</span>
         </p>
         {/* <Chevron className="h-3 w-auto cursor-pointer 2xl:h-3.5 3xl:h-4" /> */}

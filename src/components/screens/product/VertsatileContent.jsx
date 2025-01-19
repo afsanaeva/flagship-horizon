@@ -37,7 +37,8 @@ const VertsatileContent = () => {
             <Image src={item.icon} alt={item.span} width={52} height={52} />
             <div className="flex flex-col max-w-[570px]">
               <p className="font-28px font-weight-400 text-[#67788A]">
-                <span className="text-text-main">{item.span}</span> {item.text}
+                <span className="text-colorText-main">{item.span}</span>{" "}
+                {item.text}
               </p>
             </div>
           </div>

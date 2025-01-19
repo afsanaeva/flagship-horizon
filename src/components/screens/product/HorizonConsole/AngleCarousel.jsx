@@ -23,13 +23,13 @@ const AngleCarousel = () => {
   const [prevIndex, currIndex, nextIndex] = getVisibleImages();
 
   return (
-    <div className="relative w-full h-full mt-[251px]">
+    <div className="relative size-full mt-[251px]">
       <Image
         src={`/assets/product/HorizonConsole/bg.svg`}
         width={150}
         height={266}
         alt="engagementPulse"
-        className="absolute top-[-200px] w-full h-full z-[-1]"
+        className="absolute top-[-320px] size-full object-cover z-[-1]"
       />
       {/* Carousel Container */}
       <div className="h-full w-full flex">

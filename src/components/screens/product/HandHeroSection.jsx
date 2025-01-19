@@ -1,40 +1,65 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
+import VideoPlayer from './VideoPlayer';
 
 const HandHeroSection = () => {
   return (
     <div className="relative size-full flex items-center justify-center">
-      {/* <div className="blur-[226.57656860351562px] absolute inset-0 h-[70%] w-[70%] z-[-1] mx-auto top-[-400px]">
+      <VideoPlayer />
+
+      {/* Animated gradient background */}
+      <div className="blur-[226px] absolute top-[-100px] -z-10 w-[1228px] left-1/2 -translate-x-[60%]">
         <div
-          className="absolute blur-[226.57656860351562px] inset-0 -z-10 w-[50vw] h-full"
+          className="absolute blur-3xl top-[150px] right-0 -z-10 w-[50vw] h-[457px]"
           style={{
-            background: `radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
-    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
-    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
-    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)`,
-            backgroundSize: "200% 200%",
-            maskImage: "linear-gradient(to bottom, black, transparent)",
-            animation: "gradient 10s ease infinite",
-            WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+            background: '#C3AEFF',
+            // backgroundSize: '200% 200%',
+            animation: 'gradient 10s ease infinite',
+            // maskImage: 'linear-gradient(to bottom, black, transparent)',
+            // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
           }}
-        ></div>
+        />
+        <div
+          className="absolute blur-3xl top-[300px] left-0 ml-auto -z-10 w-[50vw] h-[546px]"
+          style={{
+            background: '#9CD5FF',
+            // backgroundSize: '200% 200%',
+            animation: 'gradient 10s ease infinite',
+            // maskImage: 'linear-gradient(to bottom, black, transparent)',
+            // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+          }}
+        />
+        <div
+          className="absolute blur-3xl bottom-0 left-0 ml-auto -z-10 w-[50vw]"
+          style={{
+            background: '#FF9CB4',
+            // backgroundSize: '200% 200%',
+            animation: 'gradient 10s ease infinite',
+            // maskImage: 'linear-gradient(to bottom, black, transparent)',
+            // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+          }}
+        />
+        <div
+          className="absolute blur-3xl bottom-0 right-0 ml-auto -z-10 w-[50vw]"
+          style={{
+            background: '#95D1FC',
+            // backgroundSize: '200% 200%',
+            animation: 'gradient 10s ease infinite',
+            // maskImage: 'linear-gradient(to bottom, black, transparent)',
+            // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
+          }}
+        />
 
         <div
-          className="absolute blur-[226.57656860351562px] inset-0 ml-auto -z-10 w-[50vw] h-full"
+          className="absolute inset-0 -z-9"
           style={{
-            background: `radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
-    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
-    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
-    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)`,
-            backgroundSize: "200% 200%",
-            maskImage: "linear-gradient(to bottom, black, transparent)",
-            animation: "gradient 10s ease infinite",
-            WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
+            background: 'linear-gradient(to left, transparent 10%, white )',
           }}
-        ></div>
-      </div> */}
+        />
+      </div>
+
       <Image
-        src={"/assets/product/Hero/image-1.svg"}
+        src={'/assets/product/Hero/image-1.svg'}
         alt="Hand Hero"
         className="w-full h-[1100px] pl-[300px] object-fill"
         width={1075}

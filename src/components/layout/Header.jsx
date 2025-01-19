@@ -37,11 +37,11 @@ const Header = () => {
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="w-full py-5 2xl:pb-6 3xl:pb-8"
+      className="w-full py-5 2xl:pb-6 3xl:pb-8 sticky top-0 bg-white z-50"
     >
       <div className="container-lg flex items-center justify-between">
         <Link href="/">
-          <Logo className="h-auto w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]"/>
+          <Logo className="h-auto w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]" />
           {/* <Image
             src={"/assets/logo.png"}
             alt="Blitz.js"

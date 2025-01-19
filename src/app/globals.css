@@ -6,6 +6,7 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    --mainTextColor: #15234e;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
@@ -69,6 +70,15 @@
 }
 
 @layer utilities {
+  .scrollbar-hide {
+    /* For WebKit browsers */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    /* For Firefox */
+    scrollbar-width: none;
+  }
+
   /* PADDING CLASSES */
   .py-44px {
     @apply py-9 xs:py-11 md:py-[30px] 2xl:py-8 3xl:py-11;
@@ -82,8 +92,15 @@
   .px-72px {
     @apply px-4 md:px-8 xl:px-12 2xl:px-14 3xl:px-[72px];
   }
+  .px-120px {
+    @apply px-4 md:px-8 xl:px-12 2xl:px-[72px] 3xl:px-[120px];
+  }
 
   /* LAYOUT CLASSES */
+  .container-xs {
+    @apply 3xl:max-w-[1680px] w-full mx-auto px-48px;
+  }
+
   .container-sm {
     @apply 3xl:max-w-[1740px] w-full mx-auto px-48px;
   }
@@ -94,6 +111,10 @@
 
   .container-lg {
     @apply 3xl:max-w-[1920px] w-full mx-auto px-48px;
+  }
+
+  .container-xl {
+    @apply 3xl:max-w-[1920px] w-full mx-auto px-120px;
   }
 
   /* FONT CLASSES */
@@ -115,29 +136,24 @@
   .font-28px {
     @apply tracking-[-0.03em] leading-[1.1] text-[24px] xs:text-[28px] md:text-[21px] 3xl:text-[28px];
   }
+  .font-32px {
+    @apply tracking-[-1px] leading-[1.2] text-[10vw] xs:text-[32px] md:text-[24px] 2xl:text-[28px] 3xl:text-[32px];
+  }
   .font-36px {
     @apply tracking-[-0.03em] leading-[1.1] text-[32px] xs:text-[36px] md:text-[30px] 3xl:text-[36px];
   }
-
-  .font-36px {
-    @apply tracking-[-0.03em] leading-[1.1] text-[32px] xs:text-[36px] md:text-[30px] 3xl:text-[36px];
-  }
-
   .font-40px {
     @apply leading-[1.05] text-[28px] xs:text-[32px] md:text-[24px] 2xl:text-[32px] 3xl:text-[40px];
   }
   .font-42px {
     @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[36px] 3xl:text-[42px];
   }
-
+  .font-48px {
+    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[42px] 3xl:text-[48px];
+  }
   .font-52px {
     @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[52px] md:text-[36px] 2xl:text-[48px] 3xl:text-[52px];
   }
-
-  .font-32px {
-    @apply tracking-[-1px] leading-[1.2] text-[10vw] xs:text-[32px] md:text-[24px] 2xl:text-[28px] 3xl:text-[32px];
-  }
-
   /* generate class for font-64px where 3xl:text-[64px] the sizing should be different on different breakpoints */
   .font-64px {
     @apply tracking-[-2px] leading-[1.05] text-[32px] xs:text-[40px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[64px];
@@ -244,17 +260,17 @@
     position: absolute; /* Stack all numbers on top of each other */
     width: 100%; /* Ensure full width alignment */
   }
-  
+
   .animated-number.visible {
     transform: translateY(0);
     opacity: 1;
     position: relative; /* Bring the active number to the normal flow */
   }
-  
+
   video {
     transition: transform 0.5s ease, border-radius 0.5s ease;
   }
-  
+
   /* Gradient text */
   .gradient-text {
     background: linear-gradient(
@@ -289,5 +305,17 @@
         #fbefff 100%
       )
     );
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

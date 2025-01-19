@@ -12,32 +12,32 @@ const AiPoweredSection = () => {
     {
       title: "Intelligent Ad Targeting",
       content:
-        "Deliver ads that resonate with your audience using advanced targeting based on user behavior and preferences.",
+        "Ads are dynamically personalized based on user activity, behavior, and interests, ensuring they reach the right audience at the perfect moment.",
     },
     {
       title: "Sentiment Analysis",
       content:
-        "Analyze user sentiment to refine recommendations and targeting, ensuring a positive and engaging experience.",
+        "Each Short is analyzed and classified as positive, negative, or neutral, giving you actionable insights into what truly connects with your audience.",
     },
   ];
 
   return (
     <div className="bg-[#F1F4F7]">
-      <div className="py-[100px] px-[120px] space-y-100px">
+      <div className="py-[100px] container-xl space-y-100px">
         <div className="flex flex-col gap-12">
           <h1
-            className="font-100px font-bold leading-snug text-text-main"
+            className="font-100px font-bold leading-snug text-colorText-main"
             dangerouslySetInnerHTML={{
               __html: "AI powered Super Personalization.",
             }}
           ></h1>
-          <p className="font-28px font-normal text-text-main">
+          <p className="font-28px font-normal text-colorText-main">
             Deliver tailored experiences that resonate with every user, every
             time.
           </p>
         </div>
         <div className="flex items-center justify-between">
-          <AccordionSection AccordionData={AccordionData} style="max-w-[80%]" />
+          <AccordionSection AccordionData={AccordionData} style="max-w-[50%]" />
           <CuratedForU />
         </div>
       </div>

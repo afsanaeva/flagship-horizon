@@ -9,7 +9,7 @@ const HorizonConsole = () => {
     <section className="px-[120px] w-full h-full">
       <div className="text-center flex flex-col gap-12">
         <h1
-          className="font-100px font-bold leading-snug text-text-main"
+          className="font-100px font-bold leading-snug text-colorText-main"
           dangerouslySetInnerHTML={{ __html: title }}
         ></h1>
         <p className="font-28px">{intro}</p>

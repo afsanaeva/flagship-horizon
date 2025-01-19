@@ -1,19 +1,27 @@
 import React from "react";
 import CarouselCard from "../product/CarouselCard";
+import HeroTitle from "./HeroTitle";
 
-const SliderSection = ({ title, intro, dataVideo, dataCard }) => {
+const SliderSection = ({
+  title,
+  intro,
+  dataVideo,
+  dataCardImage,
+  dataCard,
+  styleHeroTitle,
+}) => {
   return (
-    <div className="container-lg">
-      <div
-        className={` mb-[100px] ${dataVideo ? "text-left" : "text-center"} `}
-      >
-        <h1
-          className="font-100px font-bold leading-snug !text-text-main"
-          dangerouslySetInnerHTML={{ __html: title }}
-        ></h1>
-        <p className="font-28px">{intro}</p>
-      </div>
-      <CarouselCard dataVideo={dataVideo} dataCard={dataCard} />
+    <div className="">
+      <HeroTitle
+        MainTitle={title}
+        SecTitle={intro}
+        styleContainer={`mb-[100px] ${styleHeroTitle}`}
+      />
+      <CarouselCard
+        dataVideo={dataVideo}
+        dataCard={dataCard}
+        dataCardImage={dataCardImage}
+      />
     </div>
   );
 };

@@ -7,8 +7,9 @@ import { motion } from "framer-motion";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import SlideVideo from "./SlideVideo";
 import SlideCard from "./SlideCard";
+import SlideCardImage from "../solution/SlideCardImage";
 
-const CarouselCard = ({ dataVideo, dataCard }) => {
+const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
   const [api, setApi] = useState();
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -50,10 +51,21 @@ const CarouselCard = ({ dataVideo, dataCard }) => {
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="items-center gap-6">
+        <CarouselContent className="items-center gap-6 container-xl">
           {Array.from({ length: 6 }).map((_, index) => {
             const videoItem = dataVideo?.[index];
             const cardItem = dataCard?.[index];
+            const cardImage = dataCardImage?.[index];
+
+            if (cardImage) {
+              return (
+                <SlideCardImage
+                  key={cardImage.id}
+                  index={index}
+                  cardImage={cardImage}
+                />
+              );
+            }
 
             if (videoItem) {
               return (
@@ -79,11 +91,11 @@ const CarouselCard = ({ dataVideo, dataCard }) => {
         </CarouselContent>
       </Carousel>
       {/* Navigation Buttons */}
-      <div className="absolute right-4 mr-10 flex gap-2">
+      <div className="absolute right-4 mr-10 mt-[1.1875rem] flex gap-2">
         <button
           onClick={() => api?.scrollPrev()}
           className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
+            "flex size-[38px] items-center justify-center rounded-full bg-[#F0F5FA] text-gray-700 shadow-md transition hover:bg-gray-200",
             { "opacity-50 cursor-not-allowed": isStart } // Disable button styling
           )}
           disabled={isStart}
@@ -105,7 +117,7 @@ const CarouselCard = ({ dataVideo, dataCard }) => {
         <button
           onClick={() => api?.scrollNext()}
           className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
+            "flex size-[38px] items-center justify-center rounded-full bg-[#F0F5FA] text-gray-700 shadow-md transition hover:bg-gray-200",
             { "opacity-50 cursor-not-allowed": isEnd } // Disable button styling
           )}
           disabled={isEnd}

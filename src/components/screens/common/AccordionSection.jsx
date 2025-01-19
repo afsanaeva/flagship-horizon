@@ -5,22 +5,31 @@ import Plus from "@/components/icons/Plus";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const AccordionSection = ({ AccordionData, style }) => {
-  const [openIndex, setOpenIndex] = useState(null);
-
+const AccordionSection = ({ AccordionData, style, section, title }) => {
+  const [openIndex, setOpenIndex] = useState(0);
+  const HeaderAccordion =
+    section === "faq" ? AccordionItemLastSection : AccordionItem;
   return (
-    <section className="py-16 flex-1">
+    <section className=" flex-1">
+      {title && (
+        <h2
+          className="text-colorText-main font-48px font-semibold leading-[100%] mb-[44px]"
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        ></h2>
+      )}
       <div className={`${style}`}>
         {AccordionData.map((item, index) => (
-          <AccordionItem
+          <HeaderAccordion
             key={index}
             isLast={index === AccordionData.length - 1}
             title={item.title}
             isOpen={openIndex === index}
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            onClick={() => setOpenIndex(openIndex === index ? 0 : index)}
           >
             {item.content}
-          </AccordionItem>
+          </HeaderAccordion>
         ))}
       </div>
     </section>
@@ -31,10 +40,12 @@ const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
   return (
     <div className={isLast ? "" : "border-b"}>
       <button
-        className="w-full text-left py-4 flex justify-between items-center focus:outline-none"
+        className="w-full text-left pt-10 mb-6 flex justify-between items-center focus:outline-none"
         onClick={onClick}
       >
-        <span className="text-lg font-normal">{title}</span>
+        <span className="font-28px font-semibold text-colorText-main">
+          {title}
+        </span>
         <span className="text-xl">{isOpen ? <Minus /> : <Plus />}</span>
       </button>
       <AnimatePresence>
@@ -46,7 +57,46 @@ const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="pb-4 text-gray-600 text-left">{children}</div>
+            <div className="pb-8 text-[#505E6B] text-left font-22px">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const AccordionItemLastSection = ({
+  title,
+  children,
+  isOpen,
+  onClick,
+  isLast,
+}) => {
+  return (
+    <div className={isLast ? "" : "border-b "}>
+      <button
+        className="w-full text-left py-10 flex justify-between items-center focus:outline-none"
+        onClick={onClick}
+      >
+        <span className="font-32px font-normal text-colorText-main">
+          {title}
+        </span>
+        <span>{isOpen ? <Minus /> : <Plus />}</span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="pb-4 text-[#505E6B] text-left font-32px">
+              {children}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

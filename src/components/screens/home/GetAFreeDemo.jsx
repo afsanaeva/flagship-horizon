@@ -4,11 +4,11 @@ import InfoCard2 from "@/components/custom-ui/InfoCard2";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-const GetAFreeDemo = () => {
+const GetAFreeDemo = ({ title }) => {
   return (
     <div className="container-sm space-y-100px text-center">
       <InfoCard2
-        title="Accelerate your growth. <br class='max-md:hidden'/> Experience Horizon for free."
+        title={title}
         descriptionClassName="lg:max-w-[790px] !leading-[140%] 2xl:max-w-[870px] 3xl:max-w-[1110px] mx-auto opacity-50"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{

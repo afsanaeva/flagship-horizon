@@ -2,33 +2,36 @@
 import React, { useState } from "react";
 import { fadeTop } from "@/components/layout/Header";
 import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import newWay from "../../../../public/assets/home/roll-screen/fullMob2.png";
-import oldWay from "../../../../public/assets/home/roll-screen/fullMob.png";
 import { ChevronsLeftRight } from "lucide-react";
+import Image from "next/image";
 
 const HorizonApp = () => {
-  const [sliderPosition, setSliderPosition] = useState(50); // Initial slider position (%)
+  const [sliderPosition, setSliderPosition] = useState(50.5);
 
-  // Handles the slider movement
-  const handleSliderMove = (e) => {
-    const slider = document.querySelector(".slider-container");
-    if (!slider) return;
-
-    const rect = slider.getBoundingClientRect();
-    const newPosition = ((e.clientX - rect.left) / rect.width) * 100;
-    setSliderPosition(Math.min(Math.max(newPosition, 30), 70)); // Clamp values between 0 and 100
-  };
-
-  // Handles the mousedown event
   const handleMouseDown = (e) => {
-    const onMouseMove = (moveEvent) => handleSliderMove(moveEvent);
-    const onMouseUp = () => {
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
+    const sliderContainer = e.currentTarget.parentElement;
+    const sliderWidth = sliderContainer.offsetWidth;
+    const startX = e.clientX;
+
+    // Calculate the initial position of the slider thumb within the constrained range
+    const startLeft = ((sliderPosition - 44) / (57 - 44)) * sliderWidth;
+
+    const handleMouseMove = (e) => {
+      const newLeft = startLeft + (e.clientX - startX);
+      const newPosition = (newLeft / sliderWidth) * (57 - 44) + 44; // Map back to 44%-57% range
+
+      // Constrain the position between 44% and 57%
+      const constrainedPosition = Math.min(Math.max(newPosition, 44), 57);
+      setSliderPosition(constrainedPosition);
     };
 
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
   };
 
   return (
@@ -55,88 +58,106 @@ const HorizonApp = () => {
         </div>
       </section>
 
-      {/* Comparison Section */}
-      <section
-        className="relative h-[650px] w-full"
-        style={{
-          marginTop: "100px",
-        }}
-      >
-        {/* Content Wrapper */}
-        <div className="relative flex h-full">
-          {/* Old Way Section */}
+      <div className="w-full mx-auto mt-[100px]">
+        <div className="w-full bg-[#F1F4F7] h-[706px] relative">
+          {/* Left Image */}
           <div
-            className="relative flex  items-center justify-between border-r-4 border-[#ffff] bg-[#F1F4F7] pl-40 pt-2"
+            className="size-full flex items-center justify-center relative z-10 bg-[#F1F4F7]"
             style={{
-              width: `${sliderPosition}%`, // Left section size based on sliderPosition
+              clipPath: `polygon(0 0, ${Math.min(
+                Math.max(sliderPosition, 44),
+                57
+              )}% 0, ${Math.min(
+                Math.max(sliderPosition, 44),
+                57
+              )}% 100%, 0 100%)`,
             }}
           >
-            {/* Text */}
-            <div>
-              <h2
-                className="font-36px font-normal text-[#15234E]"
-                style={{
-                  fontSize: `${35 - (sliderPosition / 100) * 16}px`, // Dynamically reduce font size
-                }}
-              >
-                Traditional App
-              </h2>
+            <div className="h-full w-[483px] relative z-50 right-[-37px] mt-[90px]">
+              <Image
+                src="/assets/home/roll-screen/fullMob.png"
+                width={500}
+                height={200}
+                className="h-full absolute object-cover object-top z-10 top-[0px]"
+              />
+
+              <Image
+                src="/assets/home/roll-screen/fullMob.png"
+                width={500}
+                height={200}
+                className="h-full absolute top-[-20px] left-[-17px] pt-[-19px] z-50 object-cover object-top"
+              />
             </div>
-            {/* Image */}
-            <img src={oldWay.src} alt="Traditional Way" className="h-full object-cover object-left" />
+            <p className="absolute left-[120px] top-1/2 text-colorText-main font-36px">
+              App without Horizon Shorts
+            </p>
           </div>
 
-          {/* New Way Section */}
+          {/* Slider Line */}
           <div
-            className="relative flex  items-center justify-between pr-40 pt-2"
+            className={`absolute top-0 w-[6px] h-full bg-white z-50`}
             style={{
-              width: `${100 - sliderPosition}%`, // Right section size based on sliderPosition
-              background: `
-    radial-gradient(circle at 25% 25%, #CCEDFF, transparent 50%),
-    radial-gradient(circle at 75% 25%, #D6CCFF, transparent 50%),
-    radial-gradient(circle at 25% 75%, #FFE8F2, transparent 50%),
-    radial-gradient(circle at 75% 75%, #C9E2FF, transparent 50%)
-  `,
+              left: `${Math.min(Math.max(sliderPosition, 44), 57)}%`,
             }}
-          >
-            {/* Image */}
-            <img src={newWay.src} alt="Horizon Way" className="h-full object-cover object-left"/>
-            {/* Text */}
-            <div>
-              <h2
-                className="font-36px font-normal text-[#15234E]"
-                style={{
-                  fontSize: `${18 + (sliderPosition / 100) * 16}px`, // Dynamically increase font size
-                }}
-              >
-                Horizon Powered App
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Slider */}
-      <div
-        className="slider-container container w-[250px] items-center rounded-[200px] bg-[#F1F4F7] p-5"
-        style={{
-          marginTop: "50px",
-        }}
-      >
-        <div className="slider-container relative flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB] px-2">
-          {/* Active Track */}
-          <div
-            className="absolute left-0 top-0 h-2 rounded-full bg-[#0032FD]"
-            style={{ width: `${sliderPosition}%` }}
           ></div>
 
-          {/* Slider Button */}
+          {/* Right Image */}
           <div
-            className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
-            style={{ left: `${sliderPosition}%` }}
-            onMouseDown={handleMouseDown}
+            className="relative top-[-706px] size-full flex items-center justify-center z-20"
+            style={{
+              clipPath: `polygon(${Math.min(
+                Math.max(sliderPosition, 44),
+                57
+              )}% 0, 100% 0, 100% 100%, ${Math.min(
+                Math.max(sliderPosition, 44),
+                57
+              )}% 100%)`,
+              backgroundImage: "url('/assets/product/Transform/bg-after.svg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
           >
-            <ChevronsLeftRight className="text-white" />
+            <div className="h-full w-[483px] relative mt-[80px] z-50 right-[10px]">
+              <Image
+               src="/assets/home/roll-screen/fullMob2.png"
+                width={500}
+                height={200}
+                className="h-full absolute object-cover object-top z-10 top-[5px] w-full"
+              />
+
+              <Image
+               src="/assets/home/roll-screen/fullMob2.png"
+                width={500}
+                height={200}
+                className="h-full absolute top-[-15px] left-[22px] pt-[-19px] z-[50] object-cover object-top"
+              />
+            </div>
+            <p className="absolute right-[120px] top-1/2 text-colorText-main font-36px">
+              App with Horizon Shorts
+            </p>
+          </div>
+        </div>
+
+        {/* Slider */}
+        <div
+          className="slider-container container w-[262px] items-center rounded-[200px] bg-[#F1F4F7] p-5"
+          style={{ marginTop: "50px" }}
+        >
+          <div className="slider-container relative flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB] mx-auto">
+            {/* Active Track */}
+            <div
+              className="absolute left-0 top-0 h-2 rounded-full bg-[#0032FD]"
+              style={{ width: `${((sliderPosition - 44) / (57 - 44)) * 100}%` }}
+            ></div>
+
+            {/* Slider Button */}
+            <div
+              className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
+              style={{ left: `${((sliderPosition - 44) / (57 - 44)) * 100}%` }}
+              onMouseDown={handleMouseDown}
+            >
+              <ChevronsLeftRight className="text-white" />
+            </div>
           </div>
         </div>
       </div>
