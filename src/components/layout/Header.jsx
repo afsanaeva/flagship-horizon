@@ -1,8 +1,7 @@
 "use client";
 import Nav from "./Nav";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import Logo from "../icons/Logo";
+
 // import Image from "next/image";
 
 export const fadeTop = {
@@ -37,20 +36,9 @@ const Header = () => {
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="w-full py-5 2xl:pb-6 3xl:pb-8 sticky top-0 bg-white z-50"
+      className="sticky top-0 z-50 w-full bg-white py-5 2xl:pb-6 3xl:pb-8"
     >
-      <div className="container-lg flex items-center justify-between">
-        <Link href="/">
-          <Logo className="h-auto w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]" />
-          {/* <Image
-            src={"/assets/logo.png"}
-            alt="Blitz.js"
-            width={181.5}
-            height={52}
-            className="w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]"
-          /> */}
-        </Link>
-
+      <div className="container-lg ">
         <Nav />
       </div>
     </motion.header>

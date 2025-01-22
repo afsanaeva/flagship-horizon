@@ -84,7 +84,7 @@ const RollOut = () => {
             <img
               src={oldWay.src}
               alt="Traditional Way"
-              className="w-full h-full object-cover rounded-l-lg"
+              className="size-full rounded-l-lg object-cover"
             />
           </div>
 
@@ -116,7 +116,7 @@ const RollOut = () => {
             <img
               src={newWay.src}
               alt="Horizon Way"
-              className="h-full w-full rounded-r-lg object-cover"
+              className="size-full rounded-r-lg object-cover"
             />
           </div>
         </div>

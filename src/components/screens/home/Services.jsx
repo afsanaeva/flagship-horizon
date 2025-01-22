@@ -45,7 +45,7 @@ const Services = () => {
         headingClassName="max-[800px]:[&_br]:hidden"
         className="container-lg"
       />
-      <div className="mx-auto max-w-[1920px]">
+      <div className="mx-auto max-w-screen-4xl">
         <Carousel
           opts={{
             align: "start",

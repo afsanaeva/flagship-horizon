@@ -101,7 +101,7 @@ No product<br class='lg:hidden'/> development cost. "
             "(max-width: 768px)": { active: true },
           },
         }}
-        className="mx-auto -mt-4 w-full max-w-[1920px]"
+        className="mx-auto -mt-4 w-full max-w-screen-4xl"
       >
         <motion.ul
           initial="closed"

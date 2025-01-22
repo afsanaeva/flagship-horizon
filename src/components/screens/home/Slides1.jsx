@@ -92,7 +92,7 @@ const Slides1 = () => {
         <Carousel
           ref={carouselRef}
           setApi={setApi}
-          className="pl-72px mx-auto w-full max-w-[1920px]"
+          className="pl-72px mx-auto w-full max-w-screen-4xl"
           plugins={[
             emblaCarouselAutoplay({
               delay: 3000,

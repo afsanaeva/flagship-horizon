@@ -1,5 +1,7 @@
 import Contact from "@/components/screens/contact-us/Contact";
-import PlayIcon from "@/components/icons/PlayIcon";
+import ClockIcon from "@/components/icons/ClockIcon";
+import ClickIcon from "@/components/icons/ClickIcon";
+import ClipBoardIcon from "@/components/icons/ClipBoardIcon";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -14,8 +16,8 @@ export const metadata = {
 
 export default function GetDemo() {
   return (
-    <section className="px-72px mt-96px mb-96px space-y-100px mx-auto max-w-[1850px]">
-      <div className="space-y-20px mx-auto text-center">
+    <section className="px-72px mt-96px mb-96px space-y-100px mx-auto max-w-[1850px] ">
+      <div className="space-y-40px mx-auto text-center">
         <h1 className="font-100px font-semibold text-[#15234E]">
           Interested to see how Horizon Shorts <br />
           will look on your digital assets?
@@ -28,9 +30,11 @@ export default function GetDemo() {
       </div>
 
       <Contact />
-      <h1 className="font-92px font-semibold text-[#15234E]">What to expect</h1>
-      <div className="rounded-[36px] bg-[#F1F4F7] px-40 py-20">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
+      <h1 className="container-lg font-92px font-semibold text-[#15234E]">
+        What to expect
+      </h1>
+      <div className=" rounded-[36px] bg-[#F1F4F7] ">
+        <div className="grid grid-cols-1 gap-10 p-20 md:grid-cols-4">
           <div className="flex flex-col items-start">
             <div className="font-42px mb-2 font-semibold text-[#15234E]">
               Demo <br /> Request <br /> Process
@@ -38,8 +42,10 @@ export default function GetDemo() {
           </div>
           {/* Step 1 */}
           <div className="flex flex-col items-start">
-            <div className="flex justify-between">
-              <PlayIcon />
+            <div className="flex gap-3">
+              <div>
+                <ClockIcon />
+              </div>
               <div>
                 <div className="font-28px mb-2 font-semibold text-[#15234E]">
                   Quick Response
@@ -54,8 +60,11 @@ export default function GetDemo() {
 
           {/* Step 2 */}
           <div className="flex flex-col items-start">
-            <div className="flex justify-between">
-              <PlayIcon />
+            <div className="flex gap-3">
+              <div>
+                {" "}
+                <ClickIcon />
+              </div>
               <div>
                 <div className="font-28px mb-2 font-semibold text-[#15234E]">
                   Tailored Preparation
@@ -70,8 +79,12 @@ export default function GetDemo() {
 
           {/* Step 3 */}
           <div className="flex flex-col items-start">
-            <div className="flex justify-between">
-              <PlayIcon />
+            <div className="flex gap-3">
+              <div>
+                {" "}
+                <ClipBoardIcon />
+              </div>
+
               <div>
                 <div className="font-28px mb-2 font-semibold text-[#15234E]">
                   Looking Ahead
@@ -86,7 +99,7 @@ export default function GetDemo() {
         </div>
       </div>
 
-      <div className="space-y-20px mx-auto text-center">
+      <div className="space-y-40px mx-auto pt-12 text-center">
         <h1 className="font-100px font-semibold text-[#15234E]">
           Become a Super Engagement
           <br />
@@ -94,10 +107,10 @@ export default function GetDemo() {
         </h1>
 
         <div className="flex flex-wrap justify-center gap-4 pb-20 pt-10 ">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="px-8 py-6" variant="default">
             <Link href="/get-demo">Explore Horizon</Link>
           </Button>
-          <Button size="lg" variant="blueOutline" asChild>
+          <Button size="lg" variant="blueOutline" asChild className="px-8 py-[22px]">
             <Link href="/get-demo">Get a demo</Link>
           </Button>
         </div>

@@ -23,7 +23,7 @@ const MonetizeSection = () => {
         styleContainer="text-[#15234E]"
       />
 
-      <div className="flex items-start justify-between w-full gap-6 mt-[100px]">
+      <div className="mt-[100px] flex w-full items-start justify-between gap-6">
         {/* First Image */}
         <motion.div style={{ marginTop: "60px", y: MatrixValue }}>
           <Image

@@ -4,14 +4,14 @@ import React from "react";
 const CuratedForU = () => {
   return (
     <div className="flex-1">
-      <p className="font-22px text-white bg-[#0032FD] rounded-full px-[1.125rem] py-3 w-fit">
+      <p className="font-22px w-fit rounded-full bg-[#0032FD] px-[1.125rem] py-3 text-white">
         Curated For You
       </p>
-      <div className="flex items-center justify-between gap-8 mt-[83px]">
+      <div className="mt-[83px] flex items-center justify-between gap-8">
         {Array.from({ length: 4 }, (_, i) => (
           <div key={i} className="relative">
             <div
-              className={`absolute w-fit h-fit right-[-40px] top-[-60px] z-40 ${
+              className={`absolute right-[-40px] top-[-60px] z-40 size-fit ${
                 i === 1 ? "block" : "hidden"
               } `}
             >
@@ -62,7 +62,7 @@ const CuratedForU = () => {
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-end mt-[45px]">
+      <div className="mt-[45px] flex w-full justify-end">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="55"

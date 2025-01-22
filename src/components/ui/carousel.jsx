@@ -127,7 +127,7 @@ const CarouselContent = React.forwardRef(({ className, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-scroll scrollbar-hide">
+    <div ref={carouselRef} className="scrollbar-hide overflow-scroll">
       <div
         ref={ref}
         className={cn(

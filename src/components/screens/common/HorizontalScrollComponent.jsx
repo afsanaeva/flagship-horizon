@@ -57,7 +57,7 @@ const HorizontalScrollCarousel = ({
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
-      <div className="sticky top-[150px] flex h-screen overflow-hidden flex-col space-y-100px">
+      <div className="space-y-100px sticky top-[150px] flex h-screen flex-col overflow-hidden">
         <div className="flex flex-col gap-[48px]">
           <InfoCard2
             title={title}

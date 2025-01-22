@@ -5,7 +5,7 @@ import AccordionSection from "./AccordionSection";
 const FAQDetails = ({ FAQDetailsData }) => {
   return (
     <div className="container-xl">
-      <h2 className="text-colorText-main font-52px font-normal">
+      <h2 className="font-52px font-normal text-colorText-main">
         Frequently Asked Questions
       </h2>
       <AccordionSection

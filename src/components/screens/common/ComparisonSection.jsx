@@ -34,11 +34,11 @@ const ComparisonSection = () => {
   };
 
   return (
-    <div className="w-full mx-auto mt-[100px]">
-      <div className="w-full bg-[#F1F4F7] h-[706px] relative">
+    <div className="mx-auto mt-[100px] w-full">
+      <div className="relative h-[706px] w-full bg-[#F1F4F7]">
         {/* Left Image */}
         <div
-          className="size-full flex items-center justify-center relative z-10 bg-[#F1F4F7]"
+          className="relative z-10 flex size-full items-center justify-center bg-[#F1F4F7]"
           style={{
             clipPath: `polygon(0 0, ${Math.min(
               Math.max(sliderPosition, 44),
@@ -49,29 +49,29 @@ const ComparisonSection = () => {
             )}% 100%, 0 100%)`,
           }}
         >
-          <div className="h-full w-[483px] relative z-50 right-[-37px] mt-[90px]">
+          <div className="relative right-[-37px] z-50 mt-[90px] h-full w-[483px]">
             <Image
               src="/assets/product/Transform/imageBf1.svg"
               width={500}
               height={200}
-              className="h-full absolute object-cover object-top z-10 top-[0px]"
+              className="absolute top-0 z-10 h-full object-cover object-top"
             />
 
             <Image
               src="/assets/product/Transform/phone.svg"
               width={500}
               height={200}
-              className="h-full absolute top-[-20px] left-[-17px] pt-[-19px] z-50 object-cover object-top"
+              className="absolute left-[-17px] top-[-20px] z-50 h-full object-cover object-top pt-[-19px]"
             />
           </div>
-          <p className="absolute left-[120px] top-1/2 text-colorText-main font-36px">
+          <p className="font-36px absolute left-[120px] top-1/2 text-colorText-main">
             App without Horizon Shorts
           </p>
         </div>
 
         {/* Slider Line */}
         <div
-          className={`absolute top-0 w-[6px] h-full bg-white z-50`}
+          className={"absolute top-0 z-50 h-full w-[6px] bg-white"}
           style={{
             left: `${Math.min(Math.max(sliderPosition, 44), 57)}%`,
           }}
@@ -79,7 +79,7 @@ const ComparisonSection = () => {
 
         {/* Right Image */}
         <div
-          className="relative top-[-706px] size-full flex items-center justify-center z-20"
+          className="relative top-[-706px] z-20 flex size-full items-center justify-center"
           style={{
             clipPath: `polygon(${Math.min(
               Math.max(sliderPosition, 44),
@@ -93,22 +93,22 @@ const ComparisonSection = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="h-full w-[483px] relative mt-[80px] z-50 right-[10px]">
+          <div className="relative right-[10px] z-50 mt-[80px] h-full w-[483px]">
             <Image
               src="/assets/product/Transform/imageAf1.svg"
               width={500}
               height={200}
-              className="h-full absolute object-cover object-top z-10 top-[5px] w-full"
+              className="absolute top-[5px] z-10 size-full object-cover object-top"
             />
 
             <Image
               src="/assets/product/Transform/phone.svg"
               width={500}
               height={200}
-              className="h-full absolute top-[-15px] left-[22px] pt-[-19px] z-[50] object-cover object-top"
+              className="absolute left-[22px] top-[-15px] z-50 h-full object-cover object-top pt-[-19px]"
             />
           </div>
-          <p className="absolute right-[120px] top-1/2 text-colorText-main font-36px">
+          <p className="font-36px absolute right-[120px] top-1/2 text-colorText-main">
             App with Horizon Shorts
           </p>
         </div>
@@ -116,10 +116,11 @@ const ComparisonSection = () => {
 
       {/* Slider */}
       <div
+        // eslint-disable-next-line tailwindcss/no-custom-classname
         className="slider-container container w-[262px] items-center rounded-[200px] bg-[#F1F4F7] p-5"
         style={{ marginTop: "50px" }}
       >
-        <div className="slider-container relative flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB] mx-auto">
+        <div className="slider-container relative mx-auto flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB]">
           {/* Active Track */}
           <div
             className="absolute left-0 top-0 h-2 rounded-full bg-[#0032FD]"

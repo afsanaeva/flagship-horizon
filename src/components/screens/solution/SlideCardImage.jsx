@@ -16,7 +16,7 @@ const SlideCardImage = ({ index, cardImage }) => {
       )}
       style={{ height: "100%" }}
     >
-      <div className="relative w-full rounded-tl-[1.5rem] rounded-tr-[1.5rem] overflow-hidden">
+      <div className="relative w-full overflow-hidden rounded-t-3xl">
         <Image
           src={`/assets/solution/Horizon/${cardImage.image}.svg`}
           alt="slider images"

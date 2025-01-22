@@ -1,71 +1,71 @@
-import Image from 'next/image';
-import React from 'react';
-import VideoPlayer from './VideoPlayer';
+import Image from "next/image";
+import React from "react";
+import VideoPlayer from "./VideoPlayer";
 
 const HandHeroSection = () => {
   return (
-    <div className="relative size-full flex items-center justify-center">
+    <div className="relative flex size-full items-center justify-center">
       <VideoPlayer />
 
       {/* Animated gradient background */}
-      <div className="blur-[226px] absolute top-[-100px] -z-10 w-[1228px] left-1/2 -translate-x-[60%]">
+      <div className="absolute left-1/2 top-[-100px] -z-10 w-[1228px] -translate-x-[60%] blur-[226px]">
         <div
-          className="absolute blur-3xl top-[150px] right-0 -z-10 w-[50vw] h-[457px]"
+          className="absolute right-0 top-[150px] -z-10 h-[457px] w-[50vw] blur-3xl"
           style={{
-            background: '#C3AEFF',
+            background: "#C3AEFF",
             // backgroundSize: '200% 200%',
-            animation: 'gradient 10s ease infinite',
+            animation: "gradient 10s ease infinite",
             // maskImage: 'linear-gradient(to bottom, black, transparent)',
             // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
           }}
         />
         <div
-          className="absolute blur-3xl top-[300px] left-0 ml-auto -z-10 w-[50vw] h-[546px]"
+          className="absolute left-0 top-[300px] -z-10 ml-auto h-[546px] w-[50vw] blur-3xl"
           style={{
-            background: '#9CD5FF',
+            background: "#9CD5FF",
             // backgroundSize: '200% 200%',
-            animation: 'gradient 10s ease infinite',
+            animation: "gradient 10s ease infinite",
             // maskImage: 'linear-gradient(to bottom, black, transparent)',
             // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
           }}
         />
         <div
-          className="absolute blur-3xl bottom-0 left-0 ml-auto -z-10 w-[50vw]"
+          className="absolute bottom-0 left-0 -z-10 ml-auto w-[50vw] blur-3xl"
           style={{
-            background: '#FF9CB4',
+            background: "#FF9CB4",
             // backgroundSize: '200% 200%',
-            animation: 'gradient 10s ease infinite',
+            animation: "gradient 10s ease infinite",
             // maskImage: 'linear-gradient(to bottom, black, transparent)',
             // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
           }}
         />
         <div
-          className="absolute blur-3xl bottom-0 right-0 ml-auto -z-10 w-[50vw]"
+          className="absolute bottom-0 right-0 -z-10 ml-auto w-[50vw] blur-3xl"
           style={{
-            background: '#95D1FC',
+            background: "#95D1FC",
             // backgroundSize: '200% 200%',
-            animation: 'gradient 10s ease infinite',
+            animation: "gradient 10s ease infinite",
             // maskImage: 'linear-gradient(to bottom, black, transparent)',
             // WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
           }}
         />
 
         <div
-          className="absolute inset-0 -z-9"
+          className="-z-9 absolute inset-0"
           style={{
-            background: 'linear-gradient(to left, transparent 10%, white )',
+            background: "linear-gradient(to left, transparent 10%, white )",
           }}
         />
       </div>
 
       <Image
-        src={'/assets/product/Hero/image-1.svg'}
+        src={"/assets/product/Hero/image-1.svg"}
         alt="Hand Hero"
-        className="w-full h-[1100px] pl-[300px] object-fill"
+        className="h-[1100px] w-full object-fill pl-[300px]"
         width={1075}
         height={1179}
       />
-      <div className="absolute left-0 bottom-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0.00)_6.07%,_#FFF_93.93%)] w-full h-[18.75rem]"></div>
+      <div className="absolute bottom-0 left-0 h-[18.75rem] w-full bg-[linear-gradient(180deg,_rgba(255,255,255,0.00)_6.07%,_#FFF_93.93%)]"></div>
     </div>
   );
 };

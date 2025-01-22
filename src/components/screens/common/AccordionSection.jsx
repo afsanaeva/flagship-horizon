@@ -13,7 +13,7 @@ const AccordionSection = ({ AccordionData, style, section, title }) => {
     <section className=" flex-1">
       {title && (
         <h2
-          className="text-colorText-main font-48px font-semibold leading-[100%] mb-[44px]"
+          className="font-48px mb-[44px] font-semibold leading-[100%] text-colorText-main"
           dangerouslySetInnerHTML={{
             __html: title,
           }}
@@ -40,7 +40,7 @@ const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
   return (
     <div className={isLast ? "" : "border-b"}>
       <button
-        className="w-full text-left pt-10 mb-6 flex justify-between items-center focus:outline-none"
+        className="mb-6 flex w-full items-center justify-between pt-10 text-left focus:outline-none"
         onClick={onClick}
       >
         <span className="font-28px font-semibold text-colorText-main">
@@ -57,7 +57,7 @@ const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="pb-8 text-[#505E6B] text-left font-22px">
+            <div className="font-22px pb-8 text-left text-[#505E6B]">
               {children}
             </div>
           </motion.div>
@@ -77,7 +77,7 @@ const AccordionItemLastSection = ({
   return (
     <div className={isLast ? "" : "border-b "}>
       <button
-        className="w-full text-left py-10 flex justify-between items-center focus:outline-none"
+        className="flex w-full items-center justify-between py-10 text-left focus:outline-none"
         onClick={onClick}
       >
         <span className="font-32px font-normal text-colorText-main">
@@ -94,7 +94,7 @@ const AccordionItemLastSection = ({
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="pb-4 text-[#505E6B] text-left font-32px">
+            <div className="font-32px pb-4 text-left text-[#505E6B]">
               {children}
             </div>
           </motion.div>

@@ -5,7 +5,7 @@ import InfoCard2 from "@/components/custom-ui/InfoCard2";
 
 const HeroTitle = ({ MainTitle, SecTitle, styleContainer }) => {
   return (
-    <section className={`space-y-100px mt-12 container-xl `}>
+    <section className={"space-y-100px container-xl mt-12 "}>
       <div
         className={`space-y-40px flex flex-col items-center ${styleContainer}`}
       >
@@ -15,7 +15,7 @@ const HeroTitle = ({ MainTitle, SecTitle, styleContainer }) => {
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h1"
-          headingClassName={`font-100px`}
+          headingClassName={"font-100px"}
         />
         {SecTitle && (
           <InfoCard2

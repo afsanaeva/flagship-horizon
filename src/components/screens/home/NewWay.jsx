@@ -1,21 +1,21 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import { fadeTop } from "@/components/layout/Header";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
+import { fadeTop } from '@/components/layout/Header';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const slides = [
   {
-    plan: "What businesses are doing",
+    plan: 'What businesses are doing',
     subText: `Emailing customers, sending SMS and notifications. It’s transactional, predictable 
 and it works - sometimes. `,
   },
   {
-    plan: "What Big Tech is doing",
+    plan: 'What Big Tech is doing',
     subText:
-      "Big tech is winning by creating experiences that make users hooked - unlocking new engagement and revenue at scale.",
+      'Big tech is winning by creating experiences that make users hooked - unlocking new engagement and revenue at scale.',
   },
 ];
 
@@ -52,17 +52,17 @@ const NewWay = () => {
     <div className="container-md space-y-100px mt-0">
       <div className="space-y-40px text-left ">
         <h1 className="font-100px font-semibold leading-snug">
-          There is a{" "}
+          There is a{' '}
           <span
             style={{
               background:
-                "linear-gradient(270deg, #FF8A93 9.45%, #FF2C72 26.5%, #B51C40 41.84%, #7A1352 56.71%, #1A0760 71.5%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+                'linear-gradient(270deg, #FF8A93 9.45%, #FF2C72 26.5%, #B51C40 41.84%, #7A1352 56.71%, #1A0760 71.5%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
             seismic gap
-          </span>{" "}
+          </span>{' '}
           in <br className="max-sm:hidden" /> how you engage.
         </h1>
         <InfoCard2
@@ -107,7 +107,7 @@ const NewWay = () => {
 
 export default NewWay;
 
-const Slide = ({ plan = "", subText }) => {
+const Slide = ({ plan = '', subText }) => {
   return (
     <motion.li variants={variantsLi}>
       <article
@@ -125,14 +125,14 @@ const Slide = ({ plan = "", subText }) => {
           <Button
             asChild
             size="lg"
-            className="font-24px w-fit rounded-md bg-gradient-to-r from-[#001D7B] via-[#0032FD] to-[#10F0FC]"
+            className="font-24px w-fit rounded-md bg-gradient-to-r from-[#001D7B] via-[#0032FD] to-[#10F0FC] !h-[45px]"
           >
-            <Link href={"/get-demo"}>The New Ways</Link>
+            <Link href={'/get-demo'}>The New Ways</Link>
           </Button>
           <div>
             <div className="mb-5 space-y-2.5 2xl:mb-6 2xl:space-y-3.5 3xl:mb-8 3xl:space-y-4">
               <h3
-                className="font-40px font-normal !leading-none text-[#15234E] "
+                className="font-40px font-semibold !leading-none text-[#15234E] "
                 dangerouslySetInnerHTML={{
                   __html: plan,
                 }}
@@ -151,7 +151,7 @@ const Slide = ({ plan = "", subText }) => {
   );
 };
 
-const Slide2 = ({ plan = "", subText }) => {
+const Slide2 = ({ plan = '', subText }) => {
   return (
     <motion.li variants={variantsLi}>
       <article className="mt-4 flex h-[90%] flex-col justify-between overflow-hidden rounded-[24px] bg-[#F1F4F7]">
@@ -159,14 +159,14 @@ const Slide2 = ({ plan = "", subText }) => {
           <Button
             asChild
             size="lg"
-            className=" font-18px w-fit rounded-md bg-[#15234E]"
+            className="font-18px w-fit rounded-md bg-[#15234E] !h-[32px]"
           >
-            <Link href={"/get-demo"}>Traditional Way</Link>
+            <Link href={'/get-demo'}>Traditional Way</Link>
           </Button>
           <div>
             <div className="mb-5 space-y-2.5 2xl:mb-6 2xl:space-y-3.5 3xl:mb-8 3xl:space-y-4">
               <h3
-                className="font-28px font-normal !leading-none text-[#15234E] "
+                className="font-28px font-semibold !leading-none text-[#15234E] "
                 dangerouslySetInnerHTML={{
                   __html: plan,
                 }}

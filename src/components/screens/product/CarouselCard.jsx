@@ -51,7 +51,7 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="items-center gap-6 container-xl">
+        <CarouselContent className="container-xl items-center gap-6">
           {Array.from({ length: 6 }).map((_, index) => {
             const videoItem = dataVideo?.[index];
             const cardItem = dataCard?.[index];

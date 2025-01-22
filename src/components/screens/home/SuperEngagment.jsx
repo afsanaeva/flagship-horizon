@@ -1,15 +1,15 @@
-"use client";
-import React, { useEffect, useState } from "react";
+'use client';
+import React, { useEffect, useState } from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { motion } from "framer-motion";
+} from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 // import AddIcon from "@/components/icons/AddIcon";
-import { PlusIcon, X } from "lucide-react";
+import { PlusIcon, X } from 'lucide-react';
 // import CrossIcon from "@/components/icons/CrossIcon";
 
 const SuperEngagment = () => {
@@ -20,9 +20,9 @@ const SuperEngagment = () => {
           <span
             style={{
               background:
-                "linear-gradient(90deg, #15234E 16.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+                'linear-gradient(90deg, #15234E 16.26%, #001D7B -21.97%, #0032FD 22.49%, #10F0FC )',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
             How Super Engagement Works.
@@ -49,10 +49,10 @@ const HeroSlides = () => {
       setIsEnd(api?.canScrollNext() === false);
     };
 
-    api?.on("select", checkBounds);
+    api?.on('select', checkBounds);
     checkBounds(); // Initial check
     return () => {
-      api?.off("select", checkBounds);
+      api?.off('select', checkBounds);
     };
   }, [api]);
 
@@ -67,7 +67,7 @@ const HeroSlides = () => {
         opacity: 1,
         y: 0,
         transition: {
-          type: "just",
+          type: 'just',
           duration: 0.5,
           delay: 0.5,
         },
@@ -99,8 +99,8 @@ const HeroSlides = () => {
         <button
           onClick={() => api?.scrollPrev()}
           className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isStart } // Disable button styling
+            'flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200',
+            { 'opacity-50 cursor-not-allowed': isStart } // Disable button styling
           )}
           disabled={isStart}
           aria-label="Previous Slide"
@@ -121,8 +121,8 @@ const HeroSlides = () => {
         <button
           onClick={() => api?.scrollNext()}
           className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isEnd } // Disable button styling
+            'flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200',
+            { 'opacity-50 cursor-not-allowed': isEnd } // Disable button styling
           )}
           disabled={isEnd}
           aria-label="Next Slide"
@@ -149,35 +149,37 @@ const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
   return (
     <CarouselItem
       key={index}
-      className={cn("basis-[65%] md:basis-[25%] items-center flex max-md:pl-3")}
-      style={{ height: "100%" }}
+      className={cn('basis-[65%] md:basis-[25%] items-center flex max-md:pl-3')}
+      style={{ height: '100%' }}
     >
-      <div className="relative mt-8 w-full">
+      <div className="relative mt-8 w-full overflow-hidden rounded-40px">
         {/* Conditionally render the images */}
-        {isBlurred
-          ? (
-          <Image
-            src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
-            alt={title}
-            width={458}
-            height={732}
-            className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
-          />
-            )
-          : (
-          <Image
-            src={`/assets/home/super-engagment/slide-${index + 1}.png`}
-            alt={title}
-            width={458}
-            height={832}
-            className="rounded-40px zoom-in-1-035 w-full cursor-pointer object-contain object-center"
-          />
-            )}
+        {
+  isBlurred 
+    ? (
+        <Image
+          src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
+          alt={title}
+          width={458}
+          height={732}
+          className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+        />
+      ) 
+    : (
+        <Image
+          src={`/assets/home/super-engagment/slide-${index + 1}.png`}
+          alt={title}
+          width={458}
+          height={832}
+          className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+        />
+      )
+}
 
         {/* Action Button */}
         <div
           className={`absolute bottom-6 right-6 cursor-pointer rounded-full p-[5px] ${
-            isBlurred ? "bg-[#ffff] text-[#15234E]" : "bg-[#6c6a6a] text-white"
+            isBlurred ? 'bg-[#ffff] text-[#15234E]' : 'bg-[#6c6a6a] text-white'
           }`}
           onClick={onBlurToggle} // Use parent handler
         >

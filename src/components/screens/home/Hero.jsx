@@ -1,9 +1,9 @@
-"use client";
-import React from "react";
-import { fadeTop } from "@/components/layout/Header";
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { fadeTop } from '@/components/layout/Header';
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -15,7 +15,7 @@ const Hero = () => {
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h1"
-          headingClassName="font-100px font-semibold"
+          headingClassName="font-100px font-semibold text-center text-colorText-main"
         />
         <InfoCard2
           title="Horizon is the first customer engagement platform empowering <br/>  enterprises to deliver big-tech-level engagement at scale."
@@ -23,7 +23,7 @@ const Hero = () => {
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h4"
-          headingClassName="font-28px font-normal"
+          headingClassName="font-28px font-normal text-center text-colorText-main"
         />
         <Button size="lg" asChild className="md:hidden">
           <Link href="/get-demo">Get a demo</Link>

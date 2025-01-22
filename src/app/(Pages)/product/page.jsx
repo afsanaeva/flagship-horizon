@@ -1,3 +1,4 @@
+import { FAQDetailsData } from '@/components/constant/FAQData';
 import FAQDetails from '@/components/screens/common/FAQDetails';
 import HeroTitle from '@/components/screens/common/HeroTitle';
 import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
@@ -103,34 +104,6 @@ export const dataCard = [
     title: 'Individual Stats',
     subText:
       'Detailed performance metrics for each Shorts, including views and reactions.',
-  },
-];
-
-export const FAQDetailsData = [
-  {
-    title: 'How can Shorts improve user engagement on my platform?',
-    content:
-      'Shorts captivate users with immersive, bite-sized content and seamless scrolling, keeping them engaged longer.',
-  },
-  {
-    title: 'What kind of videos can I use with Horizon Shorts?',
-    content:
-      'You can use any high-quality, short-form videos, including product highlights, tutorials, user-generated content, and more.',
-  },
-  {
-    title: 'How does Horizon AI personalize Shorts for each user?',
-    content:
-      'Horizon AI analyzes user behavior and preferences to deliver tailored, highly relevant video recommendations.',
-  },
-  {
-    title: 'Can I monetize my Shorts with ads or e-commerce features?',
-    content:
-      'Yes, Shorts support targeted ads and shoppable features, turning engagement into revenue opportunities.',
-  },
-  {
-    title: 'Is Horizon Shorts compatible with both mobile apps and websites?',
-    content:
-      'Absolutely, Shorts seamlessly integrate into both mobile and web platforms for a consistent user experience.',
   },
 ];
 

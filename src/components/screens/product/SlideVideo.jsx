@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/classnames-order */
 "use client";
 
 import React from "react";
@@ -15,7 +16,7 @@ const SlideVideo = ({ title, index, dataVideo }) => {
       )}
       style={{ height: "100%" }}
     >
-      <div className="relative w-full rounded-tl-[1.5rem] rounded-tr-[1.5rem] overflow-hidden">
+      <div className="relative w-full rounded-t-3xl overflow-hidden">
         <Image
           src={`/assets/product/slider-videos/slide-${index + 1}.png`}
           alt={title}

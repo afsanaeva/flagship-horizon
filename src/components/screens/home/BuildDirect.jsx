@@ -1,16 +1,16 @@
-"use client";
-import React from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import Img from "../../../../public/assets/home/hero/build.png";
+'use client';
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
+import Img from '../../../../public/assets/home/hero/build.png';
 // import ImgMobile from "../../../../public/assetsassets/home/hero/build.png";
 
 const BuildDirect = () => {
   return (
     <div className="space-y-20px mx-10">
       <div className="container-md relative">
-        <div className="zoom-in-1-035  ">
+        <div className="">
           <Image src={Img} alt="create experiences" className="max-sm:hidden" />
           <Image
             src={Img}

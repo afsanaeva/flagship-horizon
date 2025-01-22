@@ -1,3 +1,5 @@
+/* eslint-disable tailwindcss/enforces-shorthand */
+/* eslint-disable tailwindcss/classnames-order */
 import React from "react";
 import Image from "next/image";
 
@@ -19,7 +21,7 @@ const SeamlessSocialSection = () => {
           <div className="bg-white px-[36px] pt-[36px] rounded-[32px] col-span-4 flex flex-col gap-[60px] items-center justify-end">
             <p className="font-28px text-[#67788A] font-semibold !leading-[120%]">
               <span className="text-colorText-main">Let users React:</span>
-              {` `}
+              {" "}
               Understand what resonates with your audience by tracking their
               reactions and shared content.
             </p>
@@ -33,7 +35,7 @@ const SeamlessSocialSection = () => {
           <div className="bg-white px-[36px] pt-[36px] pb-[59px] rounded-[32px] col-span-4 flex flex-col gap-[60px] items-center">
             <p className="font-28px text-[#67788A] font-semibold !leading-[120%]">
               <span className="text-colorText-main">Let users Comment:</span>
-              {` `} Gain valuable insights into user sentiment through
+              {" "} Gain valuable insights into user sentiment through
               meaningful conversations.
             </p>
             <div
@@ -58,7 +60,7 @@ const SeamlessSocialSection = () => {
               <span className="text-colorText-main">
                 Let users Answer Polls:
               </span>
-              {` `}
+              {" "}
               Gather zero-party data and uncover user preferences with
               interactive polls.
             </p>

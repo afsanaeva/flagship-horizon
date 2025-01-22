@@ -23,7 +23,7 @@ const AiPoweredSection = () => {
 
   return (
     <div className="bg-[#F1F4F7]">
-      <div className="py-[100px] container-xl space-y-100px">
+      <div className="container-xl space-y-100px py-[100px]">
         <div className="flex flex-col gap-12">
           <h1
             className="font-100px font-bold leading-snug text-colorText-main"

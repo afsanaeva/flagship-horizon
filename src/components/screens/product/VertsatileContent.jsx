@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 "use client";
 
 import Image from "next/image";
@@ -24,7 +25,7 @@ const VertsatileContent = () => {
   ];
 
   return (
-    <div className="flex flex-col items-start space-y-[4rem] flex-1 self-start">
+    <div className="flex flex-1 flex-col items-start space-y-16 self-start">
       {dataVert.map((item, index) => (
         <motion.div
           key={index}
@@ -33,9 +34,9 @@ const VertsatileContent = () => {
           transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.2 }}
           viewport={{ once: false }}
         >
-          <div className="flex flex-col items-start gap-[0.875rem]">
+          <div className="flex flex-col items-start gap-3.5">
             <Image src={item.icon} alt={item.span} width={52} height={52} />
-            <div className="flex flex-col max-w-[570px]">
+            <div className="flex max-w-[570px] flex-col">
               <p className="font-28px font-weight-400 text-[#67788A]">
                 <span className="text-colorText-main">{item.span}</span>{" "}
                 {item.text}

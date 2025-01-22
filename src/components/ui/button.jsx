@@ -9,11 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#005AFF] text-white hover:opacity-90",
+        default: "bg-[#0032FD] text-white hover:opacity-90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-[#0F62FE] bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-[#0032FD] bg-background hover:bg-accent hover:text-accent-foreground",
         outlineSecondary: "border border-[#1C2B33] hover:bg-gray-100/30",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
@@ -21,7 +21,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         none: "",
         blueOutline:
-          "rounded-full border-2 border-[#34485414] bg-white text-[#005AFF] hover:bg-gray-50",
+          "rounded-full border-2 border-[#34485414] bg-white text-[#0032FD] hover:bg-gray-50",
       },
       size: {
         default: "h-10 px-4 py-2",

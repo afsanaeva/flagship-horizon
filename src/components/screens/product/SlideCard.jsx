@@ -20,12 +20,12 @@ const SlideCard = ({ title, index, dataCard }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="flex flex-col gap-[0.75rem]">
+      <div className="flex flex-col gap-3">
         <ImageIcons src={dataCard.icon} title={title} colorstyle={colorstyle} />
         <p className="text-[2rem] font-normal leading-[120%] tracking-tighter ">
           {dataCard.title}
         </p>
-        <span className={` font-24px`}>{dataCard.subText}</span>
+        <span className={" font-24px"}>{dataCard.subText}</span>
       </div>
     </CarouselItem>
   );

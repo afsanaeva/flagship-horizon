@@ -6,8 +6,8 @@ const HorizonConsole = () => {
   const intro =
     "Effortlessly create, manage, and optimize your Shorts in one place.";
   return (
-    <section className="px-[120px] w-full h-full">
-      <div className="text-center flex flex-col gap-12">
+    <section className="size-full px-[120px]">
+      <div className="flex flex-col gap-12 text-center">
         <h1
           className="font-100px font-bold leading-snug text-colorText-main"
           dangerouslySetInnerHTML={{ __html: title }}

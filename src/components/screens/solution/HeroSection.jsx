@@ -1,5 +1,5 @@
 import React from "react";
-import HeroTitle from "../common/HeroTitle";
+// import HeroTitle from "../common/HeroTitle";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -11,16 +11,16 @@ const HeroSection = () => {
 
   return (
     <div
-      className="relative w-full flex items-center justify-center min-h-screen"
+      className="relative flex min-h-screen w-full items-center justify-center"
       style={{
-        backgroundImage: `url(/assets/solution/imageHero.svg)`,
+        backgroundImage: "url(/assets/solution/imageHero.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
-      <div className="absolute inset-0 w-full h-screen bg-[#0000005C]"></div>
-      <div className="relative z-10 px-120px flex flex-col items-center gap-7">
+      <div className="absolute inset-0 h-screen w-full bg-[#0000005C]"></div>
+      <div className="px-120px relative z-10 flex flex-col items-center gap-7">
         <h1
           className="font-100px font-bold leading-snug text-white"
           dangerouslySetInnerHTML={{
@@ -28,7 +28,7 @@ const HeroSection = () => {
           }}
         ></h1>
         <p
-          className="text-white font-28px basis-[20%] text-center"
+          className="font-28px basis-1/5 text-center text-white"
           dangerouslySetInnerHTML={{ __html: intro }}
         ></p>
         <div className="flex flex-wrap justify-center gap-4 ">
