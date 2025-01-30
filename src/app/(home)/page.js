@@ -15,9 +15,12 @@ import Unlock from '@/components/screens/home/Unlock';
 import HorizonApp from '@/components/screens/home/HorizonApp';
 import ProDisplay from '@/components/screens/home/ProDisplay';
 import RolloutComparisonSection from '@/components/screens/common/RolloutComparisonSection';
-import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
+// import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
 import GetAFreeDemo from '@/components/screens/home/GetAFreeDemo';
 import { FAQDetailsDataHome } from '@/components/constant/FAQData';
+import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
+import BuildDirectMobile from '@/components/screens/home/BuildDirectMobile';
+import CustomHorizonApp from '@/components/screens/common/CustomHorizonApp';
 
 export const metadata = {
   title: 'Horizon | Super Engagement Platform',
@@ -47,29 +50,32 @@ export default function Home() {
     <main>
       <div className="space-y-200px mb-200px">
         <Hero />
-        {/* <AiVideoEngagement /> */}
         <VideoAnimation videoSrc="/assets/videos/animationVideo.mp4" />
         <NewWay />
         <MeetHorizon />
-        <HorizonApp />
+        <CustomHorizonApp
+          Title="Turn your apps and websites into hubs <br/> of unforgettable engagement."
+          intro="Traditional engagement relies on mostly static contents, with Horizon it looks a bit different."
+          ImageBefore="/assets/home/roll-screen/fullMob.png"
+          TextBefore="Traditional App"
+          ImageAfter="/assets/home/roll-screen/fullMob2.png"
+          TextAfter="Horizon Powered App"
+        />
+
         <Dazzle />
         <Unlock />
         <SuperEngagment />
         <BuildDirect />
+        <BuildDirectMobile />
         <ProDisplay />
-        {/* <RollOut /> */}
         <RolloutComparisonSection />
-        {/* <HorizonLive /> */}
         <HorizonLive
           title="See Horizon’s magic live, experience <br class='max-md:hidden'/> what it can do for your business."
           intro="We’re already delivering super engagement on some of the world’s leading platforms. <br/> Explore live engagement stats from digital platforms powered by Horizon today."
         />
 
         <GetAFreeDemo title="Accelerate your growth. <br class='max-md:hidden'/> Experience Horizon for free." />
-        {/* <FAQDetails /> */}
         <FAQDetails FAQDetailsData={FAQDetailsDataHome} />
-        {/* <PricingPlan />
-         */}
       </div>
     </main>
   );

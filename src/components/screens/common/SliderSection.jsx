@@ -1,6 +1,6 @@
-import React from "react";
-import CarouselCard from "../product/CarouselCard";
-import HeroTitle from "./HeroTitle";
+import React from 'react';
+import CarouselCard from '../product/CarouselCard';
+import HeroTitle from './HeroTitle';
 
 const SliderSection = ({
   title,
@@ -11,11 +11,11 @@ const SliderSection = ({
   styleHeroTitle,
 }) => {
   return (
-    <div className="">
+    <div className="flex flex-col gap-12">
       <HeroTitle
         MainTitle={title}
         SecTitle={intro}
-        styleContainer={`mb-[100px] ${styleHeroTitle}`}
+        styleContainer={`${styleHeroTitle}`}
       />
       <CarouselCard
         dataVideo={dataVideo}

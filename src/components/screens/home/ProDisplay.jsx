@@ -12,40 +12,46 @@ import screen5 from '../../../../public/assets/home/pro/adj-5.png';
 import screen6 from '../../../../public/assets/home/pro/adj-6.png';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 
 const ProDisplay = () => {
+  const { isMobile } = useDeviceSize();
+
   const animations = {
     screen1: {
-      initial: { left: '40%', top: '45%' },
-      final: { left: '-85px', top: '350px' },
+      initial: { left: '20%', top: '45%' },
+      final: { left: isMobile ? '-3%' : '-5%', top: isMobile ? '45%' : '45%' },
     },
     screen2: {
-      initial: { left: '30%', bottom: '40%' },
-      final: { left: '-5%', bottom: '1%' },
+      initial: { left: '30%', bottom: '10%' },
+      final: {
+        left: isMobile ? '-5%' : '-5%',
+        bottom: isMobile ? '-10%' : '1%',
+      },
     },
     screen3: {
-      initial: { right: '40%', bottom: '40%' },
-      final: { right: '0', bottom: '0' },
+      initial: { right: '30%', bottom: '10%' },
+      final: { right: '0', bottom: isMobile ? '-8%' : '0%' },
     },
     screen4: {
-      initial: { right: '35%', top: '35%' },
-      final: { right: '1%', top: '22%' },
+      initial: { right: '25%', top: '35%' },
+      final: { right: isMobile ? '4%' : '1%', top: isMobile ? '22%' : '22%' },
     },
     screen5: {
-      initial: { left: '40%', top: '30%' },
-      final: { left: '351px', top: '53px' },
+      initial: { left: '25%', top: '30%' },
+      final: { left: isMobile ? '18%' : '15%', top: isMobile ? '5%' : '5%' },
     },
     screen6: {
       initial: { right: '35%', top: '25%' },
-      final: { right: '10%', top: '0' },
+      final: { right: isMobile ? '15%' : '10%', top: isMobile ? '0' : '0' },
     },
   };
 
   return (
     <>
       {/* Header Section */}
-      <section className="space-y-100px mt-12">
-        <div className="space-y-40px flex flex-col items-center">
+      <section className="space-y-100px mt-12 ">
+        <div className="space-y-40px flex flex-col items-center px-6">
           <InfoCard2
             title="Create and launch super engagements <br/> effortlessly with Horizon Console."
             initial={{ opacity: 0, y: 50 }}
@@ -65,7 +71,7 @@ const ProDisplay = () => {
         </div>
       </section>
 
-      <section className="container-lg h-screen relative flex items-end justify-center py-16">
+      <section className="container-lg md:h-screen h-full relative flex items-end justify-center md:py-16 pt-[84px] !mt-16 md:mt-auto">
         <div
           className="absolute inset-0 blur-3xl"
           style={{
@@ -81,7 +87,7 @@ const ProDisplay = () => {
 
         {/* Animated Image Elements */}
         <motion.div
-          className="absolute w-[487px]"
+          className="absolute w-[120px] md:w-[487px]"
           initial={animations.screen1.initial}
           whileInView={animations.screen1.final}
           viewport={{ once: true, amount: 'all' }}
@@ -91,7 +97,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[644px]"
+          className="absolute w-[159px] md:w-[544px] 3xl:w-[644px]"
           initial={animations.screen2.initial}
           whileInView={animations.screen2.final}
           viewport={{ once: true, amount: 'all' }}
@@ -101,7 +107,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[513px]"
+          className="absolute w-[127px] md:w-[513px]"
           initial={animations.screen3.initial}
           whileInView={animations.screen3.final}
           viewport={{ once: true, amount: 'all' }}
@@ -116,11 +122,11 @@ const ProDisplay = () => {
           alt="Main Display"
           width={679}
           height={400}
-          className="rounded-lg"
+          className="md:w-[400px] 2xl:w-[479px] 3xl:w-[679px] w-[172px]"
         />
 
         <motion.div
-          className="absolute w-[526px]"
+          className="absolute w-[130px] md:w-[500px] 3xl:w-[526px]"
           initial={animations.screen4.initial}
           whileInView={animations.screen4.final}
           viewport={{ once: true, amount: 'all' }}
@@ -130,7 +136,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[491px]"
+          className="absolute w-[127px] md:w-[491px]"
           initial={animations.screen5.initial}
           whileInView={animations.screen5.final}
           viewport={{ once: true, amount: 'all' }}
@@ -140,7 +146,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[513px]"
+          className="absolute w-[127px] md:w-[513px]"
           initial={animations.screen6.initial}
           whileInView={animations.screen6.final}
           viewport={{ once: true, amount: 'all' }}

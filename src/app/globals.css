@@ -86,6 +86,9 @@
   .pl-72px {
     @apply pl-4 md:pl-8 xl:pl-12 2xl:pl-14 3xl:pl-[72px];
   }
+  .pl-120px {
+    @apply pl-6 md:pl-8 xl:pl-12 2xl:pl-[72px] 3xl:pl-[120px];
+  }
   .px-48px {
     @apply px-4 md:px-7 xl:px-9 2xl:px-10 3xl:px-12;
   }
@@ -98,11 +101,11 @@
 
   /* LAYOUT CLASSES */
   .container-xs {
-    @apply 3xl:max-w-[1680px] w-full mx-auto px-48px;
+    @apply 3xl:max-w-[1680px] 3xl:px-0 w-full mx-auto lg:px-48px px-6;
   }
 
   .container-sm {
-    @apply 3xl:max-w-[1740px] w-full mx-auto px-48px;
+    @apply 3xl:max-w-[1740px] w-full mx-auto lg:px-48px px-6;
   }
 
   .container-md {
@@ -114,7 +117,7 @@
   }
 
   .container-xl {
-    @apply 3xl:max-w-[1920px] w-full mx-auto px-120px;
+    @apply 3xl:max-w-[1920px] w-full mx-auto lg:px-120px px-6;
   }
 
   /* FONT CLASSES */
@@ -134,29 +137,29 @@
     @apply tracking-[-0.26px] leading-snug  text-[18px] xs:text-[20px] md:text-[16px] 2xl:text-[18px] 3xl:text-[24px];
   }
   .font-28px {
-    @apply tracking-[-0.03em] leading-[1.1] text-[24px] xs:text-[28px] md:text-[21px] 3xl:text-[28px];
+    @apply leading-[130%] text-[22px] md:text-[21px] 3xl:text-[28px];
   }
   .font-32px {
-    @apply tracking-[-1px] leading-[1.2] text-[10vw] xs:text-[32px] md:text-[24px] 2xl:text-[28px] 3xl:text-[32px];
+    @apply tracking-[-1px] leading-[1.2] text-[28px] 2xl:text-[28px] 3xl:text-[32px];
   }
   .font-36px {
-    @apply tracking-[-0.03em] leading-[1.1] text-[32px] xs:text-[36px] md:text-[30px] 3xl:text-[36px];
+    @apply tracking-[-0.03em] leading-[1.1] text-[18px] md:text-[30px] 3xl:text-[36px];
   }
   .font-40px {
-    @apply leading-[1.05] text-[28px] xs:text-[32px] md:text-[24px] 2xl:text-[32px] 3xl:text-[40px];
+    @apply leading-[1.05] text-[22px] md:text-[24px] 2xl:text-[32px] 3xl:text-[40px];
   }
   .font-42px {
-    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[36px] 3xl:text-[42px];
+    @apply tracking-[-2px] leading-[1.05] text-[40px] md:text-[40px] 2xl:text-[40px] 3xl:text-[42px];
   }
   .font-48px {
     @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[42px] md:text-[28px] 2xl:text-[42px] 3xl:text-[48px];
   }
   .font-52px {
-    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[52px] md:text-[36px] 2xl:text-[48px] 3xl:text-[52px];
+    @apply leading-[100%] md:leading-normal text-[40px] 2xl:text-[48px] 3xl:text-[52px];
   }
   /* generate class for font-64px where 3xl:text-[64px] the sizing should be different on different breakpoints */
   .font-64px {
-    @apply tracking-[-2px] leading-[1.05] text-[32px] xs:text-[40px] lg:text-[40px] 2xl:text-[48px] 3xl:text-[64px];
+    @apply tracking-[-2px] leading-[1.05] text-[56px] 2xl:text-[60px] 3xl:text-[64px];
   }
 
   .font-72px {
@@ -167,14 +170,17 @@
   }
 
   .font-92px {
-    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[60px] 2xl:text-[68px] 3xl:text-[92px];
+    @apply md:tracking-[-2.76px] tracking-[-1.68px] leading-[1.05] text-[56px] 2xl:text-[68px] 3xl:text-[92px];
   }
 
   .font-96px {
     @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[64px] 2xl:text-[72px] 3xl:text-[96px];
   }
   .font-100px {
-    @apply tracking-[-2px] leading-[1.05] text-[14vw] xs:text-[68px] 2xl:text-[76px] 3xl:text-[100px];
+    @apply md:tracking-[-3px] tracking-[-1.68px] leading-[1.05] text-[56px] 2xl:text-[76px] 3xl:text-[100px];
+  }
+  .fontHero-100px {
+    @apply md:tracking-[-3px] tracking-[-2.04px] leading-[100%] text-[68px] 2xl:text-[76px] 3xl:text-[100px];
   }
   /* .font-120px {
     @apply tracking-tight leading-[0.925] text-[11vw] xs:text-[48px] md:text-[88px] 2xl:text-[100px] 3xl:text-[120px];
@@ -190,7 +196,7 @@
   }
 
   .font-300px {
-    @apply tracking-[-2px] leading-[1.05] text-[50vw] xs:text-[200px] 2xl:text-[250px] 3xl:text-[300px];
+    @apply tracking-[-2px] leading-[1.05] text-[76px] lg:text-[170px] 2xl:text-[190px] 3xl:text-[300px];
   }
 
   /* SPACING CLASSES */
@@ -318,4 +324,8 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.slider-container .slider-button {
+  transition: left 1s ease-in-out;
 }

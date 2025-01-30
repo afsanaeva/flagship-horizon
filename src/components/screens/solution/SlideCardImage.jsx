@@ -1,20 +1,17 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { CarouselItem } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { CarouselItem } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 const SlideCardImage = ({ index, cardImage }) => {
-  console.log("🚀 ~ SlideCardImage ~ cardImage:", cardImage);
   return (
     <CarouselItem
       key={index}
-      className={cn(
-        "basis-[65%] md:basis-[25%] items-start flex flex-col gap-7"
-      )}
-      style={{ height: "100%" }}
+      className={cn('basis-[65%] md:basis-[25%] items-start flex flex-col')}
+      style={{ height: '100%' }}
     >
       <div className="relative w-full overflow-hidden rounded-t-3xl">
         <Image

@@ -10,12 +10,13 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 // import AddIcon from "@/components/icons/AddIcon";
 import { PlusIcon, X } from 'lucide-react';
+import NavigationButtons from '@/components/ui/NavigationButtons';
 // import CrossIcon from "@/components/icons/CrossIcon";
 
 const SuperEngagment = () => {
   return (
-    <section className="container-lg mx-5">
-      <div className="space-y-40px text-left">
+    <section>
+      <div className="space-y-40px container-xs text-left">
         <h1 className="font-92px font-semibold leading-snug">
           <span
             style={{
@@ -80,10 +81,11 @@ const HeroSlides = () => {
         opts={{
           loop: false, // Disable infinite scrolling
           dragFree: true,
+          containScroll: 'trimSnaps',
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="items-center py-6">
+        <CarouselContent className="items-center py-6 md:gap-7 gap-5 pl-120px">
           {Array.from({ length: 5 }).map((_, index) => (
             <Slide
               key={index}
@@ -95,52 +97,7 @@ const HeroSlides = () => {
         </CarouselContent>
       </Carousel>
       {/* Navigation Buttons */}
-      <div className="absolute right-4 mr-10 flex gap-2">
-        <button
-          onClick={() => api?.scrollPrev()}
-          className={cn(
-            'flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200',
-            { 'opacity-50 cursor-not-allowed': isStart } // Disable button styling
-          )}
-          disabled={isStart}
-          aria-label="Previous Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <button
-          onClick={() => api?.scrollNext()}
-          className={cn(
-            'flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200',
-            { 'opacity-50 cursor-not-allowed': isEnd } // Disable button styling
-          )}
-          disabled={isEnd}
-          aria-label="Next Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
+      <NavigationButtons api={api} isStart={isStart} isEnd={isEnd} />
     </motion.div>
   );
 };
@@ -149,32 +106,29 @@ const Slide = ({ title, image, index, isBlurred, onBlurToggle }) => {
   return (
     <CarouselItem
       key={index}
-      className={cn('basis-[65%] md:basis-[25%] items-center flex max-md:pl-3')}
+      className={cn('basis-[65%] md:basis-[25%] items-center flex')}
       style={{ height: '100%' }}
     >
       <div className="relative mt-8 w-full overflow-hidden rounded-40px">
         {/* Conditionally render the images */}
-        {
-  isBlurred 
-    ? (
-        <Image
-          src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
-          alt={title}
-          width={458}
-          height={732}
-          className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
-        />
-      ) 
-    : (
-        <Image
-          src={`/assets/home/super-engagment/slide-${index + 1}.png`}
-          alt={title}
-          width={458}
-          height={832}
-          className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
-        />
-      )
-}
+        {/* eslint-disable  */}
+        {isBlurred ? (
+          <Image
+            src={`/assets/home/super-engagment/blurImg${index + 1}.png`}
+            alt={title}
+            width={458}
+            height={732}
+            className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+          />
+        ) : (
+          <Image
+            src={`/assets/home/super-engagment/slide-${index + 1}.png`}
+            alt={title}
+            width={458}
+            height={832}
+            className="zoom-in-1-035 w-full cursor-pointer object-contain object-center"
+          />
+        )}
 
         {/* Action Button */}
         <div

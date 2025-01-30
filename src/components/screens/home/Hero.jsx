@@ -2,32 +2,43 @@
 import React from 'react';
 import { fadeTop } from '@/components/layout/Header';
 import InfoCard2 from '@/components/custom-ui/InfoCard2';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 
 const Hero = () => {
+  const { isMobile } = useDeviceSize();
+
+  const title = isMobile
+    ? 'Skyrocket Your Customer Engagement. Grow Infinite.'
+    : 'Skyrocket Your Customer <br/> Engagement. Grow Infinite.';
+  const subText = isMobile
+    ? 'Horizon is the first customer engagement platform empowering enterprises to deliver big-tech-level engagement at scale.'
+    : 'Horizon is the first customer engagement platform empowering <br/>  enterprises to deliver big-tech-level engagement at scale.';
   return (
-    <section className="space-y-100px mt-12">
+    <section className="md:mt-[165px] mt-20">
       <div className="space-y-40px flex flex-col items-center">
         <InfoCard2
-          title="Skyrocket Your Customer <br/> Engagement. Grow Infinite."
+          title={title}
           initial={{ opacity: 0, y: 50 }}
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h1"
-          headingClassName="font-100px font-semibold text-center text-colorText-main"
+          headingClassName="fontHero-100px font-semibold text-center text-colorText-main"
         />
         <InfoCard2
-          title="Horizon is the first customer engagement platform empowering <br/>  enterprises to deliver big-tech-level engagement at scale."
+          title={subText}
           initial={{ opacity: 0, y: 50 }}
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h4"
           headingClassName="font-28px font-normal text-center text-colorText-main"
         />
-        <Button size="lg" asChild className="md:hidden">
+        {/* <Button
+          size="lg"
+          asChild
+          className="hidden md:flex items-center justify-center"
+        >
           <Link href="/get-demo">Get a demo</Link>
-        </Button>
+        </Button> */}
       </div>
     </section>
   );

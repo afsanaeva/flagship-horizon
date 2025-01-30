@@ -40,17 +40,18 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className="max-md:hidden">
-      <div className="flex justify-between space-x-4">
-        <Link href="/header">
+    <nav className="">
+      <div className="flex justify-between space-x-4 last:items-center">
+        <Link href="/">
           <Logo className="h-auto w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]" />
         </Link>
-        <div className="flex space-x-4">
+        <div className="gap-[3.125rem] hidden md:flex">
           <Link
             href="/product"
             className={cn(
               buttonVariants({ variant: 'none', size: 'lg' }),
-              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+              `${pathname === '/product' && 'font-semibold'}`,
+              "!w-fit relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
             )}
           >
             Products
@@ -59,32 +60,49 @@ const Nav = () => {
             href="/solution"
             className={cn(
               buttonVariants({ variant: 'none', size: 'lg' }),
-              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+              `${pathname === '/solution' && 'font-semibold'}`,
+              "!w-fit relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
             )}
           >
             Solutions
           </Link>
           <Link
-            href="/faq"
+            href="/aboutus"
             className={cn(
               buttonVariants({ variant: 'none', size: 'lg' }),
-              "!px-4 relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
+              `${pathname === '/aboutus' && 'font-semibold'}`,
+              "!w-fit relative after:content-[''] after:bg-primary after:absolute after:h-0.5 after:bottom-0 after:transition-all after:duration-500 after:inset-x-0 after:ease-in-out after:w-0 after:hover:w-full z-50"
             )}
           >
             About Us
           </Link>
         </div>
-
+        <div className="md:hidden block cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="64"
+            height="64"
+            viewBox="0 0 64 64"
+            fill="none"
+          >
+            <path
+              d="M12.5714 38.8569V36.202H51.4286V38.8569H12.5714ZM12.5714 27.7967V25.1426H51.4286V27.7967H12.5714Z"
+              fill="#15234E"
+            />
+          </svg>
+        </div>
         {/* <Button variant="outline" size="lg" asChild>
           <Link href={"/login"}>Log in</Link>
         </Button> */}
-
-          {(
-            pathname !== '/thank-you' &&
-            pathname !== '/get-demo' &&
-            pathname !== '/privacy-policy'
-          ) && (
-            <Button size="lg" asChild>
+        {/* eslint-disable */}
+        {pathname !== '/thank-you' &&
+          pathname !== '/get-demo' &&
+          pathname !== '/privacy-policy' && (
+            <Button
+              size="lg"
+              asChild
+              className="!w-[132px] !h-[42px] !text-[20px] hidden md:flex items-center justify-center"
+            >
               <Link href={'/get-demo'}>Get a demo</Link>
             </Button>
           )}

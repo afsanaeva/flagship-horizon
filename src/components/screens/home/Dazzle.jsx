@@ -8,64 +8,83 @@ import handMobile2 from '../../../../public/assets/home/dazzle/mobScreen3.png';
 import handMobile1 from '../../../../public/assets/home/dazzle/mobScreen4.png';
 import InfoCard2 from '@/components/custom-ui/InfoCard2';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const Dazzle = () => {
-  const { scrollYProgress } = useScroll();
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'], // Customize how progress is calculated
+  });
 
-  // First image/text: Stay visible until 0.27, then fade out after 0.3
-  const opacity1 = useTransform(scrollYProgress, [0, 0.27, 0.3], [1, 1, 0]); // Fade out after 0.27
+  // First image/text
+  const opacity1 = useTransform(scrollYProgress, [0, 0.3, 0.35], [1, 1, 0]);
+  const opacity2 = useTransform(
+    scrollYProgress,
+    [0.3, 0.32, 0.4, 0.45],
+    [0, 0.8, 1, 0]
+  );
+  const opacity3 = useTransform(
+    scrollYProgress,
+    [0.4, 0.42, 0.5, 0.55],
+    [0, 0.8, 1, 0]
+  );
+  const opacity4 = useTransform(
+    scrollYProgress,
+    [0.5, 0.52, 0.65],
+    [0, 0.8, 1]
+  );
+
+  // First image/text
   const translateY1 = useTransform(
     scrollYProgress,
-    [0, 0.27, 0.3],
-    ['0%', '0%', '-50%']
-  ); // Stay centered until 0.27, then move up
+    [0.2, 0.25, 0.3],
+    ['0%', '-80%', '-100%'] // Smooth movement up
+  );
   const display1Text = useTransform(
     scrollYProgress,
-    [0.26, 0.27, 0.28],
-    ['none', 'block', 'none']
-  ); // Display text until 0.27
+    [0.2, 0.25, 0.3],
+    ['none', 'block', 'none'] // Hide before the next text appears
+  );
 
-  // Second image/text: Fade in right after first one
-  const opacity2 = useTransform(scrollYProgress, [0.27, 0.29, 0.32], [0, 1, 0]); // Fade in between 0.27 and 0.29, then fade out after 0.32
+  // Second image/text
   const translateY2 = useTransform(
     scrollYProgress,
-    [0.27, 0.29, 0.32],
-    ['50%', '0%', '-50%']
-  ); // Start below, move to center
+    [0.3, 0.35, 0.4],
+    ['0%', '-80%', '-100%'] // Smooth movement up
+  );
   const display2Text = useTransform(
     scrollYProgress,
-    [0.28, 0.29, 0.291],
-    ['none', 'block', 'none']
-  ); // Display text between 0.27 and 0.32
+    [0.3, 0.35, 0.4],
+    ['none', 'block', 'none'] // Only visible during this range
+  );
 
-  // Third image/text: Fade in after second image, with a small increment
-  const opacity3 = useTransform(scrollYProgress, [0.29, 0.31, 0.34], [0, 1, 0]); // Fade in between 0.29 and 0.31, then fade out after 0.34
+  // Third image/text
   const translateY3 = useTransform(
     scrollYProgress,
-    [0.29, 0.31, 0.34],
-    ['50%', '0%', '-50%']
-  ); // Start below, move to center
+    [0.4, 0.45, 0.5],
+    ['0%', '-50%', '-100%'] // Smooth movement up
+  );
   const display3Text = useTransform(
     scrollYProgress,
-    [0.29, 0.31, 0.34],
-    ['none', 'block', 'none']
-  ); // Display text between 0.29 and 0.34
+    [0.4, 0.45, 0.5],
+    ['none', 'block', 'none'] // Only visible during this range
+  );
 
-  // Fourth image/text: Appear after the third, with a small increment
-  const opacity4 = useTransform(scrollYProgress, [0.31, 0.33, 0.36], [0, 1, 1]); // Fade in between 0.31 and 0.33, stays visible after 0.36
+  // Fourth image/text
   const translateY4 = useTransform(
     scrollYProgress,
-    [0.31, 0.33, 0.36],
-    ['50%', '0%', '-50%']
-  ); // Start below, move to center
+    [0.5, 0.65, 0.75],
+    ['0%', '-80%', '-100%'] // Smooth movement up
+  );
   const display4Text = useTransform(
     scrollYProgress,
-    [0.31, 0.33, 0.36],
-    ['none', 'block', 'none']
-  ); // Display text between 0.31 and 0.36
+    [0.5, 0.65, 0.75],
+    ['none', 'block', 'none'] // Only visible during this range
+  );
 
   return (
-    <div className="space-y-40px container-xl">
+    <div className="space-y-40px container-xl hidden md:block">
       <InfoCard2
         title="Introducing Horizon Shorts <br '/> Our First Super Engagement Product."
         initial={{ opacity: 0, y: 50 }}
@@ -89,7 +108,7 @@ const Dazzle = () => {
         headingClassName="font-28px font-normal mb-[60px] text-center text-colorText-main"
       />
       {/* Sticky container */}
-      <div className="!my-16 h-[400vh]">
+      <div className="!my-16 h-[300vh]" ref={ref}>
         <div className="sticky top-16 flex h-screen items-center justify-center">
           <div className="relative w-[406px] h-full">
             <motion.div
@@ -130,49 +149,49 @@ const Dazzle = () => {
             <div className="pointer-events-none absolute bottom-0 left-0 h-[100px] w-full bg-gradient-to-t from-white to-transparent " />
             {/* Overlapping Mobile Image */}
             <motion.div
-              className="absolute left-1/2 translate-x-[-70%] top-2 pl-20 pt-3"
+              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
               style={{ opacity: opacity1 }}
             >
               <Image
                 src={handMobile1}
                 alt="Hand Mobile 1"
-                className="w-fit h-[680px] max-sm:w-[100px]"
+                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
               />
             </motion.div>
 
             {/* Image 2 */}
             <motion.div
-              className="absolute top-2 left-1/2 translate-x-[-70%] pl-20 pt-3"
+              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
               style={{ opacity: opacity2, transform: 'translate' }}
             >
               <Image
                 src={handMobile2}
                 alt="Hand Mobile 2"
-                className="w-fit h-[680px] max-sm:w-[100px]"
+                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
               />
             </motion.div>
 
             {/* Image 3 */}
             <motion.div
-              className="absolute top-2 left-1/2 translate-x-[-70%] pl-20 pt-3"
+              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
               style={{ opacity: opacity3 }}
             >
               <Image
                 src={handMobile3}
                 alt="Hand Mobile 3"
-                className="w-fit h-[680px] max-sm:w-[100px]"
+                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
               />
             </motion.div>
 
             {/* Image 4 */}
             <motion.div
-              className="absolute top-2 left-1/2 translate-x-[-70%] pl-20 pt-3"
+              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
               style={{ opacity: opacity4 }}
             >
               <Image
                 src={handMobile4}
                 alt="Hand Mobile 4"
-                className="w-fit h-[680px] max-sm:w-[100px]"
+                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
               />
             </motion.div>
           </div>

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Minus from "@/components/icons/Minus";
-import Plus from "@/components/icons/Plus";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import Minus from '@/components/icons/Minus';
+import Plus from '@/components/icons/Plus';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AccordionSection = ({ AccordionData, style, section, title }) => {
   const [openIndex, setOpenIndex] = useState(0);
   const HeaderAccordion =
-    section === "faq" ? AccordionItemLastSection : AccordionItem;
+    section === 'faq' ? AccordionItemLastSection : AccordionItem;
   return (
     <section className=" flex-1">
       {title && (
@@ -38,7 +38,7 @@ const AccordionSection = ({ AccordionData, style, section, title }) => {
 
 const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
   return (
-    <div className={isLast ? "" : "border-b"}>
+    <div className={isLast ? '' : 'border-b'}>
       <button
         className="mb-6 flex w-full items-center justify-between pt-10 text-left focus:outline-none"
         onClick={onClick}
@@ -52,7 +52,7 @@ const AccordionItem = ({ title, children, isOpen, onClick, isLast }) => {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
@@ -75,7 +75,7 @@ const AccordionItemLastSection = ({
   isLast,
 }) => {
   return (
-    <div className={isLast ? "" : "border-b "}>
+    <div className={isLast ? '' : 'border-b '}>
       <button
         className="flex w-full items-center justify-between py-10 text-left focus:outline-none"
         onClick={onClick}
@@ -89,12 +89,12 @@ const AccordionItemLastSection = ({
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="font-32px pb-4 text-left text-[#505E6B]">
+            <div className="md:text-[1.986rem] text-[26px] pb-4 text-left text-[#505E6B]">
               {children}
             </div>
           </motion.div>

@@ -1,13 +1,14 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 // import AddIcon from "@/components/icons/AddIcon";
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
-import SlideVideo from "./SlideVideo";
-import SlideCard from "./SlideCard";
-import SlideCardImage from "../solution/SlideCardImage";
+import { Carousel, CarouselContent } from '@/components/ui/carousel';
+import SlideVideo from './SlideVideo';
+import SlideCard from './SlideCard';
+import SlideCardImage from '../solution/SlideCardImage';
+import NavigationButtons from '@/components/ui/NavigationButtons';
 
 const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
   const [api, setApi] = useState();
@@ -21,10 +22,10 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
       setIsEnd(api?.canScrollNext() === false);
     };
 
-    api?.on("select", checkBounds);
+    api?.on('select', checkBounds);
     checkBounds(); // Initial check
     return () => {
-      api?.off("select", checkBounds);
+      api?.off('select', checkBounds);
     };
   }, [api]);
 
@@ -35,7 +36,7 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
         opacity: 1,
         y: 0,
         transition: {
-          type: "just",
+          type: 'just',
           duration: 0.5,
           delay: 0.5,
         },
@@ -51,7 +52,7 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="container-xl items-center gap-6">
+        <CarouselContent className="container-xl items-center gap-7">
           {Array.from({ length: 6 }).map((_, index) => {
             const videoItem = dataVideo?.[index];
             const cardItem = dataCard?.[index];
@@ -91,52 +92,7 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
         </CarouselContent>
       </Carousel>
       {/* Navigation Buttons */}
-      <div className="absolute right-4 mr-10 mt-[1.1875rem] flex gap-2">
-        <button
-          onClick={() => api?.scrollPrev()}
-          className={cn(
-            "flex size-[38px] items-center justify-center rounded-full bg-[#F0F5FA] text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isStart } // Disable button styling
-          )}
-          disabled={isStart}
-          aria-label="Previous Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <button
-          onClick={() => api?.scrollNext()}
-          className={cn(
-            "flex size-[38px] items-center justify-center rounded-full bg-[#F0F5FA] text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isEnd } // Disable button styling
-          )}
-          disabled={isEnd}
-          aria-label="Next Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
+      <NavigationButtons api={api} isStart={isStart} isEnd={isEnd} />
     </motion.div>
   );
 };

@@ -121,7 +121,7 @@ const SolutionPage = () => {
         <div className="space-y-100px">
           <DiscoverSection />
           {DriveData.map((data, index) => (
-            <div key={index}>
+            <div key={index} className="container-xs">
               <DynamicStatsCard DynamicData={data} index={index} />
             </div>
           ))}

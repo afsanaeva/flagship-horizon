@@ -1,11 +1,11 @@
-"use client";
-import React from "react";
-import { fadeTop } from "@/components/layout/Header";
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
+'use client';
+import React from 'react';
+import { fadeTop } from '@/components/layout/Header';
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
 
-const HeroTitle = ({ MainTitle, SecTitle, styleContainer }) => {
+const HeroTitle = ({ MainTitle, SecTitle, styleContainer, styleH1Title }) => {
   return (
-    <section className={"space-y-100px container-xl mt-12 "}>
+    <section className={'space-y-100px container-xl mt-12 '}>
       <div
         className={`space-y-40px flex flex-col items-center ${styleContainer}`}
       >
@@ -15,7 +15,7 @@ const HeroTitle = ({ MainTitle, SecTitle, styleContainer }) => {
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
           heading="h1"
-          headingClassName={"font-100px"}
+          headingClassName={`font-92px ${styleH1Title}`}
         />
         {SecTitle && (
           <InfoCard2

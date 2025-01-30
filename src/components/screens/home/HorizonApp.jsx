@@ -1,12 +1,13 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fadeTop } from '@/components/layout/Header';
 import InfoCard2 from '@/components/custom-ui/InfoCard2';
 import { ChevronsLeftRight } from 'lucide-react';
 import Image from 'next/image';
 
 const HorizonApp = () => {
-  const [sliderPosition, setSliderPosition] = useState(50.5);
+  const [sliderPosition, setSliderPosition] = useState(44);
+  const [animateSlider, setAnimateSlider] = useState(false);
 
   const handleMouseDown = (e) => {
     const sliderContainer = e.currentTarget.parentElement;
@@ -32,6 +33,54 @@ const HorizonApp = () => {
 
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  useEffect(() => {
+    const section = document.querySelector('.slider-container'); // Adjust selector if needed
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setAnimateSlider(true);
+          observer.disconnect();
+        } else {
+          setAnimateSlider(false);
+        }
+      },
+      { threshold: 0.5 } // Adjust threshold if needed
+    );
+
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (animateSlider) {
+      smoothTransition(44, 57, 1000, setSliderPosition); // Animate to end in 1s
+      setTimeout(() => {
+        smoothTransition(57, 50.5, 1000, setSliderPosition); // Animate back to center in 1s
+      }, 1000);
+    }
+  }, [animateSlider]);
+
+  const smoothTransition = (start, end, duration, callback) => {
+    const startTime = performance.now();
+
+    const animate = (currentTime) => {
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1); // Ensure progress stays between 0 and 1
+      const value = start + (end - start) * progress;
+
+      callback(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
   };
 
   return (
@@ -118,18 +167,18 @@ const HorizonApp = () => {
             }}
           >
             <div className="relative right-[10px] z-50 mt-[80px] h-full w-[483px]">
-              <Image
+              {/* <Image
                 src="/assets/home/roll-screen/fullMob2.png"
                 width={500}
                 height={200}
                 className="absolute top-[5px] z-10 size-full object-cover object-top"
-              />
+              /> */}
 
               <Image
                 src="/assets/home/roll-screen/fullMob2.png"
                 width={500}
                 height={200}
-                className="absolute left-[22px] top-[-15px] z-50 h-full object-cover object-top pt-[-19px]"
+                className="absolute left-[22px] top-[-15px] z-50 md:h-full h-[274px] md:object-cover object-contain object-top pt-[-19px] "
               />
             </div>
             <p className="font-36px absolute right-[120px] top-1/2 text-colorText-main">

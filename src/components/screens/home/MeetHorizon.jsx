@@ -1,57 +1,61 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import { fadeTop } from "@/components/layout/Header";
-import Image from "next/image";
-import Minus from "@/components/icons/Minus";
-import Plus from "@/components/icons/Plus";
+import React, { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
+import { fadeTop } from '@/components/layout/Header';
+import Image from 'next/image';
+import Minus from '@/components/icons/Minus';
+import Plus from '@/components/icons/Plus';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from '@/components/ui/carousel';
+import DynamicStatsCard from '../common/DynamicStatsCard';
+import NavigationButtons from '@/components/ui/NavigationButtons';
+import MeetHorizonMobile from './MeetHorizonMobile';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 
 const slides = [
   {
-    title: "Horizon Shorts",
-    img: "/assets/home/hero/slide-1.png",
-    text1: "Grow with short - form videos",
+    title: 'Horizon Shorts',
+    img: '/assets/home/hero/slide-1.png',
+    text1: 'Grow with short - form videos',
     subText1:
-      "Drive instant engagement with the world’s most consumed content format.",
-    text2: "Personalized infinity scrolls",
+      'Drive instant engagement with the world’s most consumed content format.',
+    text2: 'Personalized infinity scrolls',
     subText2:
-      "Deliver endless streams of personalized short videos for every user.",
-    text3: "Shoppable Shorts",
-    subText3: "Shorts come equipped with advanced monetization tools.",
+      'Deliver endless streams of personalized short videos for every user.',
+    text3: 'Shoppable Shorts',
+    subText3: 'Shorts come equipped with advanced monetization tools.',
   },
   {
-    title: "Horizon Stories",
-    img: "/assets/home/hero/slide-2.png",
-    text1: "Highlight what matters to your customers",
+    title: 'Horizon Stories',
+    img: '/assets/home/hero/slide-2.png',
+    text1: 'Highlight what matters to your customers',
     subText1:
-      "Create immersive stories that captivate users and deepen connections.",
-    text2: "Deeper interaction with users",
+      'Create immersive stories that captivate users and deepen connections.',
+    text2: 'Deeper interaction with users',
     subText2:
-      "Enable features like reactions, comments, and sharing to enhance value.",
-    text3: "Dynamic monetization",
+      'Enable features like reactions, comments, and sharing to enhance value.',
+    text3: 'Dynamic monetization',
     subText3:
-      "Deliver multi-format ads and e-commerce capabilities within Stories.",
+      'Deliver multi-format ads and e-commerce capabilities within Stories.',
   },
   {
-    title: "Horizon Feeds",
-    img: "/assets/home/hero/slide-3.png",
-    text1: "Build an engaged community",
+    title: 'Horizon Feeds',
+    img: '/assets/home/hero/slide-3.png',
+    text1: 'Build an engaged community',
     subText1:
-      "Build infinite scrolling feeds to keep users engaged and returning.",
-    text2: "Drive a loyal community",
+      'Build infinite scrolling feeds to keep users engaged and returning.',
+    text2: 'Drive a loyal community',
     subText2:
-      "Foster strong user loyalty with personalized feeds and targeted content.",
-    text3: "New ways to monetize ",
+      'Foster strong user loyalty with personalized feeds and targeted content.',
+    text3: 'New ways to monetize ',
     subText3:
-      "Unlock revenue opportunities with targeted ads and integrated shops.",
+      'Unlock revenue opportunities with targeted ads and integrated shops.',
   },
 ];
 
@@ -67,9 +71,9 @@ const HeroSlides = ({ slides }) => {
       setIsEnd(!api?.canScrollNext());
     };
 
-    api.on("select", updateBounds);
+    api.on('select', updateBounds);
     updateBounds(); // Initial check
-    return () => api.off("select", updateBounds);
+    return () => api.off('select', updateBounds);
   }, [api]);
 
   return (
@@ -77,6 +81,7 @@ const HeroSlides = ({ slides }) => {
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      className="md:block hidden"
     >
       <Carousel
         setApi={setApi}
@@ -86,7 +91,7 @@ const HeroSlides = ({ slides }) => {
           dragFree: true,
         }}
       >
-        <CarouselContent className="items-center ">
+        <CarouselContent className="items-center pl-120px">
           {slides.map((slide, index) => (
             <Slide3
               key={index}
@@ -106,52 +111,7 @@ const HeroSlides = ({ slides }) => {
       </Carousel>
 
       {/* Navigation Buttons */}
-      <div className="absolute right-4 mr-10 mt-3 flex gap-2">
-        <button
-          onClick={() => api?.scrollPrev()}
-          className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isStart } // Disable button styling
-          )}
-          disabled={isStart}
-          aria-label="Previous Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <button
-          onClick={() => api?.scrollNext()}
-          className={cn(
-            "flex size-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-md transition hover:bg-gray-200",
-            { "opacity-50 cursor-not-allowed": isEnd } // Disable button styling
-          )}
-          disabled={isEnd}
-          aria-label="Next Slide"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-6"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
+      <NavigationButtons api={api} isStart={isStart} isEnd={isEnd} />
     </motion.div>
   );
 };
@@ -179,15 +139,15 @@ const Slide3 = ({
     <CarouselItem
       key={index}
       className={cn(
-        "flex flex-col md:flex-row items-center md:justify-around p-6 bg-[#f3f5f6] shadow-sm rounded-[36px] transition-transform container",
+        'flex flex-col md:flex-row md:gap-[120px] items-center md:justify-around px-16 py-7 bg-[#f3f5f6] shadow-sm rounded-[36px] transition-transform container',
         {
-          "opacity-100 scale-100": isSelected,
-          "opacity-70 scale-90": !isSelected,
+          'opacity-100 scale-100': isSelected,
+          'opacity-70 scale-90': !isSelected,
         }
       )}
     >
       {/* Left Content (Accordion Section) */}
-      <div className="space-y-4 text-center md:max-w-[50%] md:text-left">
+      <div className="space-y-4 text-center md:text-left flex-1">
         <h3 className="font-52px mb-20 cursor-pointer font-semibold text-[#15234E]">
           {title}
         </h3>
@@ -201,7 +161,7 @@ const Slide3 = ({
           {activeIndex === 1 ? <Minus /> : <Plus />}
         </h3>
         {activeIndex === 1 && (
-          <p className="font-22px max-w-[300px] py-3 text-[#15234E]">
+          <p className="font-22px max-w-[500px] py-3 text-[#15234E]">
             {subText1}
           </p>
         )}
@@ -216,7 +176,7 @@ const Slide3 = ({
           {activeIndex === 2 ? <Minus /> : <Plus />}
         </h3>
         {activeIndex === 2 && (
-          <p className="font-22px max-w-[300px] py-3 text-[#15234E]">
+          <p className="font-22px max-w-[500px] py-3 text-[#15234E]">
             {subText2}
           </p>
         )}
@@ -231,14 +191,14 @@ const Slide3 = ({
           {activeIndex === 3 ? <Minus /> : <Plus />}
         </h3>
         {activeIndex === 3 && (
-          <p className="font-22px max-w-[300px] py-3 text-[#15234E]">
+          <p className="font-22px max-w-[500px] py-3 text-[#15234E]">
             {subText3}
           </p>
         )}
       </div>
 
       {/* Right Content (Image with Blurred Background) */}
-      <div className="relative flex items-center justify-center">
+      <div className="relative flex items-center justify-center flex-1">
         {/* Blurred Background */}
         <div
           className="absolute inset-0 blur-xl"
@@ -267,26 +227,31 @@ const Slide3 = ({
 };
 
 const MeetHorizon = () => {
+  const { isMobile } = useDeviceSize();
+  const title = isMobile
+    ? 'Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that transforms your apps and websites into growth engines. Connect seamlessly, drive engagement and unlock monetization - all from one powerful platform.'
+    : 'Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that</br> transforms your apps and websites into growth engines. Connect seamlessly, drive engagement and </br> unlock monetization - all from one powerful platform.';
+
   return (
-    <div className="container-md space-y-100px mt-0">
-      <div className="space-y-40px text-left ">
+    <div className="space-y-100px mt-0">
+      <div className=" container-xs space-y-12 text-left ">
         <h1 className="font-92px font-semibold leading-snug text-[#15234E]">
           Meet Horizon: the world’s first
           <span
             style={{
               background:
-                "linear-gradient(90deg, #001D7B -21.97%, #0032FD 22.49%, #10F0FC 66.96%)",
+                'linear-gradient(90deg, #001D7B -21.97%, #0032FD 22.49%, #10F0FC 66.96%)',
 
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            <br className="max-sm:hidden" />
+            {` `} {!isMobile && <br className="max-sm:hidden" />}
             Super Engagement Platform.
           </span>
         </h1>
         <InfoCard2
-          title="Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that</br> transforms your apps and websites into growth engines. Connect seamlessly, drive engagement and </br> unlock monetization - all from one powerful platform."
+          title={title}
           initial={{ opacity: 0, y: 50 }}
           whileInView={fadeTop.onscreen}
           viewport={{ once: true }}
@@ -295,6 +260,7 @@ const MeetHorizon = () => {
         />
       </div>
       <HeroSlides slides={slides} />
+      <MeetHorizonMobile slides={slides} />
     </div>
   );
 };

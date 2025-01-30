@@ -1,14 +1,18 @@
-import React from "react";
-import AccordionSection from "./AccordionSection";
-import Image from "next/image";
+import React from 'react';
+import AccordionSection from './AccordionSection';
+import Image from 'next/image';
 
 const DynamicStatsCard = ({ DynamicData, index }) => {
   return (
-    <div className={`container-xs ${index > 0 ? "pt-[120px]" : ""} `}>
-      <div className="flex items-start justify-between pb-[54px] pt-[32px]">
+    <>
+      <div
+        className={`${
+          index > 0 ? 'pt-[220px]' : ''
+        } flex items-start justify-between pb-[54px] pt-[32px] px-[120px]`}
+      >
         <AccordionSection
           AccordionData={DynamicData.AccordionData}
-          style="max-w-[60%]"
+          style="max-w-[71%]"
           title={DynamicData.title}
         />
         <div className="flex-1">
@@ -21,7 +25,7 @@ const DynamicStatsCard = ({ DynamicData, index }) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

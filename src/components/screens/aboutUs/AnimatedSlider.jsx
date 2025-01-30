@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 
 const slides = [
   {
@@ -18,22 +19,33 @@ const slides = [
   {
     image: '/assets/aboutus/image-2.jpg',
     content: {
-      title: '2- On a mission to democratize all forms of super engagement',
-      text: 'We can’t imagine a world where businesses are still talking about emailing their customers - the future of customer engagement is much more magical.',
+      title:
+        'We believe in the power of building direct customer relationships',
+      text: 'We want to help the world’s best companies grow faster by empowering them to engage more deeply with their customers.',
       btnText: 'Learn More',
     },
   },
   {
     image: '/assets/aboutus/image-3.jpg',
     content: {
-      title: '3- On a mission to democratize all forms of super engagement',
+      title:
+        'We are passionate about helping brands grow through super engagement',
       text: 'We can’t imagine a world where businesses are still talking about emailing their customers - the future of customer engagement is much more magical.',
+      btnText: 'Learn More',
+    },
+  },
+  {
+    image: '/assets/aboutus/image-4.jpg',
+    content: {
+      title: 'We believe in the Magic of Horizon',
+      text: 'Horizon brings the superpowers of big tech to enterprise. Once you experience the explosive growth it delivers, you can’t go back.',
       btnText: 'Learn More',
     },
   },
 ];
 
 const AnimatedSlider = () => {
+  const { isMobile } = useDeviceSize();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -104,13 +116,13 @@ const AnimatedSlider = () => {
   };
 
   return (
-    <div className="relative mx-auto mt-[140px]">
+    <div className="relative mx-auto md:mt-[140px] mt-[80px]">
       <AnimatePresence mode="wait">
         {slides.map(
           (slide, index) =>
             index === currentIndex && (
               <div
-                className="flex items-center justify-between space-x-[100px]"
+                className="flex items-center md:flex-row flex-col justify-between md:space-x-[100px]"
                 key={index}
               >
                 <motion.div
@@ -121,7 +133,7 @@ const AnimatedSlider = () => {
                   exit="exit"
                   style={{ perspective: '1000px' }}
                   transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  className="relative w-[752px] h-[912px] flex-1 rounded-[32px] overflow-hidden"
+                  className="relative hidden md:block md:w-[552px] md:h-[612px] xl:w-[652px] xl:h-[712px] 3xl:w-[752px] 3xl:h-[912px] flex-1 rounded-[32px] overflow-hidden"
                 >
                   <Image
                     src={slide.image}
@@ -130,7 +142,7 @@ const AnimatedSlider = () => {
                     objectFit="cover"
                   />
                 </motion.div>
-                <div className="flex-1 flex items-center justify-between h-full">
+                <div className="flex-1 flex items-center md:flex-row flex-col md:gap-0 gap-10 justify-between h-full ">
                   <motion.div
                     key={`content-${currentIndex}`}
                     variants={textVariants}
@@ -138,14 +150,31 @@ const AnimatedSlider = () => {
                     animate="center"
                     exit="exit"
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="flex flex-col gap-12"
+                    className="flex flex-col md:gap-12 gap-10"
                   >
                     <h1
-                      className="font-64px text-colorText-main"
+                      className="font-64px text-colorText-main "
                       dangerouslySetInnerHTML={{
                         __html: slide.content.title,
                       }}
                     ></h1>
+                    <motion.div
+                      key={`image-${currentIndex}`}
+                      variants={imageVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      style={{ perspective: '1000px' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
+                      className="relative md:hidden block w-full h-[480px] rounded-[32px] overflow-hidden"
+                    >
+                      <Image
+                        src={slide.image}
+                        alt={`Slide ${index + 1}`}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </motion.div>
                     <p
                       className="font-24px text-colorText-main leading-[130%]"
                       dangerouslySetInnerHTML={{
@@ -153,7 +182,7 @@ const AnimatedSlider = () => {
                       }}
                     ></p>
                     <Button
-                      size="sm"
+                      size="default"
                       asChild
                       className="w-fit font-20px min-h-[42px]"
                       variant="default"
@@ -162,19 +191,23 @@ const AnimatedSlider = () => {
                     </Button>
                   </motion.div>
                   {/* BARS */}
-                  <div className="flex flex-col items-center gap-5 h-full">
-                    <div className="flex flex-col items-center gap-[10px]">
+                  <div className="flex md:flex-col flex-row items-center gap-5 h-full">
+                    <div className="flex md:flex-col flex-row items-center gap-[10px]">
                       {slides.map((_, idx) => (
                         <div
-                          className="relative w-1 h-[80px] bg-[#F0F5FA] rounded-lg overflow-hidden cursor-pointer"
+                          className="relative md:w-1 md:h-[80px] h-1 w-[87px] bg-[#F0F5FA] rounded-lg overflow-hidden cursor-pointer"
                           key={idx}
                           onClick={() => handleNavigation(idx)}
                         >
                           {idx === currentIndex && (
                             <motion.div
                               key={currentIndex}
-                              initial={{ height: 0 }}
-                              animate={{ height: '100%' }}
+                              initial={isMobile ? { width: 0 } : { height: 0 }}
+                              animate={
+                                isMobile
+                                  ? { width: '100%' }
+                                  : { height: '100%' }
+                              }
                               transition={{ duration: 5, ease: 'linear' }}
                               className={`absolute top-0 left-0 w-full bg-[#0032FD] ${
                                 isPaused ? 'h-full' : ''

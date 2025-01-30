@@ -8,7 +8,7 @@ import Img from '../../../../public/assets/home/hero/build.png';
 
 const BuildDirect = () => {
   return (
-    <div className="space-y-20px mx-10">
+    <div className="space-y-20px mx-10 hidden md:block">
       <div className="container-md relative">
         <div className="">
           <Image src={Img} alt="create experiences" className="max-sm:hidden" />
@@ -17,7 +17,7 @@ const BuildDirect = () => {
             alt="create experiences"
             className="hidden max-sm:block"
           />
-          <div className="absolute bottom-20 left-24 flex gap-4">
+          <div className="absolute xl:bottom-20 md:bottom-10 left-24 flex gap-4">
             <Button size="lg" asChild>
               <Link href="/faq">Learn More</Link>
             </Button>

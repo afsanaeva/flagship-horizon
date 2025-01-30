@@ -4,8 +4,13 @@ import { fadeTop } from '@/components/layout/Header';
 import InfoCard2 from '@/components/custom-ui/InfoCard2';
 import { ChevronsLeftRight } from 'lucide-react';
 import Image from 'next/image';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
+import SliderCompaImg from '@/components/ui/SliderCompaImg';
+// import SliderCompaImg from '@/components/ui/SliderCompaImg';
 
 const RolloutComparisonSection = () => {
+  const { isMobile } = useDeviceSize();
+
   const [sliderPosition, setSliderPosition] = useState(50);
 
   const handleMouseDown = (e) => {
@@ -36,13 +41,17 @@ const RolloutComparisonSection = () => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
+  const title = isMobile
+    ? 'Rollout in just a few days. Forget years of development.'
+    : 'Rollout in just a few days. <br/> Forget years of development.';
+
   return (
     <section className="overflow-x-hidden">
       {/* Header Section */}
       <section className="space-y-100px mt-12 overflow-hidden">
         <div className="space-y-40px flex flex-col items-center">
           <InfoCard2
-            title="Rollout in just a few days. <br/> Forget years of development."
+            title={title}
             initial={{ opacity: 0, y: 50 }}
             whileInView={fadeTop.onscreen}
             viewport={{ once: true }}
@@ -55,16 +64,16 @@ const RolloutComparisonSection = () => {
             whileInView={fadeTop.onscreen}
             viewport={{ once: true }}
             heading="h4"
-            headingClassName="font-28px font-normal text-colorText-main text-center"
+            headingClassName="font-28px font-normal text-colorText-main text-center hidden md:block"
           />
         </div>
       </section>
 
       <div className="w-full mx-auto mt-[100px]">
-        <div className="w-full bg-[#F1F4F7] h-[706px] relative">
+        <div className="w-full bg-[#F1F4F7] md:h-[706px] h-[223px] relative">
           {/* Left Image */}
           <div
-            className="size-full flex items-end justify-center relative z-10 bg-[#F1F4F7] ml-[180px]"
+            className="size-full flex items-end justify-center relative z-10 bg-[#F1F4F7] md:ml-[180px] ml-0"
             style={{
               clipPath: `polygon(0 0, ${Math.min(
                 Math.max(sliderPosition, 25),
@@ -75,15 +84,15 @@ const RolloutComparisonSection = () => {
               )}% 100%, 0 100%)`,
             }}
           >
-            <div className="h-[550px] w-full relative z-50 right-[-37px] mt-[81px]">
+            <div className="md:h-[550px] h-[169px] w-full relative z-50 md:right-[-37px] right-0 mt-[81px]">
               <Image
                 src="/assets/home/roll-screen/oldWay1.png"
                 width={1558}
                 height={500}
-                className="size-full object-cover object-top"
+                className="size-full md:object-cover object-contai object-left md:object-top"
               />
             </div>
-            <p className="absolute left-0 top-[52px] text-colorText-main font-36px">
+            <p className="absolute md:top-[52px] left-0 top-5 text-colorText-main font-36px pl-5 md:pl-0">
               Traditional Way
             </p>
           </div>
@@ -98,7 +107,7 @@ const RolloutComparisonSection = () => {
 
           {/* Right Image */}
           <div
-            className="relative top-[-706px] size-full flex items-end justify-center z-20"
+            className="relative md:top-[-706px] top-[-223px] size-full flex items-end justify-center z-20"
             style={{
               clipPath: `polygon(${Math.min(
                 Math.max(sliderPosition, 25),
@@ -112,7 +121,7 @@ const RolloutComparisonSection = () => {
               backgroundSize: 'cover',
             }}
           >
-            <div className="h-[550px] w-full relative mt-[80px] z-50 mr-[180px]">
+            <div className="md:h-[550px] h-[169px]  w-full relative mt-[80px] z-50 md:mr-[180px] mr-0">
               {/* <Image
                 src="/assets/home/roll-screen/fullMob2.png"
                 width={500}
@@ -124,37 +133,20 @@ const RolloutComparisonSection = () => {
                 src="/assets/home/roll-screen/newWay.png"
                 width={1558}
                 height={500}
-                className="size-full object-cover object-top"
+                className="size-full md:object-cover object-contain 3xl:object-top md:object-right"
               />
             </div>
-            <p className="absolute right-[10%] top-[52px] text-colorText-main font-36px">
+            <p className="absolute md:right-[10%] md:top-[52px] right-5 top-5 text-colorText-main font-36px">
               Horizon Way
             </p>
           </div>
         </div>
 
         {/* Slider */}
-        <div
-          className="slider-container container w-[262px] items-center rounded-[200px] bg-[#F1F4F7] p-5"
-          style={{ marginTop: '50px' }}
-        >
-          <div className="slider-container relative flex h-2 w-[200px] items-center rounded-full bg-[#B8C1CB] mx-auto">
-            {/* Active Track */}
-            <div
-              className="absolute left-0 top-0 h-2 rounded-full bg-[#0032FD]"
-              style={{ width: `${((sliderPosition - 25) / (80 - 25)) * 100}%` }}
-            ></div>
-
-            {/* Slider Button */}
-            <div
-              className="absolute flex size-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full bg-[#0032FD] shadow-md"
-              style={{ left: `${((sliderPosition - 25) / (80 - 25)) * 100}%` }}
-              onMouseDown={handleMouseDown}
-            >
-              <ChevronsLeftRight className="text-white" />
-            </div>
-          </div>
-        </div>
+        <SliderCompaImg
+          setSliderPosition={setSliderPosition}
+          sliderPosition={sliderPosition}
+        />
       </div>
     </section>
   );

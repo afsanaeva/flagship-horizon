@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 const VideoAnimation = ({ videoSrc }) => {
   const videoRef = useRef(null);
@@ -22,7 +22,7 @@ const VideoAnimation = ({ videoSrc }) => {
         // Scroll down
         if (diff > 0 && scrollSteps < maxSteps) {
           setScrollSteps((prev) => Math.min(prev + 1, maxSteps));
-        // eslint-disable-next-line brace-style
+          // eslint-disable-next-line brace-style
         }
         // Scroll up
         else if (diff < 0 && scrollSteps > 0) {
@@ -33,10 +33,10 @@ const VideoAnimation = ({ videoSrc }) => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [scrollSteps]);
 
@@ -50,7 +50,7 @@ const VideoAnimation = ({ videoSrc }) => {
     // Apply styles based on the current scroll step
     video.style.transform = `scale(${scaleValues[scrollSteps]})`;
     video.style.borderRadius = `${borderRadiusValues[scrollSteps]}px`;
-    video.style.transition = "transform 0.5s ease, border-radius 0.5s ease";
+    video.style.transition = 'transform 0.5s ease, border-radius 0.5s ease';
 
     // Smoothly update button position
     const newButtonPosition = 16 + scrollSteps * 5 * 6;
@@ -70,10 +70,7 @@ const VideoAnimation = ({ videoSrc }) => {
   };
 
   return (
-    <div
-      className="relative h-[750px] sm:h-[500px] xl:h-[650px] 2xl:h-[735px] 3xl:h-[980px]"
-      style={{ marginTop: "80px" }}
-    >
+    <div className="relative h-screen md:h-[750px] xl:h-[650px] 2xl:h-[735px] 3xl:h-[980px] md:!mt-[140px] !mt-16">
       <div>
         <video
           ref={videoRef}
@@ -82,8 +79,7 @@ const VideoAnimation = ({ videoSrc }) => {
           muted
           loop
           playsInline
-          className="absolute inset-0 z-[-1] w-screen border-none object-cover outline-none transition-transform focus:border-none focus:outline-none"
-
+          className="absolute inset-0 z-[-1] w-screen h-screen border-none object-cover outline-none transition-transform focus:border-none focus:outline-none"
         />
       </div>
 
@@ -92,12 +88,12 @@ const VideoAnimation = ({ videoSrc }) => {
         onClick={togglePlayPause}
         style={{
           right: `${buttonPosition}px`,
-          bottom: "12px",
-          transition: "right 0.2s ease", // Smooth transition for button position
+          bottom: '12px',
+          transition: 'right 0.2s ease', // Smooth transition for button position
         }}
-        className="absolute z-10 rounded-full bg-black px-3 py-2 text-white shadow-lg focus:outline-none"
+        className="absolute z-10 rounded-full bg-black px-3 py-2 text-white shadow-lg focus:outline-none hidden md:block"
       >
-        {isPlaying ? "❚❚" : "▶"}
+        {isPlaying ? '❚❚' : '▶'}
       </button>
     </div>
   );

@@ -1,4 +1,5 @@
 import { FAQDetailsData } from '@/components/constant/FAQData';
+import CustomHorizonApp from '@/components/screens/common/CustomHorizonApp';
 import FAQDetails from '@/components/screens/common/FAQDetails';
 import HeroTitle from '@/components/screens/common/HeroTitle';
 import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
@@ -105,6 +106,7 @@ export const dataCard = [
     subText:
       'Detailed performance metrics for each Shorts, including views and reactions.',
   },
+  
 ];
 
 export default function ProductPage() {
@@ -121,7 +123,15 @@ export default function ProductPage() {
           dataVideo={dataVideo}
           styleHeroTitle="!items-start text-[#15234E]"
         />
-        <TransformSection />
+        {/* <TransformSection /> */}
+        <CustomHorizonApp
+          Title="Transform your apps and websites into </br> immersive short video hubs."
+          intro="Engage your audience, drive retention and unlock new growth opportunities with Horizon Shorts"
+          ImageBefore="/assets/product/Transform/imageBf.svg"
+          TextBefore="App without Horizon Shorts"
+          ImageAfter="/assets/product/Transform/ImageAfWithMobile.svg"
+          TextAfter="App with Horizon Shorts"
+        />
         <VersatileSection />
         <InfinityScrollSection />
         <SeamlessSocialSection />

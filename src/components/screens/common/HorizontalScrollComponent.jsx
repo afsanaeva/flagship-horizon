@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import { motion, useScroll } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { fadeTop } from "@/components/layout/Header";
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
+import { motion, useScroll } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { fadeTop } from '@/components/layout/Header';
 
 const HorizontalScrollComponent = ({
   userCount,
@@ -37,12 +37,12 @@ const HorizontalScrollCarousel = ({
   });
 
   // Define the x positions for each div
-  const xPositions = ["0%", "-100vw", "-200vw"];
+  const xPositions = ['0%', '-100vw', '-200vw'];
   const x = xPositions[activeIndex]; // Use activeIndex to determine x position
 
   // Handle scroll progress to update activeIndex
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (progress) => {
+    const unsubscribe = scrollYProgress.on('change', (progress) => {
       if (progress < 0.33) {
         setActiveIndex(0); // First div
       } else if (progress < 0.66) {
@@ -58,7 +58,7 @@ const HorizontalScrollCarousel = ({
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="space-y-100px sticky top-[150px] flex h-screen flex-col overflow-hidden">
-        <div className="flex flex-col gap-[48px]">
+        <div className="flex flex-col md:gap-[48px] gap-6">
           <InfoCard2
             title={title}
             descriptionClassName="lg:max-w-[790px] !leading-[140%] 2xl:max-w-[870px] 3xl:max-w-[1110px] mx-auto opacity-50"
@@ -67,7 +67,7 @@ const HorizontalScrollCarousel = ({
               opacity: 1,
               y: 0,
               transition: {
-                type: "just",
+                type: 'just',
                 duration: 1,
               },
             }}
@@ -87,56 +87,56 @@ const HorizontalScrollCarousel = ({
           style={{ x }}
           className="flex gap-4 transition-transform duration-500 ease-in-out"
         >
-          <div className="min-w-[100vw]">
-            <h1 className="font-300px font-semibold leading-snug">
+          <div className="md:min-w-[100vw] min-w-[97vw]">
+            <h1 className="font-300px font-semibold !leading-normal">
               <span
                 style={{
                   background:
-                    "linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                    'linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
                 {userCount.toLocaleString()}
               </span>
             </h1>
-            <p className="font-40px text-[#15234E]">
+            <p className="font-40px text-[#15234E] mt-2">
               number of users watched Shorts in 7 days
             </p>
           </div>
 
-          <div className="min-w-[100vw]">
-            <h1 className="font-300px font-semibold leading-snug">
+          <div className="md:min-w-[100vw] min-w-[97vw]">
+            <h1 className="font-300px font-semibold !leading-normal">
               <span
                 style={{
                   background:
-                    "linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                    'linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
                 {interactionCount.toLocaleString()}
               </span>
             </h1>
-            <p className="font-40px text-[#15234E]">
+            <p className="font-40px text-[#15234E] mt-2">
               number of interactions generated in 7 days
             </p>
           </div>
 
-          <div className="min-w-[100vw]">
-            <h1 className="font-300px font-semibold leading-snug">
+          <div className="md:min-w-[100vw] min-w-[97vw]">
+            <h1 className="font-300px font-semibold !leading-normal">
               <span
                 style={{
                   background:
-                    "linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                    'linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
                 {pointCount.toLocaleString()}
               </span>
             </h1>
-            <p className="font-40px text-[#15234E]">
+            <p className="font-40px text-[#15234E] mt-2">
               number of data points created in 7 days
             </p>
           </div>

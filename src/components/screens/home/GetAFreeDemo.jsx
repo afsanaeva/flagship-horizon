@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
-import InfoCard2 from "@/components/custom-ui/InfoCard2";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import InfoCard2 from '@/components/custom-ui/InfoCard2';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
-const GetAFreeDemo = ({ title }) => {
+const GetAFreeDemo = ({ title, styleBlock }) => {
   return (
-    <div className="container-sm space-y-100px text-center">
+    <div
+      className={`container-sm md:space-y-56px text-center !mt-0 ${styleBlock}`}
+    >
       <InfoCard2
         title={title}
         descriptionClassName="lg:max-w-[790px] !leading-[140%] 2xl:max-w-[870px] 3xl:max-w-[1110px] mx-auto opacity-50"
@@ -15,7 +17,7 @@ const GetAFreeDemo = ({ title }) => {
           opacity: 1,
           y: 0,
           transition: {
-            type: "just",
+            type: 'just',
             duration: 1,
           },
         }}
@@ -23,11 +25,11 @@ const GetAFreeDemo = ({ title }) => {
         headingClassName="font-100px font-semibold text-[#15234E]"
       />
 
-      <div className="flex flex-wrap justify-center gap-4 ">
-        <Button size="lg" asChild>
+      <div className="flex flex-col md:flex-row justify-center gap-4 mt-16">
+        <Button size="default" asChild>
           <Link href="/get-demo">Explore Horizon</Link>
         </Button>
-        <Button size="lg" variant="blueOutline" asChild>
+        <Button size="default" variant="blueOutline" asChild>
           <Link href="/get-demo">Get a demo</Link>
         </Button>
       </div>

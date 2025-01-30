@@ -1,6 +1,6 @@
-"use client";
-import Nav from "./Nav";
-import { motion } from "framer-motion";
+'use client';
+import Nav from './Nav';
+import { motion } from 'framer-motion';
 
 // import Image from "next/image";
 
@@ -13,7 +13,7 @@ export const fadeTop = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "just",
+      type: 'just',
       duration: 0.5,
     },
   },
@@ -24,21 +24,21 @@ const Header = () => {
     <motion.header
       initial={{
         opacity: 0,
-        y: "-30px",
+        y: '-30px',
       }}
       whileInView={{
         opacity: 1,
         y: 0,
         transition: {
-          type: "just",
+          type: 'just',
           duration: 0.5,
         },
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="sticky top-0 z-50 w-full bg-white py-5 2xl:pb-6 3xl:pb-8"
+      className="sticky top-0 z-50 w-full bg-white py-4"
     >
-      <div className="container-lg ">
+      <div className="container-xs">
         <Nav />
       </div>
     </motion.header>
