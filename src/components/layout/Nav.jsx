@@ -43,7 +43,7 @@ const Nav = () => {
     <nav className="">
       <div className="flex justify-between space-x-4 last:items-center">
         <Link href="/">
-          <Logo className="h-auto w-[130px] md:w-[120px] 2xl:w-[136px] 3xl:w-[181px]" />
+          <Logo className="h-auto max-w-[80px]" width="110px" />
         </Link>
         <div className="gap-[3.125rem] hidden md:flex">
           <Link
@@ -101,9 +101,9 @@ const Nav = () => {
             <Button
               size="lg"
               asChild
-              className="!w-[132px] !h-[42px] !text-[20px] hidden md:flex items-center justify-center"
+              className="!w-[110px] !h-[35px] !text-[16px] hidden md:flex !items-center !justify-center !leading-[99%]"
             >
-              <Link href={'/get-demo'}>Get a demo</Link>
+              <Link href={'/get-demo'}>Get a Demo</Link>
             </Button>
           )}
       </div>

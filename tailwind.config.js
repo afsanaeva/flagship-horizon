@@ -18,6 +18,11 @@ module.exports = {
     },
     extend: {
       screens: {
+        mobile: { max: '767px' },
+        tablet: { min: '768px', max: '1260px' },
+        desktop: { min: '1260px' },
+        largScreen: { min: '1441px' },
+        megaScreen: { min: '1921px' },
         xs: '360px',
         sm: '480px',
         lg: '920px',

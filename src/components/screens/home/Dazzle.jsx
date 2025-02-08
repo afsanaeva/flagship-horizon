@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import hand from '../../../../public/assets/home/dazzle/mobHand.png';
-import handMobile3 from '../../../../public/assets/home/dazzle/mobScreen1.png';
-import handMobile4 from '../../../../public/assets/home/dazzle/mobScreen2.png';
+import handMobile3 from '../../../../public/assets/home/dazzle/ThreePhone.webp';
+import handMobile4 from '../../../../public/assets/home/dazzle/lastOnephone.webp';
 import handMobile2 from '../../../../public/assets/home/dazzle/mobScreen3.png';
 import handMobile1 from '../../../../public/assets/home/dazzle/mobScreen4.png';
+import handMobileOne from '../../../../public/assets/home/dazzle/onePhone.webp';
+import handMobileTwo from '../../../../public/assets/home/dazzle/TwoHandTest.webp';
 import InfoCard2 from '@/components/custom-ui/InfoCard2';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -84,7 +86,7 @@ const Dazzle = () => {
   );
 
   return (
-    <div className="space-y-40px container-xl hidden md:block">
+    <div className="space-y-40px hidden lg:block containerComponent">
       <InfoCard2
         title="Introducing Horizon Shorts <br '/> Our First Super Engagement Product."
         initial={{ opacity: 0, y: 50 }}
@@ -109,8 +111,8 @@ const Dazzle = () => {
       />
       {/* Sticky container */}
       <div className="!my-16 h-[300vh]" ref={ref}>
-        <div className="sticky top-16 flex h-screen items-center justify-center">
-          <div className="relative w-[406px] h-full">
+        <div className="sticky top-16 flex h-screen items-center justify-between">
+          <div className="relative max-w-[20%] h-full flex-1">
             <motion.div
               style={{ display: display1Text, y: translateY1 }}
               className="absolute left-0 top-1/2"
@@ -138,64 +140,67 @@ const Dazzle = () => {
               </p>
             </motion.div>
           </div>
-          <div className="relative pl-[200px]">
+          <div className="relative size-full max-sm:w-[100px] flex-1 flex items-center justify-center">
             {/* Base Hand Image */}
-            <Image
+            {/* <Image
               src={hand}
               alt="Hand"
-              className="h-auto w-[1000px] max-sm:w-[100px] object-fill"
-            />
+              className="h-auto w-[1000px] max-sm:w-[100px] object-fill opacity-0"
+            /> */}
+
             {/* Gradient Overlay */}
-            <div className="pointer-events-none absolute bottom-0 left-0 h-[100px] w-full bg-gradient-to-t from-white to-transparent " />
-            {/* Overlapping Mobile Image */}
-            <motion.div
-              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
-              style={{ opacity: opacity1 }}
-            >
-              <Image
-                src={handMobile1}
-                alt="Hand Mobile 1"
-                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
-              />
-            </motion.div>
+            <div className="pointer-events-none absolute bottom-[-16%] 3xl:bottom-[-10%] left-[10%] h-[300px] z-50 w-full bg-gradient-to-t from-white to-transparent " />
+            <div className="absolute size-full top-[8%] 3xl:top-[5%] left-[19%] 3xl:left-[20%]">
+              {/* Image 1 */}
+              <motion.div
+                className="absolute inset-0 flex justify-center items-center"
+                style={{ opacity: opacity1 }}
+              >
+                <Image
+                  src={handMobileOne}
+                  alt="Hand Mobile 1"
+                  className=" h-auto w-[1000px] max-sm:w-[100px]"
+                />
+              </motion.div>
 
-            {/* Image 2 */}
-            <motion.div
-              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
-              style={{ opacity: opacity2, transform: 'translate' }}
-            >
-              <Image
-                src={handMobile2}
-                alt="Hand Mobile 2"
-                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
-              />
-            </motion.div>
+              {/* Image 2 */}
+              <motion.div
+                className="absolute inset-0 flex justify-center items-center"
+                style={{ opacity: opacity2, transform: 'translate' }}
+              >
+                <Image
+                  src={handMobileTwo}
+                  alt="Hand Mobile 2"
+                  className=" h-auto w-[1000px] max-sm:w-[100px]"
+                />
+              </motion.div>
 
-            {/* Image 3 */}
-            <motion.div
-              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
-              style={{ opacity: opacity3 }}
-            >
-              <Image
-                src={handMobile3}
-                alt="Hand Mobile 3"
-                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
-              />
-            </motion.div>
+              {/* Image 3 */}
+              <motion.div
+                className="absolute inset-0 flex justify-center items-center"
+                style={{ opacity: opacity3 }}
+              >
+                <Image
+                  src={handMobile3}
+                  alt="Hand Mobile 3"
+                  className=" h-auto w-[1000px] max-sm:w-[100px]"
+                />
+              </motion.div>
 
-            {/* Image 4 */}
-            <motion.div
-              className="absolute left-1/2 3xl:translate-x-[-70%] 2xl:translate-x-[-65%] xl:translate-x-[-65%] 2xl:top-1 3xl:top-2 xl:top-4 pl-20 2xl:pt-3 xl:pt-0"
-              style={{ opacity: opacity4 }}
-            >
-              <Image
-                src={handMobile4}
-                alt="Hand Mobile 4"
-                className="w-fit max-sm:w-[100px] xl:h-[480px] 2xl:h-[540px] 3xl:h-[680px]  "
-              />
-            </motion.div>
+              {/* Image 4 */}
+              <motion.div
+                className="absolute inset-0 flex justify-center items-center"
+                style={{ opacity: opacity4 }}
+              >
+                <Image
+                  src={handMobile4}
+                  alt="Hand Mobile 4"
+                  className=" h-auto w-[1000px] max-sm:w-[100px]"
+                />
+              </motion.div>
+            </div>
           </div>
-          <div className="w-[406px] relative">
+          <div className="max-w-[20%] relative flex-1">
             <motion.div
               style={{ display: display2Text, y: translateY2 }}
               className=""

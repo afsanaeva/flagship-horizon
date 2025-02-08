@@ -70,7 +70,7 @@ const RolloutComparisonSection = () => {
       </section>
 
       <div className="w-full mx-auto mt-[100px]">
-        <div className="w-full bg-[#F1F4F7] md:h-[706px] h-[223px] relative">
+        <div className="w-full bg-[#F1F4F7] megaScreen:h-[706px] mobile:h-[223px] h-[550px]  relative">
           {/* Left Image */}
           <div
             className="size-full flex items-end justify-center relative z-10 bg-[#F1F4F7] md:ml-[180px] ml-0"
@@ -84,12 +84,12 @@ const RolloutComparisonSection = () => {
               )}% 100%, 0 100%)`,
             }}
           >
-            <div className="md:h-[550px] h-[169px] w-full relative z-50 md:right-[-37px] right-0 mt-[81px]">
+            <div className="megaScreen:h-[550px] mobile:h-[169px] h-[400px] w-full relative z-50 md:right-[-37px] right-0 mt-[81px]">
               <Image
                 src="/assets/home/roll-screen/oldWay1.png"
                 width={1558}
                 height={500}
-                className="size-full md:object-cover object-contai object-left md:object-top"
+                className="size-full megaScreen:object-cover object-contain object-left megaScreen:object-top"
               />
             </div>
             <p className="absolute md:top-[52px] left-0 top-5 text-colorText-main font-36px pl-5 md:pl-0">
@@ -107,7 +107,7 @@ const RolloutComparisonSection = () => {
 
           {/* Right Image */}
           <div
-            className="relative md:top-[-706px] top-[-223px] size-full flex items-end justify-center z-20"
+            className="relative megaScreen:top-[-706px] mobile:top-[-223px] top-[-550px] size-full flex items-end justify-center z-20"
             style={{
               clipPath: `polygon(${Math.min(
                 Math.max(sliderPosition, 25),
@@ -121,7 +121,7 @@ const RolloutComparisonSection = () => {
               backgroundSize: 'cover',
             }}
           >
-            <div className="md:h-[550px] h-[169px]  w-full relative mt-[80px] z-50 md:mr-[180px] mr-0">
+            <div className="megaScreen:h-[550px] mobile:h-[169px] h-[400px] w-full relative mt-[80px] z-50 md:mr-[180px] mr-0">
               {/* <Image
                 src="/assets/home/roll-screen/fullMob2.png"
                 width={500}
@@ -133,7 +133,7 @@ const RolloutComparisonSection = () => {
                 src="/assets/home/roll-screen/newWay.png"
                 width={1558}
                 height={500}
-                className="size-full md:object-cover object-contain 3xl:object-top md:object-right"
+                className="size-full md:object-cover object-top object-contain 3xl:object-top 2xl:object-right"
               />
             </div>
             <p className="absolute md:right-[10%] md:top-[52px] right-5 top-5 text-colorText-main font-36px">

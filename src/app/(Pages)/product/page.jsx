@@ -106,7 +106,6 @@ export const dataCard = [
     subText:
       'Detailed performance metrics for each Shorts, including views and reactions.',
   },
-  
 ];
 
 export default function ProductPage() {

@@ -1,4 +1,7 @@
+'use client';
+
 import { FAQDetailsDataSolution } from '@/components/constant/FAQData';
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 import DynamicStatsCard from '@/components/screens/common/DynamicStatsCard';
 import FAQDetails from '@/components/screens/common/FAQDetails';
 import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
@@ -6,6 +9,7 @@ import SliderSection from '@/components/screens/common/SliderSection';
 import GetAFreeDemo from '@/components/screens/home/GetAFreeDemo';
 import DiscoverSection from '@/components/screens/solution/DiscoverSection';
 import HeroSection from '@/components/screens/solution/HeroSection';
+import HeroSectionMobile from '@/components/screens/solution/HeroSectionMobile';
 import React from 'react';
 
 const DriveData = [
@@ -114,10 +118,18 @@ export const dataCardImage = [
 ];
 
 const SolutionPage = () => {
+  const { isMobile } = useDeviceSize();
+  const titleSlider = isMobile
+    ? 'Horizon is your ultimate growth engine across industries'
+    : 'Horizon is your ultimate  </br> growth engine across industries';
+  const titleHorizon = isMobile
+    ? 'Horizon is driving engagement on the world’s leading platforms'
+    : 'Horizon is driving engagement on </br> the world’s leading platforms';
   return (
     <main>
       <div className="space-y-200px mb-200px">
         <HeroSection />
+        <HeroSectionMobile />
         <div className="space-y-100px">
           <DiscoverSection />
           {DriveData.map((data, index) => (
@@ -127,12 +139,13 @@ const SolutionPage = () => {
           ))}
         </div>
         <SliderSection
-          title="Horizon is your ultimate  </br> growth engine across industries"
+          title={titleSlider}
           dataCardImage={dataCardImage}
           styleHeroTitle="!items-start text-[#15234E]"
+          SolutionPage
         />
         <HorizonLive
-          title="Horizon is driving engagement on </br> the world’s leading platforms"
+          title={titleHorizon}
           intro="Join the innovators transforming user experiences and unlocking unparalleled growth."
         />
         <GetAFreeDemo title="Become a trailblazer. </br> Try Horizon for Free." />

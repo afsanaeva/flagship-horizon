@@ -63,6 +63,17 @@ const HeroSlides = ({ slides }) => {
   const [api, setApi] = useState(null);
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const [containerMargin, setContainerMargin] = useState(0);
+
+  useEffect(() => {
+    // Get the container margin
+    const container = document.querySelector('.containerComponent');
+    if (container) {
+      const computedStyle = window.getComputedStyle(container);
+      const marginLeft = parseInt(computedStyle.marginLeft);
+      setContainerMargin(marginLeft);
+    }
+  }, []);
 
   useEffect(() => {
     if (!api) return;
@@ -91,7 +102,12 @@ const HeroSlides = ({ slides }) => {
           dragFree: true,
         }}
       >
-        <CarouselContent className="items-center pl-120px">
+        <CarouselContent
+          className="items-stretch gap-7 "
+          style={{
+            paddingLeft: `${containerMargin}px`,
+          }}
+        >
           {slides.map((slide, index) => (
             <Slide3
               key={index}
@@ -111,7 +127,12 @@ const HeroSlides = ({ slides }) => {
       </Carousel>
 
       {/* Navigation Buttons */}
-      <NavigationButtons api={api} isStart={isStart} isEnd={isEnd} />
+      <NavigationButtons
+        api={api}
+        isStart={isStart}
+        isEnd={isEnd}
+        containerMargin={containerMargin}
+      />
     </motion.div>
   );
 };
@@ -139,11 +160,7 @@ const Slide3 = ({
     <CarouselItem
       key={index}
       className={cn(
-        'flex flex-col md:flex-row md:gap-[120px] items-center md:justify-around px-16 py-7 bg-[#f3f5f6] shadow-sm rounded-[36px] transition-transform container',
-        {
-          'opacity-100 scale-100': isSelected,
-          'opacity-70 scale-90': !isSelected,
-        }
+        'flex flex-co basis-[80%] md:flex-row md:gap-[120px] items-center md:justify-around px-16 py-7 bg-[#f3f5f6] opacity-100 scale-100 shadow-sm rounded-[36px] transition-transform container'
       )}
     >
       {/* Left Content (Accordion Section) */}
@@ -154,7 +171,7 @@ const Slide3 = ({
 
         {/* First Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
+          className="font-32px max-w-[500px] flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(1)}
         >
           {text1}
@@ -169,7 +186,7 @@ const Slide3 = ({
 
         {/* Second Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
+          className="font-32px max-w-[500px] flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(2)}
         >
           {text2}
@@ -184,7 +201,7 @@ const Slide3 = ({
 
         {/* Third Section */}
         <h3
-          className="font-32px flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
+          className="font-32px max-w-[500px] flex cursor-pointer items-center justify-between py-3 font-normal text-[#15234E]"
           onClick={() => toggleAccordion(3)}
         >
           {text3}
@@ -230,11 +247,11 @@ const MeetHorizon = () => {
   const { isMobile } = useDeviceSize();
   const title = isMobile
     ? 'Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that transforms your apps and websites into growth engines. Connect seamlessly, drive engagement and unlock monetization - all from one powerful platform.'
-    : 'Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that</br> transforms your apps and websites into growth engines. Connect seamlessly, drive engagement and </br> unlock monetization - all from one powerful platform.';
+    : 'Say goodbye to outdated engagement tools. Horizon is the next-gen enterprise platform that</br> transforms your apps and websites into growth engines. Connect seamlessly, drive </br> engagement and unlock monetization - all from one powerful platform.';
 
   return (
-    <div className="space-y-100px mt-0">
-      <div className=" container-xs space-y-12 text-left ">
+    <div className="space-y-[74px] mt-0">
+      <div className="containerComponent space-y-12 text-left ">
         <h1 className="font-92px font-semibold leading-snug text-[#15234E]">
           Meet Horizon: the world’s first
           <span

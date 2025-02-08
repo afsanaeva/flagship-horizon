@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import HorizontalScrollComponent from "./HorizontalScrollComponent";
+import { useState, useEffect } from 'react';
+import HorizontalScrollComponent from './HorizontalScrollComponent';
 
 const HorizonLive = ({ title, intro }) => {
   const [activeIndex, setActiveIndex] = useState(0); // Track which number is active
   const [userCount, setUserCount] = useState(420003);
   const [interactionCount, setInteractionCount] = useState(714029);
   const [pointCount, setPointCount] = useState(102713);
-  const baseDate = new Date("2025-01-01");
+  const baseDate = new Date('2025-01-01');
 
   // Formula increments for each 2-second segment within 10 seconds
   const increments = [3, 3, 5, 5, 1, 1, 6, 6, 2, 2];
@@ -50,7 +50,7 @@ const HorizonLive = ({ title, intro }) => {
   }, []);
 
   return (
-    <div className="container-xl space-y-100px relative">
+    <div className="containerComponent space-y-100px relative">
       <HorizontalScrollComponent
         userCount={userCount}
         interactionCount={interactionCount}

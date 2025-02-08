@@ -7,7 +7,7 @@ import Link from 'next/link';
 const GetAFreeDemo = ({ title, styleBlock }) => {
   return (
     <div
-      className={`container-sm md:space-y-56px text-center !mt-0 ${styleBlock}`}
+      className={`containerComponent md:space-y-56px text-center ${styleBlock}`}
     >
       <InfoCard2
         title={title}

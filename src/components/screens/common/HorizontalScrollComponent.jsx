@@ -57,8 +57,8 @@ const HorizontalScrollCarousel = ({
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
-      <div className="space-y-100px sticky top-[150px] flex h-screen flex-col overflow-hidden">
-        <div className="flex flex-col md:gap-[48px] gap-6">
+      <div className="space-y-100px sticky top-20 desktop:top-[80px] 3xl:top-[87px] flex h-screen flex-col overflow-hidden">
+        <div className="flex flex-col megaScreen:gap-[48px] desktop:gap-5 gap-6">
           <InfoCard2
             title={title}
             descriptionClassName="lg:max-w-[790px] !leading-[140%] 2xl:max-w-[870px] 3xl:max-w-[1110px] mx-auto opacity-50"
@@ -87,7 +87,7 @@ const HorizontalScrollCarousel = ({
           style={{ x }}
           className="flex gap-4 transition-transform duration-500 ease-in-out"
         >
-          <div className="md:min-w-[100vw] min-w-[97vw]">
+          <div className="3xl:min-w-[100vw] desktop:min-w-[99vw] min-w-[97vw]">
             <h1 className="font-300px font-semibold !leading-normal">
               <span
                 style={{
@@ -105,7 +105,7 @@ const HorizontalScrollCarousel = ({
             </p>
           </div>
 
-          <div className="md:min-w-[100vw] min-w-[97vw]">
+          <div className="3xl:min-w-[100vw] desktop:min-w-[99vw] min-w-[97vw]">
             <h1 className="font-300px font-semibold !leading-normal">
               <span
                 style={{

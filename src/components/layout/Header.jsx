@@ -36,9 +36,9 @@ const Header = () => {
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="sticky top-0 z-50 w-full bg-white py-4"
+      className="sticky top-0 z-50 w-full bg-white"
     >
-      <div className="container-xs">
+      <div className="containerComponent">
         <Nav />
       </div>
     </motion.header>

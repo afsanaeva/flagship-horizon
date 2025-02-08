@@ -20,7 +20,7 @@ const ProDisplay = () => {
   const animations = {
     screen1: {
       initial: { left: '20%', top: '45%' },
-      final: { left: isMobile ? '-3%' : '-5%', top: isMobile ? '45%' : '45%' },
+      final: { left: isMobile ? '-3%' : '-10%', top: isMobile ? '45%' : '41%' },
     },
     screen2: {
       initial: { left: '30%', bottom: '10%' },
@@ -35,15 +35,15 @@ const ProDisplay = () => {
     },
     screen4: {
       initial: { right: '25%', top: '35%' },
-      final: { right: isMobile ? '4%' : '1%', top: isMobile ? '22%' : '22%' },
+      final: { right: isMobile ? '0%' : '0%', top: isMobile ? '22%' : '25%' },
     },
     screen5: {
       initial: { left: '25%', top: '30%' },
-      final: { left: isMobile ? '18%' : '15%', top: isMobile ? '5%' : '5%' },
+      final: { left: isMobile ? '18%' : '15%', top: isMobile ? '5%' : '10%' },
     },
     screen6: {
       initial: { right: '35%', top: '25%' },
-      final: { right: isMobile ? '15%' : '10%', top: isMobile ? '0' : '0' },
+      final: { right: isMobile ? '15%' : '10%', top: isMobile ? '0' : '5%' },
     },
   };
 
@@ -51,14 +51,14 @@ const ProDisplay = () => {
     <>
       {/* Header Section */}
       <section className="space-y-100px mt-12 ">
-        <div className="space-y-40px flex flex-col items-center px-6">
+        <div className="space-y-40px flex flex-col items-center containerComponent px-6">
           <InfoCard2
             title="Create and launch super engagements <br/> effortlessly with Horizon Console."
             initial={{ opacity: 0, y: 50 }}
             whileInView={fadeTop.onscreen}
             viewport={{ once: true }}
             heading="h1"
-            headingClassName="font-100px font-semibold text-colorText-main text-center"
+            headingClassName="font-100px desktop:!text-[70px] font-semibold text-colorText-main text-center"
           />
           <InfoCard2
             title="Every super engagement is powered by a no-code control center, enabling you to <br/> seamlessly create and manage user experiences across your platforms with ease."
@@ -87,7 +87,7 @@ const ProDisplay = () => {
 
         {/* Animated Image Elements */}
         <motion.div
-          className="absolute w-[120px] md:w-[487px]"
+          className="absolute w-[30%]"
           initial={animations.screen1.initial}
           whileInView={animations.screen1.final}
           viewport={{ once: true, amount: 'all' }}
@@ -97,7 +97,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[159px] md:w-[544px] 3xl:w-[644px]"
+          className="absolute w-[31%]"
           initial={animations.screen2.initial}
           whileInView={animations.screen2.final}
           viewport={{ once: true, amount: 'all' }}
@@ -107,7 +107,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[127px] md:w-[513px]"
+          className="absolute w-[31%]"
           initial={animations.screen3.initial}
           whileInView={animations.screen3.final}
           viewport={{ once: true, amount: 'all' }}
@@ -126,7 +126,7 @@ const ProDisplay = () => {
         />
 
         <motion.div
-          className="absolute w-[130px] md:w-[500px] 3xl:w-[526px]"
+          className="absolute w-[31%]"
           initial={animations.screen4.initial}
           whileInView={animations.screen4.final}
           viewport={{ once: true, amount: 'all' }}
@@ -136,7 +136,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[127px] md:w-[491px]"
+          className="absolute w-[26%]"
           initial={animations.screen5.initial}
           whileInView={animations.screen5.final}
           viewport={{ once: true, amount: 'all' }}
@@ -146,7 +146,7 @@ const ProDisplay = () => {
         </motion.div>
 
         <motion.div
-          className="absolute w-[127px] md:w-[513px]"
+          className="absolute w-[30%]"
           initial={animations.screen6.initial}
           whileInView={animations.screen6.final}
           viewport={{ once: true, amount: 'all' }}

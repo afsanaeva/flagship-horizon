@@ -11,20 +11,12 @@ const HeroSection = () => {
     'Empower your business with immersive super engagement experiences </br> that drive explosive engagement, retention, and growth.';
 
   return (
-    <div
-      className="relative flex h-[952px] w-full items-center justify-center"
-      // style={{
-      //   backgroundImage: 'url(/assets/solution/imageHero.svg)',
-      //   backgroundRepeat: 'no-repeat',
-      //   backgroundPosition: 'center',
-      //   backgroundSize: 'contain',
-      // }}
-    >
+    <div className="relative h-screen w-full items-center justify-center md:flex hidden">
       <Image
         src="/assets/solution/imageHero.svg"
         width={1920}
         height={952}
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 size-full max-xl:object-cover"
       />
       <div className="absolute inset-0 h-full w-full bg-[#0000005C]"></div>
       <div className="px-120px relative z-10 flex flex-col items-center gap-7">

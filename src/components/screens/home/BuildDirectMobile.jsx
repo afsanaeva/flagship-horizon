@@ -31,7 +31,7 @@ const BuildDirectMobile = () => {
           />
           <div className="absolute px-4 top-4 flex flex-col gap-16 size-full items-center justify-center">
             <p
-              className="text-[40px] leading-[100%] text-white tracking-[-1.2px]"
+              className="text-[35px] sm:text-[40px] leading-[100%] text-white tracking-[-1.2px]"
               dangerouslySetInnerHTML={{
                 __html: `Build direct customer relationship while </br> owning 100% of user </br> data`,
               }}

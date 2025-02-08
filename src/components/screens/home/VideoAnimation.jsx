@@ -1,61 +1,14 @@
 'use client';
 
+import useDeviceSize from '@/components/hooks/useDeviceSize';
 import { useEffect, useRef, useState } from 'react';
 
 const VideoAnimation = ({ videoSrc }) => {
   const videoRef = useRef(null);
-  const [scrollSteps, setScrollSteps] = useState(0); // Tracks the current scroll step (0 to 5)
+  const containerRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollProgressButton, setScrollProgressButton] = useState(0.3);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [buttonPosition, setButtonPosition] = useState(16); // State for button right position
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      const maxSteps = 6; // Maximum number of steps for scaling/border-radius
-      const stepThreshold = 160; // Pixels scrolled before considering a "step"
-      const diff = currentScrollY - lastScrollY;
-
-      if (Math.abs(diff) > stepThreshold) {
-        // Scroll down
-        if (diff > 0 && scrollSteps < maxSteps) {
-          setScrollSteps((prev) => Math.min(prev + 1, maxSteps));
-          // eslint-disable-next-line brace-style
-        }
-        // Scroll up
-        else if (diff < 0 && scrollSteps > 0) {
-          setScrollSteps((prev) => Math.max(prev - 1, 0));
-        }
-
-        lastScrollY = currentScrollY; // Update last scroll position
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrollSteps]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const scaleValues = [1, 0.96, 0.92, 0.88, 0.85];
-    const borderRadiusValues = [0, 10, 20, 30, 40];
-
-    // Apply styles based on the current scroll step
-    video.style.transform = `scale(${scaleValues[scrollSteps]})`;
-    video.style.borderRadius = `${borderRadiusValues[scrollSteps]}px`;
-    video.style.transition = 'transform 0.5s ease, border-radius 0.5s ease';
-
-    // Smoothly update button position
-    const newButtonPosition = 16 + scrollSteps * 5 * 6;
-    setButtonPosition(newButtonPosition);
-  }, [scrollSteps]);
 
   const togglePlayPause = () => {
     const video = videoRef.current;
@@ -69,9 +22,65 @@ const VideoAnimation = ({ videoSrc }) => {
     setIsPlaying(!isPlaying);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current) return;
+
+      const rect = containerRef.current.getBoundingClientRect();
+      const videoHeight = rect.height;
+      const scrolled = window.scrollY;
+      const scrollThreshold = videoHeight * 0.9999999; // 70% of video height
+
+      // Progress calculation
+      const progress = Math.min(1, scrolled / scrollThreshold);
+      setScrollProgress(progress);
+      setScrollProgressButton(0.3 + progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const insetValue = 6.25 * scrollProgress;
+    const radiusValue = 40 * scrollProgress;
+
+    video.style.clipPath = `inset(${insetValue}% round ${radiusValue}px)`;
+    video.style.transition = 'clip-path 0.2s ease-out';
+  }, [scrollProgress]);
+
   return (
-    <div className="relative h-screen md:h-[750px] xl:h-[650px] 2xl:h-[735px] 3xl:h-[980px] md:!mt-[140px] !mt-16">
-      <div>
+    <div ref={containerRef} className="relative h-[980px] !mt-[100px]">
+      <div
+        style={{
+          position: 'absolute',
+          bottom: `${9.25 * scrollProgressButton}%`,
+          right: `${9.25 * scrollProgressButton}%`,
+          zIndex: 40,
+          transition: 'clip-path 0.2s ease-out',
+        }}
+        className="flex items-start h-[calc(100%-40px)]"
+      >
+        <button
+          onClick={togglePlayPause}
+          style={{
+            position: 'sticky',
+            top: '85%',
+            zIndex: 10,
+          }}
+          className="rounded-full items-center justify-center bg-black px-3 py-2 text-white 
+          shadow-lg focus:outline-none hidden md:flex"
+        >
+          {isPlaying ? '❚❚' : '▶'}
+        </button>
+      </div>
+
+      <div className="relative w-full h-full">
         <video
           ref={videoRef}
           src={videoSrc}
@@ -79,22 +88,9 @@ const VideoAnimation = ({ videoSrc }) => {
           muted
           loop
           playsInline
-          className="absolute inset-0 z-[-1] w-screen h-screen border-none object-cover outline-none transition-transform focus:border-none focus:outline-none"
+          className="w-full h-full object-cover"
         />
       </div>
-
-      {/* Pause/Play Button */}
-      <button
-        onClick={togglePlayPause}
-        style={{
-          right: `${buttonPosition}px`,
-          bottom: '12px',
-          transition: 'right 0.2s ease', // Smooth transition for button position
-        }}
-        className="absolute z-10 rounded-full bg-black px-3 py-2 text-white shadow-lg focus:outline-none hidden md:block"
-      >
-        {isPlaying ? '❚❚' : '▶'}
-      </button>
     </div>
   );
 };

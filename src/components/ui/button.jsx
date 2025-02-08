@@ -27,7 +27,7 @@ const buttonVariants = cva(
         default:
           'font-22px lg:px-[28px] lg:py-[18px] py-[1.125rem] px-[1.75rem] leading-normal w-full md:max-w-[200px]',
         sm: 'font-16px h-6 px-2 font-semibold 2xl:h-7 3xl:h-8 leading-normal',
-        lg: 'font-22px h-[58px] w-[200px] leading-normal',
+        lg: 'font-24px h-[58px] w-[200px] leading-normal',
         '2xl':
           'font-28px h-16 px-6 xs:h-20 2xl:h-[60px] 3xl:h-20 3xl:px-[30px] leading-normal',
         icon: 'size-10',

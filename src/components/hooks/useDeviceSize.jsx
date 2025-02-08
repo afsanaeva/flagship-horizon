@@ -5,16 +5,16 @@ const useDeviceSize = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isLargScreen, setIsLargScreen] = useState(false);
-  const [isMegaDesktop, setIsMegaDesktop] = useState(false);
+  const [isMegaScreen, setIsMegaScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width <= 1200);
-      setIsDesktop(width >= 1201);
+      setIsMegaScreen(width >= 1921);
       setIsLargScreen(width >= 1440);
-      setIsMegaDesktop(width >= 1921);
+      setIsDesktop(width >= 1201);
+      setIsTablet(width >= 768 && width <= 1200);
+      setIsMobile(width < 768);
     };
 
     // Initial check on component mount
@@ -27,7 +27,7 @@ const useDeviceSize = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return { isMobile, isTablet, isDesktop, isMegaDesktop, isLargScreen };
+  return { isMobile, isTablet, isDesktop, isMegaScreen, isLargScreen };
 };
 
 export default useDeviceSize;

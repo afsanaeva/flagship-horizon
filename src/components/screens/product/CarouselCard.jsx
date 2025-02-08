@@ -10,7 +10,7 @@ import SlideCard from './SlideCard';
 import SlideCardImage from '../solution/SlideCardImage';
 import NavigationButtons from '@/components/ui/NavigationButtons';
 
-const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
+const CarouselCard = ({ dataVideo, dataCard, dataCardImage, SolutionPage }) => {
   const [api, setApi] = useState();
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -47,12 +47,16 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
         setApi={setApi}
         className="pointer-events-auto w-full"
         opts={{
-          loop: false, // Disable infinite scrolling
+          loop: false,
           dragFree: true,
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="container-xl items-center gap-7">
+        <CarouselContent
+          className={`container-xl items-stretch gap-5 ${
+            SolutionPage ? 'lg:gap-7' : 'lg:gap-6'
+          }`}
+        >
           {Array.from({ length: 6 }).map((_, index) => {
             const videoItem = dataVideo?.[index];
             const cardItem = dataCard?.[index];
@@ -84,6 +88,7 @@ const CarouselCard = ({ dataVideo, dataCard, dataCardImage }) => {
                   key={cardItem.id}
                   index={index}
                   dataCard={cardItem}
+                  className="h-full"
                 />
               );
             }

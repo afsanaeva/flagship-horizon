@@ -9,9 +9,14 @@ const SliderSection = ({
   dataCardImage,
   dataCard,
   styleHeroTitle,
+  SolutionPage,
 }) => {
   return (
-    <div className="flex flex-col gap-12">
+    <div
+      className={`flex flex-col gap-16 ${
+        SolutionPage ? 'lg:gap-12' : 'lg:gap-[100px]'
+      }`}
+    >
       <HeroTitle
         MainTitle={title}
         SecTitle={intro}
@@ -21,6 +26,7 @@ const SliderSection = ({
         dataVideo={dataVideo}
         dataCard={dataCard}
         dataCardImage={dataCardImage}
+        SolutionPage={SolutionPage}
       />
     </div>
   );

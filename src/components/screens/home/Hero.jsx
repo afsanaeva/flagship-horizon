@@ -14,8 +14,8 @@ const Hero = () => {
     ? 'Horizon is the first customer engagement platform empowering enterprises to deliver big-tech-level engagement at scale.'
     : 'Horizon is the first customer engagement platform empowering <br/>  enterprises to deliver big-tech-level engagement at scale.';
   return (
-    <section className="md:mt-[165px] mt-20">
-      <div className="space-y-40px flex flex-col items-center">
+    <section className="desktop:mt-[115px] mt-20">
+      <div className="flex flex-col gap-4 items-center px-6 md:px-0">
         <InfoCard2
           title={title}
           initial={{ opacity: 0, y: 50 }}

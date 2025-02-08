@@ -10,7 +10,7 @@ const SlideCardImage = ({ index, cardImage }) => {
   return (
     <CarouselItem
       key={index}
-      className={cn('basis-[65%] md:basis-[25%] items-start flex flex-col')}
+      className={cn('basis-[65%] md:basis-[28%] items-start flex flex-col')}
       style={{ height: '100%' }}
     >
       <div className="relative w-full overflow-hidden rounded-t-3xl">

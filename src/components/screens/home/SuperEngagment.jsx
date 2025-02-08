@@ -14,9 +14,20 @@ import NavigationButtons from '@/components/ui/NavigationButtons';
 // import CrossIcon from "@/components/icons/CrossIcon";
 
 const SuperEngagment = () => {
+  const [containerMargin, setContainerMargin] = useState(0);
+
+  useEffect(() => {
+    // Get the container margin
+    const container = document.querySelector('.containerComponent');
+    if (container) {
+      const computedStyle = window.getComputedStyle(container);
+      const marginLeft = parseInt(computedStyle.marginLeft);
+      setContainerMargin(marginLeft);
+    }
+  }, []);
   return (
     <section>
-      <div className="space-y-40px container-xs text-left">
+      <div className="space-y-40px containerComponent text-left">
         <h1 className="font-92px font-semibold leading-snug">
           <span
             style={{
@@ -30,14 +41,14 @@ const SuperEngagment = () => {
           </span>
         </h1>
       </div>
-      <HeroSlides />
+      <HeroSlides containerMargin={containerMargin} />
     </section>
   );
 };
 
 export default SuperEngagment;
 
-const HeroSlides = () => {
+const HeroSlides = ({ containerMargin }) => {
   const [api, setApi] = useState();
   const [blurredIndex, setBlurredIndex] = useState(null); // Track which slide is blurred
   const [isStart, setIsStart] = useState(true);
@@ -74,6 +85,9 @@ const HeroSlides = () => {
         },
       }}
       viewport={{ once: true }}
+      style={{
+        paddingLeft: `${containerMargin}px`,
+      }}
     >
       <Carousel
         setApi={setApi}
@@ -85,7 +99,7 @@ const HeroSlides = () => {
         }}
         tabIndex={-1}
       >
-        <CarouselContent className="items-center py-6 md:gap-7 gap-5 pl-120px">
+        <CarouselContent className="items-center py-6 md:gap-7 gap-5">
           {Array.from({ length: 5 }).map((_, index) => (
             <Slide
               key={index}
@@ -97,7 +111,12 @@ const HeroSlides = () => {
         </CarouselContent>
       </Carousel>
       {/* Navigation Buttons */}
-      <NavigationButtons api={api} isStart={isStart} isEnd={isEnd} />
+      <NavigationButtons
+        api={api}
+        isStart={isStart}
+        isEnd={isEnd}
+        containerMargin={containerMargin}
+      />
     </motion.div>
   );
 };

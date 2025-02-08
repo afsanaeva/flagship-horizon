@@ -8,8 +8,8 @@ import Img from '../../../../public/assets/home/hero/build.png';
 
 const BuildDirect = () => {
   return (
-    <div className="space-y-20px mx-10 hidden md:block">
-      <div className="container-md relative">
+    <div className="space-y-20px mx-10 hidden md:block containerComponent">
+      <div className="relative">
         <div className="">
           <Image src={Img} alt="create experiences" className="max-sm:hidden" />
           <Image

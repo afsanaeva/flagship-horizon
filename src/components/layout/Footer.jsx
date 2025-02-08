@@ -6,8 +6,10 @@ import Instagram from '../icons/social/Instagram';
 import Linkedin from '../icons/social/Linkedin';
 import Facebook from '../icons/social/Facebook';
 import { Button } from '@/components/ui/button';
+import useDeviceSize from '../hooks/useDeviceSize';
 
 const Footer = () => {
+  const { isMobile } = useDeviceSize();
   const handleSubscribe = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -20,7 +22,7 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#15234E] lg:py-[6.625rem] lg:px-[5.25rem] py-20 px-6 text-white flex flex-col md:gap-10 gap-16">
-      <div className="flex flex-col gap-16 md:gap-0 md:flex-row md:justify-between">
+      <div className="flex flex-col gap-16 md:gap-0 md:flex-row md:justify-between lg:mb-[54px]">
         {/* Left Section */}
         <div className="mb-8 md:mb-0">
           <Link href="/">
@@ -53,7 +55,8 @@ const Footer = () => {
             <Link href="/privacy-policy" target="_blank" className="underline">
               Privacy Policy
             </Link>{' '}
-            and provide consent to receive updates from our company.
+            and provide {!isMobile && <br />}
+            consent to receive updates from our company.
           </p>
         </div>
 
@@ -127,7 +130,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="font-18px flex flex-col py-3 font-normal text-[#B8C1CB] md:flex-row md:justify-between">
+      <div className="font-18px flex flex-col font-normal text-[#B8C1CB] md:flex-row md:justify-between">
         <p>© 2025 Horizon. All rights reserved by Flagship Technology Inc.</p>
         <div className="mt-2 space-x-4">
           <Link href="/faq" target="_blank" className="underline">

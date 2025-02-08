@@ -184,7 +184,7 @@ const AnimatedSlider = () => {
                     <Button
                       size="default"
                       asChild
-                      className="w-fit font-20px min-h-[42px]"
+                      className="w-fit font-20px min-h-[42px] !py-[12px] !px-6 lg:!px-4"
                       variant="default"
                     >
                       <Link href="/get-demo">{slide.content.btnText}</Link>

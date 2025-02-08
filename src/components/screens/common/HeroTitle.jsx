@@ -5,7 +5,7 @@ import InfoCard2 from '@/components/custom-ui/InfoCard2';
 
 const HeroTitle = ({ MainTitle, SecTitle, styleContainer, styleH1Title }) => {
   return (
-    <section className={'space-y-100px container-xl mt-12 '}>
+    <section className={'space-y-100px container-xl md:mt-12 '}>
       <div
         className={`space-y-40px flex flex-col items-center ${styleContainer}`}
       >

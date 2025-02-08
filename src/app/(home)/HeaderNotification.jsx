@@ -20,7 +20,7 @@ const HeaderNotification = () => {
       }}
       variants={fadeTop}
       viewport={{ once: true }}
-      className="grid py-3 w-full items-center justify-center text-center text-[#FFFFFF]"
+      className="flex py-[11px] mobile:px-2 w-full items-center justify-center text-center text-[#FFFFFF]"
       style={{
         background:
           'linear-gradient(90deg, #001D7B 0%, #0032FD 50%, #10F0FC 100%), #CDF3FF',
@@ -28,9 +28,9 @@ const HeaderNotification = () => {
     >
       <Link
         href="/get-demo"
-        className="flex w-fit items-center justify-center gap-2"
+        className="flex w-fit items-center justify-center gap-2 leading-[98%]"
       >
-        <p className="md:text-[20px] text-[16px] !tracking-tight">
+        <p className="desktop:text-[15px] megaScreen:text-[18px] mobile:text-[14px] !tracking-tight">
           Transform your apps and websites into super engagement led growth
           powerhouses.{' '}
           <span className="font-semibold underline">

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
+import React from 'react';
 
 const CuratedForU = () => {
   return (
     <div className="flex-1">
-      <p className="font-22px w-fit rounded-full bg-[#0032FD] px-[1.125rem] py-3 text-white">
+      <p className="font-22px lg:h-[48px] w-fit rounded-full bg-[#0032FD] px-3 py-2 lg:px-[1.125rem] lg:py-3 text-white">
         Curated For You
       </p>
       <div className="mt-[83px] flex items-center justify-between gap-8">
@@ -12,7 +12,7 @@ const CuratedForU = () => {
           <div key={i} className="relative">
             <div
               className={`absolute right-[-40px] top-[-60px] z-40 size-fit ${
-                i === 1 ? "block" : "hidden"
+                i === 1 ? 'block' : 'hidden'
               } `}
             >
               <svg
@@ -57,7 +57,7 @@ const CuratedForU = () => {
               width={150}
               height={266}
               alt="engagementPulse"
-              className={`${i === 1 && "scale-125"}`}
+              className={`${i === 1 && 'scale-125'}`}
             />
           </div>
         ))}

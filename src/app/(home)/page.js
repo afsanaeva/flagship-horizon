@@ -21,6 +21,7 @@ import { FAQDetailsDataHome } from '@/components/constant/FAQData';
 import HorizonLive from '@/components/screens/common/HorizonLiveNumber';
 import BuildDirectMobile from '@/components/screens/home/BuildDirectMobile';
 import CustomHorizonApp from '@/components/screens/common/CustomHorizonApp';
+import DazzleMobile from '@/components/screens/home/DazzleMobile';
 
 export const metadata = {
   title: 'Horizon | Super Engagement Platform',
@@ -63,6 +64,7 @@ export default function Home() {
         />
 
         <Dazzle />
+        <DazzleMobile />
         <Unlock />
         <SuperEngagment />
         <BuildDirect />
@@ -74,7 +76,10 @@ export default function Home() {
           intro="We’re already delivering super engagement on some of the world’s leading platforms. <br/> Explore live engagement stats from digital platforms powered by Horizon today."
         />
 
-        <GetAFreeDemo title="Accelerate your growth. <br class='max-md:hidden'/> Experience Horizon for free." />
+        <GetAFreeDemo
+          title="Accelerate your growth. <br class='max-md:hidden'/> Experience Horizon for free."
+          styleBlock="!mt-[80px]"
+        />
         <FAQDetails FAQDetailsData={FAQDetailsDataHome} />
       </div>
     </main>

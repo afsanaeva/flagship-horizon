@@ -8,14 +8,14 @@ const DynamicStatsCard = ({ DynamicData, index }) => {
       <div
         className={`${
           index > 0 ? 'pt-[220px]' : ''
-        } flex items-start justify-between pb-[54px] pt-[32px] px-[120px]`}
+        } flex items-start justify-between lg:flex-row flex-col-reverse lg:gap-0 gap-16 pb-[54px] pt-[32px] lg:px-[120px]`}
       >
         <AccordionSection
           AccordionData={DynamicData.AccordionData}
-          style="max-w-[71%]"
+          style="lg:max-w-[71%] max-w-full"
           title={DynamicData.title}
         />
-        <div className="flex-1">
+        <div className="flex-1 lg:self-center">
           <Image
             src={DynamicData.image}
             width={150}

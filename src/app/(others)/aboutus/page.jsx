@@ -4,7 +4,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <main className="space-y-200px container-xl mb-[220px]">
+    <main className="space-y-200px container-xl md:mb-[220px] mb-[160px]">
       <AnimatedSlider />
       <GetAFreeDemo
         title="Deliver on your growth promise. <br class='max-md:hidden'/> Try Horizon for Free."

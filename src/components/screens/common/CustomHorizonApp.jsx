@@ -95,7 +95,7 @@ const CustomHorizonApp = ({
     <>
       {/* Header Section */}
       <section className="space-y-100px mt-12">
-        <div className="space-y-40px flex flex-col items-center">
+        <div className="space-y-40px flex flex-col items-center px-6 md:px-0">
           <InfoCard2
             title={Title}
             initial={{ opacity: 0, y: 50 }}
@@ -115,8 +115,8 @@ const CustomHorizonApp = ({
         </div>
       </section>
 
-      <div className="mx-auto mt-[100px] w-full overflow-hidden md:overflow-auto">
-        <div className="relative md:h-[706px] h-[639px] w-full bg-[#F1F4F7]">
+      <div className="mx-auto !mt-16 md:!mt-[100px] w-full overflow-hidden md:overflow-auto">
+        <div className="relative megaScreen:h-[706px] h-[500px] mobile:h-[585px] w-full bg-[#F1F4F7]">
           {/* Left Image */}
           <div
             className="relative z-10 flex size-full items-center justify-center bg-[#F1F4F7]"
@@ -130,7 +130,7 @@ const CustomHorizonApp = ({
               )}% 100%, 0 100%)`,
             }}
           >
-            <div className="relative right-[-37px] z-50 md:mt-[90px] mt-[170px] h-full w-[483px]">
+            <div className="relative right-[-37px] z-50 md:mt-[90px] mt-[170px] h-full megaScreen:w-[483px] w-[383px]">
               <Image
                 src={ImageBefore}
                 width={500}
@@ -153,7 +153,7 @@ const CustomHorizonApp = ({
 
           {/* Right Image */}
           <div
-            className="relative md:top-[-706px] top-[-639px] z-20 flex size-full items-center justify-center"
+            className="relative megaScreen:top-[-706px] top-[-500px] mobile:top-[-585px] z-20 flex size-full items-center justify-center"
             style={{
               clipPath: `polygon(${Math.min(
                 Math.max(sliderPosition, 44),
@@ -167,7 +167,7 @@ const CustomHorizonApp = ({
               backgroundSize: 'cover',
             }}
           >
-            <div className="relative right-[10px] z-50 md:mt-[80px] mt-[160px] h-full w-[483px]">
+            <div className="relative right-[10px] z-50 md:mt-[80px] mt-[160px] h-full megaScreen:w-[483px] w-[383px]">
               <Image
                 src={ImageAfter}
                 width={500}

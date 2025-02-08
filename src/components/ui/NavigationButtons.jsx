@@ -1,9 +1,14 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-const NavigationButtons = ({ api, isStart, isEnd }) => {
+const NavigationButtons = ({ api, isStart, isEnd, containerMargin }) => {
   return (
-    <div className="absolute right-4 mr-10 mt-[1.1875rem] flex gap-2">
+    <div
+      className="absolute right-4 mt-[1.1875rem] flex gap-2"
+      style={{
+        marginRight: `${containerMargin}px`,
+      }}
+    >
       <button
         onClick={() => api?.scrollPrev()}
         className={cn(
